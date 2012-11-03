@@ -49,14 +49,14 @@
   }
 
   /**
-   * Checks if `value` is prime.
+   * Fines the smallest factor of `n`
    *
    * @param {Number} value The value to check
    * @returns {Number}
    *   The smallest prime that divides n
    *   NaN if n is NaN or Infinity
    *   0 if n is 0
-   *   1 if n = 1, n =- 1, or n is not an integer
+   *   1 if n = 1, n = -1, or n is not an integer
    */
   function leastFactor(n) {
     if (isNaN(n) || !isFinite(n)) return NaN;
