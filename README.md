@@ -16,3 +16,40 @@ In browsers:
 ``` html
 <script src="primality.js"></script>
 ```
+
+Using npm:
+
+```
+npm install primality
+```
+
+In Node.js and RingoJS v0.8.0+:
+
+``` javascript
+var primality = require('primality');
+```
+
+In RingoJS v0.7.0-:
+
+``` javascript
+var primality = require('primality').primality;
+```
+
+In Rhino:
+
+``` javascript
+load('primality.js');
+```
+
+In an AMD loader like RequireJS:
+
+``` javascript
+require({
+  'paths': {
+    'primality': 'path/to/primality'
+  }
+},
+['primality'], function(primality) {
+  console.log(primality.version);
+});
+```
