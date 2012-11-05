@@ -23,25 +23,36 @@
     (function() {
       describe('Suite', function() {
         describe('primality()', function() {
+          it('should expose version number', function () {
+            primality.version.should.match(/[0-9]+\.[0-9]+\.[0-9]+/);
+          });
+          it('should expose public constructors', function () {
+            primality.should.be.a('function');
+          });
           it('should return true when value is prime', function() {
             primality(2).should.equal(true);
             primality(3).should.equal(true);
             primality(5).should.equal(true);
             primality(7).should.equal(true);
             primality(11).should.equal(true);
-          })
+            primality(new Number(13)).should.equal(true);
+          });
           it('should return false when value is not prime', function() {
             primality(4).should.equal(false);
             primality(6).should.equal(false);
             primality(10).should.equal(false);
             primality(14).should.equal(false);
             primality(22).should.equal(false);
-          })
+          });
           it('should return false for 1', function() {
             primality(1).should.equal(false);
-          })
-        })
-      })
+          });
+          it('should turn strings into numbers', function() {
+            primality('2').should.equal(true);
+            primality(new String('4')).should.equal(false);
+          });
+        });
+      });
     })();
   </script>
 
