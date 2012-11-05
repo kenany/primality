@@ -49,7 +49,7 @@
   }
 
   /**
-   * Fines the smallest factor of `n`
+   * Finds the smallest factor of `n`
    *
    * @param {Number} value The value to check
    * @returns {Number}
