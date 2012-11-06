@@ -27,7 +27,7 @@
    * Checks if `value` is, or can be coerced to, a finite number.
    *
    * Note: This is not the same as native `isFinite`, which will return true for
-   * booleans and empty strings. See http://es5.github.com/#x15.1.2.5.
+   * booleans and empty strings. See <http://es5.github.com/#x15.1.2.5>.
    *
    * @param {Mixed} value The value to check
    * @returns {Boolean} Returns `true` if the `value` is a finite number, else `false`
