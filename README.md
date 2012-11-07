@@ -1,12 +1,13 @@
 # primality.js
+[![build status](https://secure.travis-ci.org/KenanY/primality.png)](http://travis-ci.org/KenanY/primality)
 
 Primality is a JavaScript library for prime numbers.
 
 ## Features
 
   - Check primality of a number
-  - Less than 500 bytes minified
-  - AMD support
+  - About 500 bytes minified and gzipped
+  - AMD loader support
   - Support for almost every browser and JavaScript runtime.
 
 ## Installation and usage
