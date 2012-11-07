@@ -37,18 +37,6 @@
   }
 
   /**
-   * Checks if `value` is prime.
-   *
-   * @param {Number} value The value to check
-   * @returns {Boolean} Returns `true` if `value` is prime
-   */
-  function isPrime(value) {
-    if (isNaN(value) || !isFinite(value) || value % 1 || value < 2) return false;
-    if (value == leastFactor(value)) return true;
-    return false;
-  }
-
-  /**
    * Finds the smallest factor of `n`
    *
    * @param {Number} value The value to check
@@ -77,6 +65,18 @@
       if (n % (i + 24) === 0) return i + 24;
     }
     return n;
+  }
+
+  /**
+   * Checks if `value` is prime.
+   *
+   * @param {Number} value The value to check
+   * @returns {Boolean} Returns `true` if `value` is prime
+   */
+  function isPrime(value) {
+    if (isNaN(value) || !isFinite(value) || value % 1 || value < 2) return false;
+    if (value == leastFactor(value)) return true;
+    return false;
   }
 
   /**

@@ -3,6 +3,11 @@
 
 Primality is a JavaScript library for prime numbers.
 
+## Download
+
+ * [Development build](https://raw.github.com/KenanY/primality/1.0.0/primality.js)
+ * [Production build](https://raw.github.com/KenanY/primality/1.0.0/primality.min.js)
+
 ## Features
 
   - Check primality of a number
