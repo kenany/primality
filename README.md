@@ -81,7 +81,7 @@ primality(new Number(11));
 primality('13');
 // => true
 
-primality(new String('14'))
+primality(new String('14'));
 // => false
 
 /**
