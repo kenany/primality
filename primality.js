@@ -111,7 +111,9 @@
       }
       return true;
     }
-    return isPrime(input);
+    else {
+      return isPrime(input);
+    }
   };
 
   primality.version = '1.0.0';
