@@ -23,6 +23,10 @@ require(['primality'], function (primality) {
         primality('13').should.equal(true);
         primality(new String('24')).should.equal(false);
       });
+      it('should return true if an array of prime numbers is passed', function() {
+        primality([17, 19, 23]).should.equal(true);
+        primality([29, 30, 31]).should.equal(false);
+      });
     });
   });
 });

@@ -6,7 +6,8 @@
 
   var primality,
       freeExports = typeof exports == 'object' && exports,
-      reNative = RegExp('^' + (objectRef.valueOf + '').replace(/[.*+?^=!:${}()|[\]\/\\]/g, '\\$&').replace(/valueOf|for [^\]]+/g, '.+?') + '$');
+      objectRef = {},
+      reNative = RegExp('^' + (objectRef.valueOf + '').replace(/[.*+?^=!:${}()|[\]\/\\]/g, '\\$&').replace(/valueOf|for [^\]]+/g, '.+?') + '$'),
       nativeIsArray = reNative.test(nativeIsArray = Array.isArray) && nativeIsArray,
       nativeIsFinite = window.isFinite,
       nativeIsNaN = window.isNaN,
@@ -103,8 +104,12 @@
     if (input === null || input === '') {
       return null;
     }
-    if (isArray(input)) {
-      return false;
+    else if (isArray(input)) {
+      for (_i = 0, _len = input.length; _i < _len; _i++) {
+        i = input[_i];
+        if (!isPrime(i)) return false;
+      }
+      return true;
     }
     return isPrime(input);
   };
