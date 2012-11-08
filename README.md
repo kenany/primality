@@ -5,8 +5,8 @@ Primality is a JavaScript library for prime numbers.
 
 ## Download
 
- * [Development build](https://raw.github.com/KenanY/primality/1.0.0/primality.js)
- * [Production build](https://raw.github.com/KenanY/primality/1.0.0/primality.min.js)
+ * [Development build](https://raw.github.com/KenanY/primality/1.1.0/primality.js)
+ * [Production build](https://raw.github.com/KenanY/primality/1.1.0/primality.min.js)
 
 ## Features
 
@@ -95,3 +95,13 @@ primality([17, 19, 23]);
 primality([17, 20, 23]);
 // => false
 ```
+
+## Release Notes
+
+### 1.1.0
+
+  - Arrays can now be checked for primality
+  - `primality.version` is now `primality.VERSION`
+  - Don't check NaN and Finite status of `n` in `leastFactor`
+
+The full changelog is available [here](https://github.com/KenanY/primality/wiki/Changelog).
