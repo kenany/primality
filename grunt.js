@@ -5,7 +5,7 @@ module.exports = function(grunt) {
       banner: "/*!\n * <%= pkg.name %> v<%= pkg.version %>\n * (c) <%= grunt.template.today(\"yyyy\") %> <%= pkg.author.name %>\n */"
     },
     lint: {
-      all: ['grunt.js', 'test/**/*.js']
+      all: ['grunt.js', 'primality.js']
     },
     jshint: {
       options: {
