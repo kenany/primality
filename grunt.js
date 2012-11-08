@@ -1,6 +1,5 @@
 var uglifyParser = require('uglify-js').parser;
 var uglifyMangler = require('uglify-js').uglify;
-var gzip = require('zlib').gzip;
 
 module.exports = function(grunt) {
   grunt.initConfig({
