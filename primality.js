@@ -6,9 +6,22 @@
 
   var primality,
       freeExports = typeof exports == 'object' && exports,
+      reNative = RegExp('^' + (objectRef.valueOf + '').replace(/[.*+?^=!:${}()|[\]\/\\]/g, '\\$&').replace(/valueOf|for [^\]]+/g, '.+?') + '$');
+      nativeIsArray = reNative.test(nativeIsArray = Array.isArray) && nativeIsArray,
       nativeIsFinite = window.isFinite,
       nativeIsNaN = window.isNaN,
+      arrayClass = '[object Array]',
       numberClass = '[object Number]';
+
+  /**
+   * Checks if `value` is an array.
+   *
+   * @param {Mixed} value The value to check.
+   * @returns {Boolean} Returns `true` if the `value` is an array, else `false`.
+   */
+  var isArray = nativeIsArray || function(value) {
+    return toString.call(value) == arrayClass;
+  };
 
   /**
    * Checks if `value` is `NaN`.
@@ -89,6 +102,9 @@
   primality = function(input) {
     if (input === null || input === '') {
       return null;
+    }
+    if (isArray(input)) {
+      return false;
     }
     return isPrime(input);
   };

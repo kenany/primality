@@ -1,0 +1,12 @@
+{
+  "bitwise": false,
+  "browser": true,
+  "eqeqeq": false,
+  "indent": 2,
+  "node": true,
+  "predef": [
+    "describe"
+  ],
+  "rhino": true,
+  "strict": false
+}

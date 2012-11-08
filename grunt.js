@@ -8,9 +8,7 @@ module.exports = function(grunt) {
       all: ['grunt.js', 'primality.js']
     },
     jshint: {
-      options: {
-        browser: true
-      }
+      options: '<json:.jshintrc>'
     },
     min: {
       dist: {
