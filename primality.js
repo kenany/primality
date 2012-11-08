@@ -6,8 +6,9 @@
 
   var primality,
       freeExports = typeof exports == 'object' && exports,
-      objectRef = {},
-      reNative = RegExp('^' + (objectRef.valueOf + '').replace(/[.*+?^=!:${}()|[\]\/\\]/g, '\\$&').replace(/valueOf|for [^\]]+/g, '.+?') + '$'),
+      reNative = RegExp('^' + ({}.valueOf + '')
+                  .replace(/[.*+?^=!:${}()|[\]\/\\]/g, '\\$&')
+                  .replace(/valueOf|for [^\]]+/g, '.+?') + '$'),
       nativeIsArray = reNative.test(nativeIsArray = Array.isArray) && nativeIsArray,
       nativeIsFinite = window.isFinite,
       nativeIsNaN = window.isNaN,
@@ -61,7 +62,6 @@
    *   1 if n = 1, n = -1, or n is not an integer
    */
   function leastFactor(n) {
-    if (isNaN(n) || !isFinite(n)) return NaN;
     if (n === 0) return 0;
     if (n % 1 || n * n < 2) return 1;
     if (n % 2 === 0) return 2;
@@ -105,10 +105,9 @@
       return null;
     }
     else if (isArray(input)) {
-      var i, _i, _len;
+      var _i, _len;
       for (_i = 0, _len = input.length; _i < _len; _i++) {
-        i = input[_i];
-        if (!isPrime(i)) return false;
+        if (!isPrime(input[_i])) return false;
       }
       return true;
     }
