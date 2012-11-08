@@ -66,19 +66,22 @@ require({
 It can't get any easier:
 
 ``` javascript
-primality(17);
+primality(7);
 // => false
 
-primality(42);
+primality(6);
+// => true
+
+primality(new Number(11));
 // => true
 
 /**
  * Strings can be prime, too!
  */
-primality('101');
+primality('13');
 // => true
 
-primality(new String('24'))
+primality(new String('14'))
 // => false
 
 /**
@@ -86,9 +89,9 @@ primality(new String('24'))
  *
  * If any of the values of an array are not prime, we return false.
  */
-primality([7, 11, 13]);
+primality([17, 19, 23]);
 // => true
 
-primality([7, 12, 13]);
+primality([17, 20, 23]);
 // => false
 ```
