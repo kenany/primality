@@ -116,7 +116,7 @@
     }
   };
 
-  primality.version = '1.0.0';
+  primality.VERSION = '1.0.0';
 
   if (typeof define == 'function' && typeof define.amd == 'object' && define.amd) {
     window.primality = primality;

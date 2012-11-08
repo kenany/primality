@@ -57,7 +57,7 @@ require({
   }
 },
 ['primality'], function(primality) {
-  console.log(primality.version);
+  console.log(primality.VERSION);
 });
 ```
 

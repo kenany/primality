@@ -2,7 +2,7 @@ require(['primality'], function (primality) {
   describe('Suite', function() {
     describe('primality()', function() {
       it('should expose version number', function () {
-        primality.version.should.match(/[0-9]+\.[0-9]+\.[0-9]+/);
+        primality.VERSION.should.match(/[0-9]+\.[0-9]+\.[0-9]+/);
       });
       it('should expose public constructors', function () {
         primality.should.be.a('function');
