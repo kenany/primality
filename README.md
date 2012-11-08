@@ -72,6 +72,20 @@ primality(17);
 primality(42);
 // => true
 
+/**
+ * Strings can be prime, too!
+ */
+primality('101');
+// => true
+
+primality(new String('24'))
+// => false
+
+/**
+ * Primality can even do arrays!
+ *
+ * If any of the values of an array are not prime, we return false.
+ */
 primality([7, 11, 13]);
 // => true
 
