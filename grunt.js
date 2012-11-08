@@ -1,6 +1,3 @@
-var uglifyParser = require('uglify-js').parser;
-var uglifyMangler = require('uglify-js').uglify;
-
 module.exports = function(grunt) {
   grunt.initConfig({
     pkg: '<json:package.json>',
