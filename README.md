@@ -11,7 +11,8 @@ Primality is a JavaScript library for prime numbers.
 ## Features
 
   - Check primality of a number
-  -
+  - Works with numbers disguised as strings
+  - Also does arrays
   - Less than 700 bytes minified and gzipped
   - AMD loader support
   - Support for almost every browser and JavaScript runtime.
@@ -67,10 +68,10 @@ It can't get any easier:
 
 ``` javascript
 primality(7);
-// => false
+// => true
 
 primality(6);
-// => true
+// => false
 
 primality(new Number(11));
 // => true
