@@ -25,7 +25,16 @@ module.exports = function(grunt) {
     }
   });
 
+  grunt.registerTask('doc', 'Generate docs', function() {
+    grunt.utils.spawn({
+      cmd: 'php',
+      args: ['doc/parse.php', 'doc/README']
+    });
+  });
+
   grunt.loadNpmTasks('grunt-mocha');
 
   grunt.registerTask('test', 'mocha');
+
+  grunt.registerTask('default', 'test');
 };
