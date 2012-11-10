@@ -1,23 +1,34 @@
 (function(window, undefined) {
+
+  /** Detect free variable `global` and use it as `window` */
   var freeGlobal = typeof global == 'object' && global;
   if (freeGlobal.global === freeGlobal) {
     window = freeGlobal;
   }
 
   var primality,
+
+      /** Detect free variable `exports` */
       freeExports = typeof exports == 'object' && exports,
+
+      /** Used to detect if a method is native */
       reNative = RegExp('^' + ({}.valueOf + '')
                   .replace(/[.*+?^=!:${}()|[\]\/\\]/g, '\\$&')
                   .replace(/valueOf|for [^\]]+/g, '.+?') + '$'),
+
+      /* Native method shortcuts for methods with the same name as other primality methods */
       nativeIsArray = reNative.test(nativeIsArray = Array.isArray) && nativeIsArray,
       nativeIsFinite = window.isFinite,
       nativeIsNaN = window.isNaN,
+
+      /** `Object#toString` result shortcuts */
       arrayClass = '[object Array]',
       numberClass = '[object Number]';
 
   /**
    * Checks if `value` is an array.
    *
+   * @private
    * @param {Mixed} value The value to check.
    * @returns {Boolean} Returns `true` if the `value` is an array, else `false`.
    */
@@ -29,8 +40,9 @@
    * Checks if `value` is `NaN`.
    *
    * Note: This is not the same as native `isNaN`, which will return true for
-   * `undefined` and other values. See http://es5.github.com/#x15.1.2.4.
+   * `undefined` and other values. See <http://es5.github.com/#x15.1.2.4>.
    *
+   * @private
    * @param {Mixed} value The value to check.
    * @returns {Boolean} Returns `true` if the `value` is `NaN`, else `false`.
    */
@@ -44,8 +56,9 @@
    * Note: This is not the same as native `isFinite`, which will return true for
    * booleans and empty strings. See <http://es5.github.com/#x15.1.2.5>.
    *
-   * @param {Mixed} value The value to check
-   * @returns {Boolean} Returns `true` if the `value` is a finite number, else `false`
+   * @private
+   * @param {Mixed} value The value to check.
+   * @returns {Boolean} Returns `true` if the `value` is a finite number, else `false`.
    */
   function isFinite(value) {
     return nativeIsFinite(value) && !nativeIsNaN(parseFloat(value));
@@ -54,6 +67,7 @@
   /**
    * Finds the smallest factor of `n`
    *
+   * @private
    * @param {Number} value The value to check
    * @returns {Number}
    *   The smallest prime that divides n
@@ -84,6 +98,7 @@
   /**
    * Checks if `value` is prime.
    *
+   * @private
    * @param {Number} value The value to check
    * @returns {Boolean} Returns `true` if `value` is prime
    */
@@ -96,9 +111,20 @@
   /**
    * Creates a new primality instance.
    *
+   * @name primality
    * @constructor
-   * @this {primality}
-   * @param A number to check the primality of
+   * @param {Mixed} input A number, string, or array to check the primality of.
+   * @returns {Boolean} Returns `true` if `input` is prime.
+   * @example
+   *
+   * primality(7);
+   * // => true
+   *
+   * primality('13');
+   * // => true
+   *
+   * primality([17, 19, 23]);
+   * // => true
    */
   primality = function(input) {
     if (input === null || input === '') {
@@ -116,6 +142,13 @@
     }
   };
 
+  /**
+   * The semantic version number.
+   *
+   * @static
+   * @memberOf primality
+   * @type String
+   */
   primality.VERSION = '1.1.0';
 
   if (typeof define == 'function' && typeof define.amd == 'object' && define.amd) {
