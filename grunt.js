@@ -36,5 +36,5 @@ module.exports = function(grunt) {
 
   grunt.registerTask('test', 'mocha');
 
-  grunt.registerTask('default', 'test');
+  grunt.registerTask('default', 'test min doc');
 };
