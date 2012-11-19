@@ -99,10 +99,8 @@ primality([17, 20, 23]);
 
 ## Release Notes
 
-### 1.1.0
+### 1.1.1
 
-  - Arrays can now be checked for primality
-  - `primality.version` is now `primality.VERSION`
-  - Don't check NaN and Finite status of `n` in `leastFactor`
+  - Released to fix errors in the README on the npm site
 
 The full changelog is available [here](https://github.com/KenanY/primality/wiki/Changelog).
