@@ -32,7 +32,7 @@
 <!-- div -->
 
 ### <a id="primalityinput"></a>`primality(input)`
-<a href="#primalityinput">#</a> [&#x24C8;](https://github.com/KenanY/primality/blob/master/primality.js#L129 "View in source") [&#x24C9;][1]
+<a href="#primalityinput">#</a> [&#x24C8;](https://github.com/KenanY/primality/blob/master/primality.js#L131 "View in source") [&#x24C9;][1]
 
 Creates a new primality instance.
 
@@ -69,7 +69,7 @@ primality([17, 19, 23]);
 <!-- div -->
 
 ### <a id="primalityversion"></a>`primality.VERSION`
-<a href="#primalityversion">#</a> [&#x24C8;](https://github.com/KenanY/primality/blob/master/primality.js#L152 "View in source") [&#x24C9;][1]
+<a href="#primalityversion">#</a> [&#x24C8;](https://github.com/KenanY/primality/blob/master/primality.js#L154 "View in source") [&#x24C9;][1]
 
 *(String)*: The semantic version number.
 

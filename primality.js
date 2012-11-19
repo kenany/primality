@@ -11,8 +11,10 @@
       /** Detect free variable `exports` */
       freeExports = typeof exports == 'object' && exports,
 
+      objectRef = new function(){},
+
       /** Used to detect if a method is native */
-      reNative = RegExp('^' + ({}.valueOf + '')
+      reNative = RegExp('^' + (objectRef.valueOf + '')
                   .replace(/[.*+?^=!:${}()|[\]\/\\]/g, '\\$&')
                   .replace(/valueOf|for [^\]]+/g, '.+?') + '$'),
 

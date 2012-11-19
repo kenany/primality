@@ -2,7 +2,10 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: '<json:package.json>',
     meta: {
-      banner: "/*!\n * <%= pkg.name %> v<%= pkg.version %>\n * (c) <%= grunt.template.today(\"yyyy\") %> <%= pkg.author.name %>\n */"
+      banner: '/*!\n' +
+              ' * <%= pkg.name %> v<%= pkg.version %>\n' +
+              ' * (c) <%= grunt.template.today(\"yyyy\") %> <%= pkg.author.name %>\n' +
+              ' */'
     },
     lint: {
       all: ['grunt.js', 'primality.js']
@@ -35,6 +38,5 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-mocha');
 
   grunt.registerTask('test', 'mocha');
-
   grunt.registerTask('default', 'test min doc');
 };
