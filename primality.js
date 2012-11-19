@@ -18,7 +18,7 @@
                   .replace(/[.*+?^=!:${}()|[\]\/\\]/g, '\\$&')
                   .replace(/valueOf|for [^\]]+/g, '.+?') + '$'),
 
-      /* Native method shortcuts for methods with the same name as other primality methods */
+      /** Native method shortcuts for methods with the same name as other primality methods */
       nativeIsArray = reNative.test(nativeIsArray = Array.isArray) && nativeIsArray,
       nativeIsFinite = window.isFinite,
       nativeIsNaN = window.isNaN,
@@ -153,6 +153,7 @@
    */
   primality.VERSION = '1.1.0';
 
+  /** Expose primality */
   if (typeof define == 'function' && typeof define.amd == 'object' && define.amd) {
     window.primality = primality;
     define(function() {
