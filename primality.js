@@ -151,7 +151,7 @@
    * @memberOf primality
    * @type String
    */
-  primality.VERSION = '1.1.0';
+  primality.VERSION = '1.1.1';
 
   /** Expose primality */
   if (typeof define == 'function' && typeof define.amd == 'object' && define.amd) {
