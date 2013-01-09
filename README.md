@@ -15,7 +15,12 @@ Primality is a JavaScript library for prime numbers.
   - Also does arrays
   - Less than 800 bytes minified and gzipped
   - AMD loader support
-  - Support for almost every browser and JavaScript runtime.
+
+## Support
+
+Primality has been tested in:
+
+  - Chrome 23
 
 ## Installation
 
