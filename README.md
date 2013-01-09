@@ -109,7 +109,7 @@ primality([17, 20, 23]);
  * As a somewhat more advanced feature, Primality can check if a pair of numbers
  * is a twin or sexy prime.
  *
- * Twin primes are prime numbers that differs from another by two.
+ * Twin primes are prime numbers that differ from another by two.
  *
  * Similarly, sexy primes are prime numbers that differ from each other by six
  */
