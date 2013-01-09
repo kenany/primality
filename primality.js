@@ -169,6 +169,8 @@
   /**
    * Checks if `a` and `b` are twin primes
    *
+   * <https://en.wikipedia.org/wiki/Twin_prime>
+   *
    * @static
    * @memberOf primality
    * @param {Number} a First of the pair
@@ -187,6 +189,8 @@
 
   /**
    * Checks if `a` and `b` are sexy primes
+   *
+   * <https://en.wikipedia.org/wiki/Sexy_prime>
    *
    * @static
    * @memberOf primality

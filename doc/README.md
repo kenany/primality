@@ -64,9 +64,11 @@ primality([17, 19, 23]);
 <!-- div -->
 
 ### <a id="primalityaresexyprimesa-b"></a>`primality.areSexyPrimes(a, b)`
-<a href="#primalityaresexyprimesa-b">#</a> [&#x24C8;](https://github.com/KenanY/primality/blob/master/primality.js#L201 "View in source") [&#x24C9;][1]
+<a href="#primalityaresexyprimesa-b">#</a> [&#x24C8;](https://github.com/KenanY/primality/blob/master/primality.js#L205 "View in source") [&#x24C9;][1]
 
 Checks if `a` and `b` are sexy primes
+
+<https://en.wikipedia.org/wiki/Sexy_prime>
 
 #### Arguments
 1. `a` *(Number)*: First of the pair
@@ -89,9 +91,11 @@ primality.areSexyPrimes(5, 11)
 <!-- div -->
 
 ### <a id="primalityaretwinprimesa-b"></a>`primality.areTwinPrimes(a, b)`
-<a href="#primalityaretwinprimesa-b">#</a> [&#x24C8;](https://github.com/KenanY/primality/blob/master/primality.js#L182 "View in source") [&#x24C9;][1]
+<a href="#primalityaretwinprimesa-b">#</a> [&#x24C8;](https://github.com/KenanY/primality/blob/master/primality.js#L184 "View in source") [&#x24C9;][1]
 
 Checks if `a` and `b` are twin primes
+
+<https://en.wikipedia.org/wiki/Twin_prime>
 
 #### Arguments
 1. `a` *(Number)*: First of the pair
@@ -121,7 +125,7 @@ primality.areTwinPrimes(3, 5)
 <!-- div -->
 
 ### <a id="primalityversion"></a>`primality.VERSION`
-<a href="#primalityversion">#</a> [&#x24C8;](https://github.com/KenanY/primality/blob/master/primality.js#L214 "View in source") [&#x24C9;][1]
+<a href="#primalityversion">#</a> [&#x24C8;](https://github.com/KenanY/primality/blob/master/primality.js#L218 "View in source") [&#x24C9;][1]
 
 *(String)*: The semantic version number.
 
