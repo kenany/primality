@@ -181,8 +181,27 @@
    */
   function areTwinPrimes(a, b) {
     if (Math.abs(a - b) != 2) return false;
-    if (isPrime(a) && isPrime(b)) return true;
-    return false;
+    if (!primality([a, b])) return false;
+    return true;
+  }
+
+  /**
+   * Checks if `a` and `b` are sexy primes
+   *
+   * @static
+   * @memberOf primality
+   * @param {Number} a First of the pair
+   * @param {Number} b Second of the pair
+   * @returns {Array} Returns `true` if `a` and `b` are sexy primes
+   * @example
+   *
+   * primality.areSexyPrimes(5, 11)
+   * // => true
+   */
+  function areSexyPrimes(a, b) {
+    if (Math.abs(a - b) != 6) return false;
+    if (!primality([a, b])) return false;
+    return true;
   }
 
   /**
@@ -195,6 +214,7 @@
   primality.VERSION = '1.1.1';
 
   primality.areTwinPrimes = areTwinPrimes;
+  primality.areSexyPrimes = areSexyPrimes;
 
   /** Expose primality */
   if (typeof define == 'function' && typeof define.amd == 'object' && define.amd) {
