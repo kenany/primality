@@ -25,7 +25,10 @@
 
       /** `Object#toString` result shortcuts */
       arrayClass = '[object Array]',
-      numberClass = '[object Number]';
+      numberClass = '[object Number]',
+
+      /** Detect if `arguments` objects are `Object` objects (all but Opera < 10.5) */
+      argsAreObjects = arguments.constructor == Object;
 
   /**
    * Checks if `value` is an array.
@@ -35,7 +38,7 @@
    * @returns {Boolean} Returns `true` if the `value` is an array, else `false`.
    */
   var isArray = nativeIsArray || function(value) {
-    return toString.call(value) == arrayClass;
+    return (argsAreObjects && value instanceof Array) || toString.call(value) == arrayClass;
   };
 
   /**
@@ -49,7 +52,18 @@
    * @returns {Boolean} Returns `true` if the `value` is `NaN`, else `false`.
    */
   function isNaN(value) {
-    return toString.call(value) == numberClass && value != +value;
+    return isNumber(value) && value != +value
+  }
+
+  /**
+   * Checks if `value` is a number.
+   *
+   * @private
+   * @param {Mixed} value The value to check.
+   * @returns {Boolean} Returns `true` if the `value` is a number, else `false`.
+   */
+  function isNumber(value) {
+    return typeof value == 'number' || toString.call(value) == numberClass;
   }
 
   /**
@@ -171,4 +185,4 @@
   else {
     window.primality = primality;
   }
-}).call(this);
+}(this));
