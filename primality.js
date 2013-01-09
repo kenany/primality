@@ -1,3 +1,12 @@
+/*!
+ * primality v1.1.1
+ * (c) 2012-2013 Kenan Yildirim
+ *
+ * Includes functions from Lo-Dash
+ * (c) 2012 John-David Dalton
+ *
+ * Available under MIT license
+ */
 (function(window, undefined) {
 
   /** Detect free variable `global` and use it as `window` */
