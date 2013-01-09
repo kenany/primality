@@ -10,7 +10,7 @@
   } else {
     $output = basename($file);
   }
-  require('../vendor/docdown/docdown.php');
+  require('vendor/docdown/docdown.php');
   $markdown = docdown(array(
     'path'  => $file,
     'title' => 'Primality',

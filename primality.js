@@ -171,8 +171,8 @@
    *
    * @static
    * @memberOf primality
-   * @param {Number} a
-   * @param {Number} b
+   * @param {Number} a First of the pair
+   * @param {Number} b Second of the pair
    * @returns {Array} Returns `true` if `a` and `b` are twin primes
    * @example
    *
