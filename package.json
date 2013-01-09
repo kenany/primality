@@ -1,6 +1,6 @@
 {
   "name": "primality",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "A JavaScript library for prime numbers.",
   "homepage": "https://github.com/KenanY/primality",
   "author": {

@@ -5,14 +5,17 @@ Primality is a JavaScript library for prime numbers.
 
 ## Download
 
- * [Development build](https://raw.github.com/KenanY/primality/1.1.0/primality.js)
- * [Production build](https://raw.github.com/KenanY/primality/1.1.0/primality.min.js)
+ * [Development build](https://raw.github.com/KenanY/primality/1.2.0/primality.js)
+ * [Production build](https://raw.github.com/KenanY/primality/1.2.0/primality.min.js)
 
 ## Features
 
-  - Check primality of a number
+  - Check the primality of a number
   - Works with numbers disguised as strings
   - Also does arrays
+  - Checks if a pair of numbers are either
+  [twin](https://en.wikipedia.org/wiki/Twin_prime) or
+  [sexy](https://en.wikipedia.org/wiki/Sexy_prime) primes.
   - Less than 800 bytes minified and gzipped
   - AMD loader support
 
@@ -21,6 +24,7 @@ Primality is a JavaScript library for prime numbers.
 Primality has been tested in:
 
   - Chrome 23
+  - Node.js 0.8.16
 
 ## Installation
 
@@ -100,12 +104,29 @@ primality([17, 19, 23]);
 
 primality([17, 20, 23]);
 // => false
+
+/**
+ * As a somewhat more advanced feature, Primality can check if a pair of numbers
+ * is a twin or  prime.
+ *
+ * Twin primes are prime numbers that differs from another by two.
+ *
+ * Similarly, sexy primes are prime numbers that differ from each other by six
+ */
+primality.areTwinPrimes(3, 5)
+// => true
+
+primality.areSexyPrimes(5, 11)
+// => true
 ```
 
 ## Release Notes
 
-### 1.1.1
+### 1.2.0
 
-  - Released to fix errors in the README on the npm site
+  - Added `areTwinPrimes` and `areSexyPrimes` functions
+  - Inline variable initialization when parsing arrays
+  - Updated the `isNaN` private function
+  - Changed the IIFE
 
 The full changelog is available [here](https://github.com/KenanY/primality/wiki/Changelog).
