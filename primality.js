@@ -166,6 +166,19 @@
     }
   };
 
+  /**
+   * Checks if `a` and `b` are twin primes
+   *
+   * @static
+   * @memberOf primality
+   * @param {Number} a
+   * @param {Number} b
+   * @returns {Array} Returns `true` if `a` and `b` are twin primes
+   * @example
+   *
+   * primality.areTwinPrimes(3, 5)
+   * // => true
+   */
   function areTwinPrimes(a, b) {
     if (Math.abs(a - b) != 2) return false;
     if (isPrime(a) && isPrime(b)) return true;
