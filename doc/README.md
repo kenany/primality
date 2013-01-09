@@ -73,7 +73,7 @@ Checks if `a` and `b` are sexy primes
 2. `b` *(Number)*: Second of the pair
 
 #### Returns
-*(Array)*: Returns `true` if `a` and `b` are sexy primes
+*(Boolean)*: Returns `true` if `a` and `b` are sexy primes
 
 #### Example
 ```js
@@ -98,7 +98,7 @@ Checks if `a` and `b` are twin primes
 2. `b` *(Number)*: Second of the pair
 
 #### Returns
-*(Array)*: Returns `true` if `a` and `b` are twin primes
+*(Boolean)*: Returns `true` if `a` and `b` are twin primes
 
 #### Example
 ```js

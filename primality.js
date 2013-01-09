@@ -173,7 +173,7 @@
    * @memberOf primality
    * @param {Number} a First of the pair
    * @param {Number} b Second of the pair
-   * @returns {Array} Returns `true` if `a` and `b` are twin primes
+   * @returns {Boolean} Returns `true` if `a` and `b` are twin primes
    * @example
    *
    * primality.areTwinPrimes(3, 5)
@@ -192,7 +192,7 @@
    * @memberOf primality
    * @param {Number} a First of the pair
    * @param {Number} b Second of the pair
-   * @returns {Array} Returns `true` if `a` and `b` are sexy primes
+   * @returns {Boolean} Returns `true` if `a` and `b` are sexy primes
    * @example
    *
    * primality.areSexyPrimes(5, 11)
