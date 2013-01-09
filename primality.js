@@ -156,9 +156,8 @@
       return null;
     }
     else if (isArray(input)) {
-      var _i, _len;
-      for (_i = 0, _len = input.length; _i < _len; _i++) {
-        if (!isPrime(input[_i])) return false;
+      for (var i = 0, l = input.length; _i < l; i++) {
+        if (!isPrime(input[i])) return false;
       }
       return true;
     }
