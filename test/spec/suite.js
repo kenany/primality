@@ -34,5 +34,12 @@ require(['primality'], function (primality) {
         primality(new Array(29, 30, 31)).should.equal(false);
       });
     });
+    describe('classes', function() {
+      it('twin primes', function() {
+        (primality.areTwinPrimes(3, 5)).should.equal(true);
+        (primality.areTwinPrimes(5, 6)).should.equal(false);
+        (primality.areTwinPrimes(12, 14)).should.equal(false);
+      });
+    });
   });
 });

@@ -166,6 +166,12 @@
     }
   };
 
+  function areTwinPrimes(a, b) {
+    if (Math.abs(a - b) != 2) return false;
+    if (isPrime(a) && isPrime(b)) return true;
+    return false;
+  }
+
   /**
    * The semantic version number.
    *
@@ -174,6 +180,8 @@
    * @type String
    */
   primality.VERSION = '1.1.1';
+
+  primality.areTwinPrimes = areTwinPrimes;
 
   /** Expose primality */
   if (typeof define == 'function' && typeof define.amd == 'object' && define.amd) {
