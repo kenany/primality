@@ -31,7 +31,7 @@ require(['primality'], function (primality) {
     describe('arrays', function() {
       it('should return true if an array of prime numbers is passed', function() {
         primality([17, 19, 23]).should.equal(true);
-        primality([29, 30, 31]).should.equal(false);
+        primality(new Array(29, 30, 31)).should.equal(false);
       });
     });
   });
