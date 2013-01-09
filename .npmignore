@@ -1,3 +1,7 @@
 .*
 doc/*.php
 node_modules/
+vendor/chai/
+vendor/docdown/
+vendor/mocha/
+vendor/requirejs/
