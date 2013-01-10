@@ -24,7 +24,7 @@ Primality is a JavaScript library for prime numbers.
 Primality has been tested in:
 
   - Chrome 23
-  - Node.js 0.8.16
+  - Node.js 0.6.21–0.8.16
 
 ## Installation
 
