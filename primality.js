@@ -1,6 +1,6 @@
 /*!
  * primality v1.2.0
- * (c) 2012-2013 Kenan Yildirim
+ * (c) 2012–2013 Kenan Yildirim
  *
  * Includes functions from Lo-Dash
  * (c) 2012 John-David Dalton
