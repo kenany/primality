@@ -20,8 +20,8 @@ example that Primality tries to follow.
 
 ## Download
 
- * [Development build](https://raw.github.com/KenanY/primality/1.2.0/primality.js)
- * [Production build](https://raw.github.com/KenanY/primality/1.2.0/primality.min.js)
+  * [Development build](https://raw.github.com/KenanY/primality/1.2.0/primality.js)
+  * [Production build](https://raw.github.com/KenanY/primality/1.2.0/primality.min.js)
 
 ## Features
 
