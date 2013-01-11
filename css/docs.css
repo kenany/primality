@@ -7,14 +7,11 @@
 /* ==========================================================================
    Not Foundation
    ========================================================================== */
-pre.intro {
-  font-size: 1.25em;
-  padding-top: 2em;
-  padding-bottom: 2em;
-}
-
-body #social {
-  height: 20px;
+.lead h3 {
+  border-top: 1px solid #d3d3d3;
+  border-bottom: 1px solid #d3d3d3;
+  margin: 1.5em 0;
+  padding: .75em 0 .75em 20px;
 }
 
 

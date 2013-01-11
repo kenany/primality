@@ -40,19 +40,25 @@ var downloadDocs = function(file) {
 }
 */
 
-var parseMarkdown = function(file) {
-  return marked(fs.readFileSync(file, 'utf8'));
+var parseMarkdown = function(mdFile, htmlFile) {
+  console.log('Markdown file: ' + mdFile + ' => HTML file: ' + htmlFile);
+  return [marked(fs.readFileSync(mdFile, 'utf8')), htmlFile];
 }
 
-var writeToHTML = function(md) {
-  var htmlFile = path.join(__dirname, 'index.html'),
-      html     = fs.readFileSync(htmlFile, 'utf8'),
+var writeToHTML = function(mdAndHTMLFile) {
+  var html     = fs.readFileSync(mdAndHTMLFile[1], 'utf8'),
       $        = cheerio.load(html);
 
-  $('.lead').text(md.split('<!-- div -->').join('<div>')
-                    .split('<!-- /div -->').join('</div>'));
-  fs.writeFileSync(htmlFile, _.unescape($.html()));
+  $('.lead').text(mdAndHTMLFile[0].split('<!-- div -->').join('<div>')
+                                  .split('<!-- /div -->').join('</div>'));
+  fs.writeFileSync(mdAndHTMLFile[1], _.unescape($.html()));
 }
 
-var finalShow = _.compose(writeToHTML, parseMarkdown);
-finalShow(path.join(__dirname, 'index.md'));
+/*
+ * Generating a page is a combination of parsing the Markdown and writing the
+ * HTML
+ */
+var generatePage = _.compose(writeToHTML, parseMarkdown);
+
+/* Docs */
+generatePage(path.join(__dirname, '/docs/index.md'), path.join(__dirname, '/docs/index.html'));
