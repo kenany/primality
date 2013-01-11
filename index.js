@@ -10,7 +10,7 @@ var cheerio    = require('cheerio'),
 
 marked.setOptions({
   gfm: true,
-  tables: true,
+  tables: false,
   breaks: false,
   pedantic: false,
   sanitize: true,
