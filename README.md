@@ -31,7 +31,7 @@ example that Primality tries to follow.
   - Checks if a pair of numbers are either
   [twin](https://en.wikipedia.org/wiki/Twin_prime) or
   [sexy](https://en.wikipedia.org/wiki/Sexy_prime) primes.
-  - Less than 800 bytes minified and gzipped
+  - Less than 900 bytes minified and gzipped
   - AMD loader support
 
 ## Support
