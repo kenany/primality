@@ -1,0 +1,10 @@
+{
+  "name": "primality-docs",
+  "version": "1.0.0",
+  "devDependencies": {
+    "cheerio": "~0.10.5",
+    "highlight.js": "~7.3.0",
+    "lodash": "~1.0.0-rc.3",
+    "marked": "~0.2.7"
+  }
+}
