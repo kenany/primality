@@ -49,7 +49,8 @@ var writeToHTML = function(md) {
       html     = fs.readFileSync(htmlFile, 'utf8'),
       $        = cheerio.load(html);
 
-  $('.lead').text(md.split('<!-- div -->').join('<div>').split('<!-- /div -->').join('</div>'));
+  $('.lead').text(md.split('<!-- div -->').join('<div>')
+                    .split('<!-- /div -->').join('</div>'));
   fs.writeFileSync(htmlFile, _.unescape($.html()));
 }
 
