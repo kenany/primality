@@ -13,7 +13,7 @@ marked.setOptions({
   tables: false,
   breaks: false,
   pedantic: false,
-  sanitize: true,
+  sanitize: false,
   highlight: function(code, lang) {
     if (lang) {
       if (lang === 'js') {
