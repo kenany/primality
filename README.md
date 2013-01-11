@@ -88,7 +88,8 @@ require({
 
 ## Usage
 
-It can't get any easier:
+Primality's flagship method is `primality()`, which works as you might expect it
+to:
 
 ``` javascript
 primality(7);
@@ -96,38 +97,33 @@ primality(7);
 
 primality(6);
 // => false
+```
 
-primality(new Number(11));
-// => true
+Of course, you can pass strings instead of numbers if you'd like:
 
-/**
- * Strings can be prime, too!
- */
+``` javascript
 primality('13');
 // => true
+```
 
-primality(new String('14'));
-// => false
+Primality can even do arrays. If any of the values of an array are not prime,
+`false` is returned.
 
-/**
- * Primality can even do arrays!
- *
- * If any of the values of an array are not prime, we return false.
- */
+``` javascript
 primality([17, 19, 23]);
 // => true
 
 primality([17, 20, 23]);
 // => false
+```
 
-/**
- * As a somewhat more advanced feature, Primality can check if a pair of numbers
- * is a twin or sexy prime.
- *
- * Twin primes are prime numbers that differ from another by two.
- *
- * Similarly, sexy primes are prime numbers that differ from each other by six
- */
+Eventually, primality tests get boring. In order to mitigate this boredom,
+Primality can also tell you if a pair of numbers are twin or sexy primes.
+
+Twin primes are prime numbers that differ from another by two. Similarly, sexy
+primes are prime numbers that differ from each other by six
+
+``` javascript
 primality.areTwinPrimes(3, 5)
 // => true
 
