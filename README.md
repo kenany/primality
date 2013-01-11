@@ -1,7 +1,22 @@
 # primality.js
 [![build status](https://secure.travis-ci.org/KenanY/primality.png)](http://travis-ci.org/KenanY/primality)
 
-Primality is a JavaScript library for prime numbers.
+Primality is a JavaScript library for prime numbers. That might sound a bit
+silly at first, especially if you're only thinking about
+[finding the primality](https://en.wikipedia.org/wiki/Primality_test) of a
+number. However, prime numbers have many properties and are even grouped
+into [classes](https://en.wikipedia.org/wiki/Template:Prime_number_classes)
+based on these properties.
+
+This profound understanding of prime numbers led me to create Primality, which
+aims to be a comprehensive library for anything you could possibly want to know
+or do with prime numbers.
+
+Credit goes out to [Lo-Dash](http://lodash.com/) for inspiring me to make a
+JavaScript library. Currently, Lo-Dash is my personal standard for any
+JavaScript library. Solid support for browsers and environments, extensive
+documentation, and plenty of unit testing has made it the prime (pun intended)
+example that Primality tries to follow.
 
 ## Download
 
