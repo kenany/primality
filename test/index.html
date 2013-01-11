@@ -4,13 +4,13 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <title>primality test suite</title>
-  <link rel="stylesheet" href="../vendor/mocha/mocha.css">
+  <link rel="stylesheet" href="../js/vendor/mocha/mocha.css">
 </head>
 <body>
   <div id="mocha"></div>
-  <script src="../vendor/mocha/mocha.js"></script>
-  <script src="../vendor/chai/chai.js"></script>
-  <script src="../vendor/requirejs/require.js"></script>
+  <script src="../js/vendor/mocha/mocha.js"></script>
+  <script src="../js/vendor/chai/chai.js"></script>
+  <script src="../js/vendor/requirejs/require.js"></script>
   <script>
     mocha.setup('bdd');
     var should = chai.should();
@@ -18,7 +18,7 @@
     require.config({
       'urlArgs': 't=' + (+new Date),
       paths: {
-        'primality': '../primality'
+        'primality': '../js/primality'
       }
     });
     require(['spec/suite'], function() {
