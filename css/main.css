@@ -7,15 +7,24 @@
 /* ==========================================================================
    Not Foundation
    ========================================================================== */
+body {
+  margin: 0 auto;
+}
+body #social {
+  height: 20px;
+}
+
+p {
+  margin-bottom: 1em;
+}
+
 pre.intro {
   font-size: 1.25em;
   padding-top: 2em;
   padding-bottom: 2em;
 }
 
-body #social {
-  height: 20px;
-}
+hgroup h1 { display: inline }
 
 
 /* Code
@@ -24,6 +33,11 @@ code, pre {
   font-family: Menlo, Monaco, Andale Mono, Courier New, monospace;
   font-weight: normal;
   background: #fff;
+}
+pre {
+  margin: 1em 0;
+  padding: .5em 40px;
+  word-wrap: break-word;
 }
 pre code {
   display: block;
