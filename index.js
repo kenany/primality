@@ -16,9 +16,7 @@ marked.setOptions({
   sanitize: false,
   highlight: function(code, lang) {
     if (lang) {
-      if (lang === 'js') {
-        lang = 'javascript';
-      }
+      if (lang === 'js') lang = 'javascript';
       return hljs.highlight(lang, code).value;
     } else {
       return hljs.highlightAuto(code).value;
@@ -51,7 +49,7 @@ var writeToHTML = function(md) {
       html     = fs.readFileSync(htmlFile, 'utf8'),
       $        = cheerio.load(html);
 
-  $('.lead').text(md);
+  $('.lead').text(md.split('<!-- div -->').join('<div>').split('<!-- /div -->').join('</div>'));
   fs.writeFileSync(htmlFile, _.unescape($.html()));
 }
 
