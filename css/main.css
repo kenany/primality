@@ -18,6 +18,15 @@ p {
   margin-bottom: 1em;
 }
 
+ul.magellan {width: 240px}
+@media only screen and (max-width: 767px) {
+  ul.magellan {position: static !important; width: 100%}
+}
+.active a {
+  font-weight: bold;
+  cursor: default;
+}
+
 pre.intro {
   font-size: 1.25em;
   padding-top: 2em;

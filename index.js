@@ -17,6 +17,7 @@ marked.setOptions({
   highlight: function(code, lang) {
     if (lang) {
       if (lang === 'js') lang = 'javascript';
+      if (lang === 'html') lang = 'xml';
       return hljs.highlight(lang, code).value;
     } else {
       return hljs.highlightAuto(code).value;

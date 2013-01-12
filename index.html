@@ -10,7 +10,18 @@
   </head>
   <body>
     <div class="row">
-      <div class="twelve columns">
+      <div class="four columns">
+        <ul class="magellan tabs vertical" data-magellan-expedition="fixed">
+          <li data-magellan-arrival="download"><a href="#download">Download</a></li>
+          <li data-magellan-arrival="features"><a href="#features">Features</a></li>
+          <li data-magellan-arrival="support"><a href="#support">Support</a></li>
+          <li class="divider"></li>
+          <li><a>Installation</a></li>
+          <li><a>Usage</a></li>
+        </ul>
+      </div>
+
+      <div class="eight columns">
         <hgroup>
           <h1>Primality</h1>
           <h3 class="subheader">A JavaScript library for prime numbers.</h3>
@@ -37,7 +48,63 @@
           <iframe src="//ghbtns.com/github-btn.html?user=kenany&amp;repo=primality&amp;count=true&amp;type=watch" width="110" height="20" frameborder="0" scrolling="0" allowtransparency=""></iframe>
           <iframe src="//ghbtns.com/github-btn.html?user=kenany&amp;repo=primality&amp;count=true&amp;type=fork" width="95" height="20" frameborder="0" scrolling="0" allowtransparency=""></iframe>
         </p>
+
+        <section id="download" data-magellan-destination="download">
+          <h2>Download</h2>
+          <ul>
+            <li><a href="https://raw.github.com/KenanY/primality/1.2.0/primality.js">Development build</a></li>
+            <li><a href="https://raw.github.com/KenanY/primality/1.2.0/primality.min.js">Production build</a></li>
+          </ul>
+        </section>
+
+        <section id="features" data-magellan-destination="features">
+          <h2>Features</h2>
+          <ul>
+            <li>Check the primality of a number</li>
+            <li>Works with numbers disguised as strings</li>
+            <li>Also does arrays</li>
+            <li>Checks if a pair of numbers are either <a href="https://en.wikipedia.org/wiki/Twin_prime">twin</a> or <a href="https://en.wikipedia.org/wiki/Sexy_prime">sexy</a> primes.</li>
+            <li>Less than 900 bytes minified and gzipped</li>
+            <li>AMD loader support</li>
+          </ul>
+        </section>
+
+        <section id="support" data-magellan-destination="support">
+          <h2>Support</h2>
+          <p>Primality has been tested in:</p>
+          <ul>
+            <li>Chrome 6–23</li>
+            <li>Firefox 15–18</li>
+            <li>Internet Explorer 10</li>
+            <li>Opera 11.6</li>
+            <li>Safari 5.0.5–5.1</li>
+            <li>Node.js 0.6.21–0.8.16</li>
+          </ul>
+        </section>
+
+        <section id="installation" data-magellan-destination="installation">
+          <h2>Installation</h2>
+          <p>In browsers:</p>
+          <pre><code class="lang-html"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"primality.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
+          </code></pre>
+          <p>Using npm:</p>
+          <pre><code><span class="title">npm</span> install primality</code></pre>
+          <p>In Node.js and RingoJS v0.8.0+:</p>
+          <pre><code class="lang-javascript"><span class="keyword">var</span> primality = require(<span class="string">&apos;primality&apos;</span>);</code></pre>
+          <p>In RingoJS v0.7.0-:</p>
+          <pre><code class="lang-javascript"><span class="keyword">var</span> primality = require(<span class="string">&apos;primality&apos;</span>).primality;</code></pre>
+          <p>In Rhino:</p>
+          <pre><code class="lang-javascript">load(<span class="string">&apos;primality.js&apos;</span>);</code></pre>
+          <p>In an AMD loader like RequireJS:</p>
+          <pre><code class="lang-javascript">require({  <span class="string">&apos;paths&apos;</span>: {    <span class="string">&apos;primality&apos;</span>: <span class="string">&apos;path/to/primality&apos;</span>  }},[<span class="string">&apos;primality&apos;</span>], <span class="keyword">function</span>(primality) {  console.log(primality.VERSION);});</code></pre>
+        </section>
+
+        <section id="usage" data-magellan-destination="usage">
+          <h2>Usage</h2>
+        </section>
+
       </div>
     </div>
+    <script data-main="js/main" src="vendor/requirejs/require.js"></script>
   </body>
 </html>

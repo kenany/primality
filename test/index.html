@@ -4,12 +4,12 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <title>Primality test suite</title>
-  <link rel="stylesheet" href="../js/vendor/mocha/mocha.css">
+  <link rel="stylesheet" href="../vendor/mocha/mocha.css">
 </head>
 <body>
   <div id="mocha"></div>
 
-  <script src="../js/vendor/requirejs/require.js"></script>
+  <script src="../vendor/requirejs/require.js"></script>
   <script>
     /* Shim for Date.now */
     if (!Date.now) {
@@ -19,7 +19,7 @@
     }
 
     require.config({
-      'baseUrl': '../js/vendor/requirejs',
+      'baseUrl': '../vendor/requirejs',
       'urlArgs': 't=' + (Date.now()),
       paths: {
         'suite': '../../../test/spec/suite',
