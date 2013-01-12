@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>primality test suite</title>
+  <title>Primality test suite</title>
   <link rel="stylesheet" href="../js/vendor/mocha/mocha.css">
 </head>
 <body>
@@ -16,7 +16,7 @@
     var should = chai.should();
 
     require.config({
-      //'urlArgs': 't=' + (+new Date),
+      'urlArgs': 't=' + (+new Date),
       paths: {
         'primality': '../js/primality'
       }
