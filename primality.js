@@ -9,6 +9,12 @@
  */
 (function(window, undefined) {
 
+  /** Detect free variable `global` and use it as `window` */
+  var freeGlobal = typeof global == 'object' && global;
+  if (freeGlobal.global === freeGlobal) {
+    window = freeGlobal;
+  }
+
   try {
     var _ = require('lodash');
   } catch (e) {
@@ -56,12 +62,6 @@
     lodash.isNaN    = isNaN;
 
     var _ = lodash;
-  }
-
-  /** Detect free variable `global` and use it as `window` */
-  var freeGlobal = typeof global == 'object' && global;
-  if (freeGlobal.global === freeGlobal) {
-    window = freeGlobal;
   }
 
   var primality,
