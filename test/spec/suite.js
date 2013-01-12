@@ -35,12 +35,17 @@ define(['../../primality'], function(primality) {
       });
     });
     describe('classes', function() {
-      it('twin primes', function() {
+      it('are twin primes', function() {
         primality.areTwinPrimes(3, 5).should.equal(true);
         primality.areTwinPrimes(5, 6).should.equal(false);
         primality.areTwinPrimes(12, 14).should.equal(false);
       });
-      it('sexy primes', function() {
+      it('are cousin primes', function() {
+        primality.areCousinPrimes(3, 7).should.equal(true);
+        primality.areCousinPrimes(7, 10).should.equal(false);
+        primality.areCousinPrimes(14, 18).should.equal(false);
+      });
+      it('are sexy primes', function() {
         primality.areSexyPrimes(5, 11).should.equal(true);
         primality.areSexyPrimes(11, 16).should.equal(false);
         primality.areSexyPrimes(18, 24).should.equal(false);

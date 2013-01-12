@@ -7,6 +7,7 @@
 
 ## <a id="Methods"></a>`Methods`
 * [`primality`](#primalityinput)
+* [`primality.areCousinPrimes`](#primalityarecousinprimesa-b)
 * [`primality.areSexyPrimes`](#primalityaresexyprimesa-b)
 * [`primality.areTwinPrimes`](#primalityaretwinprimesa-b)
 
@@ -63,8 +64,35 @@ primality([17, 19, 23]);
 
 <!-- div -->
 
+### <a id="primalityarecousinprimesa-b"></a>`primality.areCousinPrimes(a, b)`
+<a href="#primalityarecousinprimesa-b">#</a> [&#x24C8;](https://github.com/KenanY/primality/blob/master/primality.js#L209 "View in source") [&#x24C9;][1]
+
+Checks if `a` and `b` are cousin primes
+
+<https://en.wikipedia.org/wiki/Cousin_prime>
+
+#### Arguments
+1. `a` *(Number)*: First of the pair
+2. `b` *(Number)*: Second of the pair
+
+#### Returns
+*(Boolean)*: Returns `true` if `a` and `b` are cousin primes
+
+#### Example
+```js
+primality.areCousinPrimes(3, 7)
+// => true
+```
+
+* * *
+
+<!-- /div -->
+
+
+<!-- div -->
+
 ### <a id="primalityaresexyprimesa-b"></a>`primality.areSexyPrimes(a, b)`
-<a href="#primalityaresexyprimesa-b">#</a> [&#x24C8;](https://github.com/KenanY/primality/blob/master/primality.js#L209 "View in source") [&#x24C9;][1]
+<a href="#primalityaresexyprimesa-b">#</a> [&#x24C8;](https://github.com/KenanY/primality/blob/master/primality.js#L230 "View in source") [&#x24C9;][1]
 
 Checks if `a` and `b` are sexy primes
 
@@ -125,7 +153,7 @@ primality.areTwinPrimes(3, 5)
 <!-- div -->
 
 ### <a id="primalityversion"></a>`primality.VERSION`
-<a href="#primalityversion">#</a> [&#x24C8;](https://github.com/KenanY/primality/blob/master/primality.js#L222 "View in source") [&#x24C9;][1]
+<a href="#primalityversion">#</a> [&#x24C8;](https://github.com/KenanY/primality/blob/master/primality.js#L243 "View in source") [&#x24C9;][1]
 
 *(String)*: The semantic version number.
 

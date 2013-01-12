@@ -192,6 +192,27 @@
   }
 
   /**
+   * Checks if `a` and `b` are cousin primes
+   *
+   * <https://en.wikipedia.org/wiki/Cousin_prime>
+   *
+   * @static
+   * @memberOf primality
+   * @param {Number} a First of the pair
+   * @param {Number} b Second of the pair
+   * @returns {Boolean} Returns `true` if `a` and `b` are cousin primes
+   * @example
+   *
+   * primality.areCousinPrimes(3, 7)
+   * // => true
+   */
+  function areCousinPrimes(a, b) {
+    if (Math.abs(a - b) != 4) return false;
+    if (!primality([a, b])) return false;
+    return true;
+  }
+
+  /**
    * Checks if `a` and `b` are sexy primes
    *
    * <https://en.wikipedia.org/wiki/Sexy_prime>
@@ -222,6 +243,7 @@
   primality.VERSION = '1.1.1';
 
   primality.areTwinPrimes = areTwinPrimes;
+  primality.areCousinPrimes = areCousinPrimes;
   primality.areSexyPrimes = areSexyPrimes;
 
   /** Expose primality */
