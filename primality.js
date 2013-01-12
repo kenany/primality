@@ -9,6 +9,55 @@
  */
 (function(window, undefined) {
 
+  try {
+    var _ = require('lodash');
+  } catch (e) {
+    var objectRef      = new function(){},
+        reNative       = RegExp('^' + (objectRef.valueOf + '')
+                          .replace(/[.*+?^=!:${}()|[\]\/\\]/g, '\\$&')
+                          .replace(/valueOf|for [^\]]+/g, '.+?') + '$'),
+        toString       = objectRef.toString,
+        nativeIsArray  = reNative.test(nativeIsArray = Array.isArray) && nativeIsArray,
+        nativeIsFinite = window.isFinite,
+        nativeIsNaN    = window.isNaN,
+        arrayClass     = '[object Array]',
+        numberClass    = '[object Number]',
+        argsAreObjects = arguments.constructor == Object;
+
+    function lodash(value) {
+      if (value && typeof value == 'object' && value.__wrapped__) {
+        return value;
+      }
+      if (!(this instanceof lodash)) {
+        return new lodash(value);
+      }
+      this.__wrapped__ = value;
+    }
+
+    var isArray = nativeIsArray || function(value) {
+      return (argsAreObjects && value instanceof Array) || toString.call(value) == arrayClass;
+    };
+
+    function isFinite(value) {
+      return nativeIsFinite(value) && !nativeIsNaN(parseFloat(value));
+    }
+
+    function isNumber(value) {
+      return typeof value == 'number' || toString.call(value) == numberClass;
+    }
+
+    function isNaN(value) {
+      return isNumber(value) && value != +value;
+    }
+
+    lodash.isArray  = isArray;
+    lodash.isFinite = isFinite;
+    lodash.isNumber = isNumber;
+    lodash.isNaN    = isNaN;
+
+    var _ = lodash;
+  }
+
   /** Detect free variable `global` and use it as `window` */
   var freeGlobal = typeof global == 'object' && global;
   if (freeGlobal.global === freeGlobal) {
@@ -18,79 +67,7 @@
   var primality,
 
       /** Detect free variable `exports` */
-      freeExports = typeof exports == 'object' && exports,
-
-      objectRef = new function(){},
-
-      /** Used to detect if a method is native */
-      reNative = RegExp('^' + (objectRef.valueOf + '')
-                  .replace(/[.*+?^=!:${}()|[\]\/\\]/g, '\\$&')
-                  .replace(/valueOf|for [^\]]+/g, '.+?') + '$'),
-
-      /** Native method shortcuts */
-      toString = objectRef.toString,
-
-      /** Native method shortcuts for methods with the same name as other primality methods */
-      nativeIsArray = reNative.test(nativeIsArray = Array.isArray) && nativeIsArray,
-      nativeIsFinite = window.isFinite,
-      nativeIsNaN = window.isNaN,
-
-      /** `Object#toString` result shortcuts */
-      arrayClass = '[object Array]',
-      numberClass = '[object Number]',
-
-      /** Detect if `arguments` objects are `Object` objects (all but Opera < 10.5) */
-      argsAreObjects = arguments.constructor == Object;
-
-  /**
-   * Checks if `value` is an array.
-   *
-   * @private
-   * @param {Mixed} value The value to check.
-   * @returns {Boolean} Returns `true` if the `value` is an array, else `false`.
-   */
-  var isArray = nativeIsArray || function(value) {
-    return (argsAreObjects && value instanceof Array) || toString.call(value) == arrayClass;
-  };
-
-  /**
-   * Checks if `value` is a number.
-   *
-   * @private
-   * @param {Mixed} value The value to check.
-   * @returns {Boolean} Returns `true` if the `value` is a number, else `false`.
-   */
-  function isNumber(value) {
-    return typeof value == 'number' || toString.call(value) == numberClass;
-  }
-
-  /**
-   * Checks if `value` is `NaN`.
-   *
-   * Note: This is not the same as native `isNaN`, which will return true for
-   * `undefined` and other values. See <http://es5.github.com/#x15.1.2.4>.
-   *
-   * @private
-   * @param {Mixed} value The value to check.
-   * @returns {Boolean} Returns `true` if the `value` is `NaN`, else `false`.
-   */
-  function isNaN(value) {
-    return isNumber(value) && value != +value;
-  }
-
-  /**
-   * Checks if `value` is, or can be coerced to, a finite number.
-   *
-   * Note: This is not the same as native `isFinite`, which will return true for
-   * booleans and empty strings. See <http://es5.github.com/#x15.1.2.5>.
-   *
-   * @private
-   * @param {Mixed} value The value to check.
-   * @returns {Boolean} Returns `true` if the `value` is a finite number, else `false`.
-   */
-  function isFinite(value) {
-    return nativeIsFinite(value) && !nativeIsNaN(parseFloat(value));
-  }
+      freeExports = typeof exports == 'object' && exports;
 
   /**
    * Finds the smallest factor of `n`
@@ -132,7 +109,7 @@
    * @returns {Boolean} Returns `true` if `value` is prime
    */
   function isPrime(value) {
-    if (isNaN(value) || !isFinite(value) || value % 1 || value < 2) return false;
+    if (_.isNaN(value) || !_.isFinite(value) || value % 1 || value < 2) return false;
     if (value == leastFactor(value)) return true;
     return false;
   }
@@ -159,7 +136,7 @@
     if (input === null || input === '') {
       return null;
     }
-    else if (isArray(input)) {
+    else if (_.isArray(input)) {
       for (var i = 0, l = input.length; i < l; i++) {
         if (!isPrime(input[i])) return false;
       }
