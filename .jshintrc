@@ -1,12 +1,10 @@
 {
   "bitwise": false,
   "browser": true,
-  "eqeqeq": false,
+  "camelcase": true,
+  "trailing": true,
+  "strict": false,
   "indent": 2,
   "node": true,
-  "predef": [
-    "describe"
-  ],
-  "rhino": true,
-  "strict": false
+  "rhino": true
 }

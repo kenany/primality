@@ -64,7 +64,7 @@
    * @returns {Boolean} Returns `true` if the `value` is `NaN`, else `false`.
    */
   function isNaN(value) {
-    return isNumber(value) && value != +value
+    return isNumber(value) && value != +value;
   }
 
   /**
