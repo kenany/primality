@@ -4,7 +4,7 @@ var Benchmark = require('benchmark'),
     primality = require('../primality.js'),
     suite     = new Benchmark.Suite;
 
-/* This first test is always the fastest because less obstacles are in the way */
+/* This first test is (usually) the fastest because less obstacles are in the way */
 suite.add('integer', function() {
   primality(2);
   primality(17);
@@ -13,7 +13,7 @@ suite.add('integer', function() {
   primality(999983);
 });
 
-/* Should theoretically be as fast as the first test */
+/* Theoretically as fast as the first test */
 suite.add('integerArray', function() {
   primality([2, 17, 839, 3733, 999983]);
 });
