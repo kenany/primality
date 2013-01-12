@@ -25,8 +25,9 @@ module.exports = function(grunt) {
       }
     },
     uglify: {
-      mangle: {except: 'define'},
-      codegen: {ascii_only: true}
+      mangle: {except: ['define']},
+      squeeze: {},
+      codegen: {'ascii_only': true}
     },
     mocha: {
       all: ['test/**/*.html']
