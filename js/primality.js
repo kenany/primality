@@ -27,6 +27,9 @@
                   .replace(/[.*+?^=!:${}()|[\]\/\\]/g, '\\$&')
                   .replace(/valueOf|for [^\]]+/g, '.+?') + '$'),
 
+      /** Native method shortcuts */
+      toString = objectRef.toString,
+
       /** Native method shortcuts for methods with the same name as other primality methods */
       nativeIsArray = reNative.test(nativeIsArray = Array.isArray) && nativeIsArray,
       nativeIsFinite = window.isFinite,
