@@ -1,4 +1,4 @@
-require(['primality'], function (primality) {
+define(['../../primality'], function(primality) {
   describe('primality', function() {
     it('should expose version number', function () {
       primality.VERSION.should.match(/[0-9]+\.[0-9]+\.[0-9]+/);
