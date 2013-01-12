@@ -38,7 +38,10 @@ example that Primality tries to follow.
 
 Primality has been tested in:
 
-  - Chrome 23
+  - Chrome 6–23
+  - Firefox 15–18
+  - Opera 11.6
+  - Safari 5.0.5–5.1
   - Node.js 0.6.21–0.8.16
 
 ## Installation
