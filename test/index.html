@@ -8,21 +8,32 @@
 </head>
 <body>
   <div id="mocha"></div>
-  <script src="../vendor/mocha/mocha.js"></script>
-  <script src="../vendor/chai/chai.js"></script>
+
   <script src="../vendor/requirejs/require.js"></script>
   <script>
-    mocha.setup('bdd');
-    var should = chai.should();
+    /* Shim for Date.now */
+    if (!Date.now) {
+      Date.now = function now() {
+        return +(new Date);
+      };
+    }
 
     require.config({
-      'urlArgs': 't=' + (+new Date),
+      'baseUrl': '../vendor/requirejs',
+      'urlArgs': 't=' + (Date.now),
       paths: {
-        'primality': '../primality'
+        'suite': '../../test/spec/suite',
+        'runner': '../../test/runner/mocha',
+        'mocha': '../mocha/mocha',
+        'chai': '../chai/chai'
       }
     });
-    require(['spec/suite'], function() {
-      require(['runner/mocha']);
+    require(['require', 'chai', 'mocha'], function(require, chai) {
+      var should = chai.should();
+      mocha.setup('bdd');
+      require(['suite'], function(primality) {
+        require(['runner']);
+      });
     });
   </script>
 </body>
