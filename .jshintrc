@@ -1,10 +1,21 @@
 {
-  "bitwise": false,
-  "browser": true,
   "camelcase": true,
+  "eqnull": true,
+  "es5" : true,
+  "noarg": true,
+  "quotmark": true,
   "trailing": true,
-  "strict": false,
+  "undef": true,
+  "unused": true,
+  "white": false,
+
   "indent": 2,
+
+  "browser": true,
   "node": true,
-  "rhino": true
+  "rhino": true,
+
+  "predef": [
+    "define"
+  ]
 }
