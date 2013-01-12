@@ -34,7 +34,7 @@
 <!-- div -->
 
 ### <a id="primalityinput"></a>`primality(input)`
-<a href="#primalityinput">#</a> [&#x24C8;](https://github.com/KenanY/primality/blob/master/primality.js#L168 "View in source") [&#x24C9;][1]
+<a href="#primalityinput">#</a> [&#x24C8;](https://github.com/KenanY/primality/blob/master/primality.js#L158 "View in source") [&#x24C9;][1]
 
 Creates a new primality instance.
 
@@ -64,7 +64,7 @@ primality([17, 19, 23]);
 <!-- div -->
 
 ### <a id="primalityaresexyprimesa-b"></a>`primality.areSexyPrimes(a, b)`
-<a href="#primalityaresexyprimesa-b">#</a> [&#x24C8;](https://github.com/KenanY/primality/blob/master/primality.js#L219 "View in source") [&#x24C9;][1]
+<a href="#primalityaresexyprimesa-b">#</a> [&#x24C8;](https://github.com/KenanY/primality/blob/master/primality.js#L209 "View in source") [&#x24C9;][1]
 
 Checks if `a` and `b` are sexy primes
 
@@ -91,7 +91,7 @@ primality.areSexyPrimes(5, 11)
 <!-- div -->
 
 ### <a id="primalityaretwinprimesa-b"></a>`primality.areTwinPrimes(a, b)`
-<a href="#primalityaretwinprimesa-b">#</a> [&#x24C8;](https://github.com/KenanY/primality/blob/master/primality.js#L198 "View in source") [&#x24C9;][1]
+<a href="#primalityaretwinprimesa-b">#</a> [&#x24C8;](https://github.com/KenanY/primality/blob/master/primality.js#L188 "View in source") [&#x24C9;][1]
 
 Checks if `a` and `b` are twin primes
 
@@ -125,7 +125,7 @@ primality.areTwinPrimes(3, 5)
 <!-- div -->
 
 ### <a id="primalityversion"></a>`primality.VERSION`
-<a href="#primalityversion">#</a> [&#x24C8;](https://github.com/KenanY/primality/blob/master/primality.js#L232 "View in source") [&#x24C9;][1]
+<a href="#primalityversion">#</a> [&#x24C8;](https://github.com/KenanY/primality/blob/master/primality.js#L222 "View in source") [&#x24C9;][1]
 
 *(String)*: The semantic version number.
 
