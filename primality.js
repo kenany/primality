@@ -54,6 +54,17 @@
   };
 
   /**
+   * Checks if `value` is a number.
+   *
+   * @private
+   * @param {Mixed} value The value to check.
+   * @returns {Boolean} Returns `true` if the `value` is a number, else `false`.
+   */
+  function isNumber(value) {
+    return typeof value == 'number' || toString.call(value) == numberClass;
+  }
+
+  /**
    * Checks if `value` is `NaN`.
    *
    * Note: This is not the same as native `isNaN`, which will return true for
@@ -65,17 +76,6 @@
    */
   function isNaN(value) {
     return isNumber(value) && value != +value;
-  }
-
-  /**
-   * Checks if `value` is a number.
-   *
-   * @private
-   * @param {Mixed} value The value to check.
-   * @returns {Boolean} Returns `true` if the `value` is a number, else `false`.
-   */
-  function isNumber(value) {
-    return typeof value == 'number' || toString.call(value) == numberClass;
   }
 
   /**
