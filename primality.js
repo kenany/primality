@@ -104,11 +104,22 @@
    *   1 if n = 1, n = -1, or n is not an integer
    */
   function leastFactor(n) {
-    if (n === 0) return 0;
-    if (n % 1 || n * n < 2) return 1;
-    if (n % 2 === 0) return 2;
-    if (n % 3 === 0) return 3;
-    if (n % 5 === 0) return 5;
+    if (n === 0) {
+      return 0;
+    }
+    else if (n % 1 || n * n < 2) {
+      return 1;
+    }
+    else if (n % 2 === 0) {
+      return 2;
+    }
+    else if (n % 3 === 0){
+      return 3;
+    }
+    else if (n % 5 === 0) {
+      return 5;
+    }
+
     var m = Math.sqrt(n);
     for (var i = 7; i <= m; i += 30) {
       if (n % i === 0)        return i;
