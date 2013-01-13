@@ -30,7 +30,7 @@ example that Primality tries to follow.
   - Also does arrays
   - Checks if a pair of numbers are either
   [twin](https://en.wikipedia.org/wiki/Twin_prime) or
-  [sexy](https://en.wikipedia.org/wiki/Sexy_prime) primes.
+  [sexy](https://en.wikipedia.org/wiki/Sexy_prime) primes
   - Less than 900 bytes minified and gzipped
   - AMD loader support
 
