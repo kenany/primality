@@ -149,6 +149,6 @@ primality.areSexyPrimes(5, 11)
 
   - Added `areCousinPrimes` function
   - Lo-Dash is now an __optional__ dependency
-  - Nissing semicolon
+  - Missing semicolon
 
 The full changelog is available [here](https://github.com/KenanY/primality/wiki/Changelog).
