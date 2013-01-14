@@ -1,5 +1,5 @@
 /*!
- * primality v1.2.0
+ * primality v1.3.0
  * (c) 2012–2013 Kenan Yildirim
  *
  * Includes functions from Lo-Dash
@@ -217,7 +217,7 @@
    * @memberOf primality
    * @type String
    */
-  primality.VERSION = '1.1.1';
+  primality.VERSION = '1.3.0';
 
   primality.areTwinPrimes = areTwinPrimes;
   primality.areCousinPrimes = areCousinPrimes;

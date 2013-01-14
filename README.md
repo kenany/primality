@@ -20,8 +20,8 @@ example that Primality tries to follow.
 
 ## Download
 
-  * [Development build](https://raw.github.com/KenanY/primality/1.2.0/primality.js)
-  * [Production build](https://raw.github.com/KenanY/primality/1.2.0/primality.min.js)
+  * [Development build](https://raw.github.com/KenanY/primality/1.3.0/primality.js)
+  * [Production build](https://raw.github.com/KenanY/primality/1.3.0/primality.min.js)
 
 ## Features
 
@@ -31,7 +31,7 @@ example that Primality tries to follow.
   - Checks if a pair of numbers are either
   [twin](https://en.wikipedia.org/wiki/Twin_prime) or
   [sexy](https://en.wikipedia.org/wiki/Sexy_prime) primes
-  - Less than 900 bytes minified and gzipped
+  - Less than 1 kilobyte minified and gzipped
   - AMD loader support
 
 ## Support
@@ -46,6 +46,11 @@ Primality has been tested in:
   - Node.js 0.6.21–0.8.16
 
 ## Installation
+
+Lo-Dash is an __optional__ dependency. If you're already using it, Primality
+will use it too. If not, that's okay, it'll be shimmed.
+
+***
 
 In browsers:
 
@@ -124,11 +129,14 @@ primality([17, 20, 23]);
 Eventually, primality tests get boring. In order to mitigate this boredom,
 Primality can also tell you if a pair of numbers are twin or sexy primes.
 
-Twin primes are prime numbers that differ from another by two. Similarly, sexy
-primes are prime numbers that differ from each other by six
+Twin primes are prime numbers that differ from another by two. Similarly, cousin
+primes differ by four and sexy primes differ by six.
 
 ``` javascript
 primality.areTwinPrimes(3, 5)
+// => true
+
+primality.areCousinPrimes(3, 7)
 // => true
 
 primality.areSexyPrimes(5, 11)
@@ -137,11 +145,10 @@ primality.areSexyPrimes(5, 11)
 
 ## Release Notes
 
-### 1.2.0
+### 1.3.0
 
-  - Added `areTwinPrimes` and `areSexyPrimes` functions
-  - Inline variable initialization when parsing arrays
-  - Updated the `isNaN` private function
-  - Changed the IIFE
+  - Added `areCousinPrimes` function
+  - Lo-Dash is now an __optional__ dependency
+  - Nissing semicolon
 
 The full changelog is available [here](https://github.com/KenanY/primality/wiki/Changelog).
