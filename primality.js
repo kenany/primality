@@ -113,7 +113,9 @@
    * @returns {Boolean} Returns `true` if `value` is prime
    */
   function isPrime(value) {
-    if (_.isNaN(value) || !_.isFinite(value) || value % 1 || value < 2) return false;
+    if (_.isNaN(value) || !_.isFinite(value) || value % 1 || value < 2) {
+      return false;
+    }
     if (value !== leastFactor(value)) return false;
     return true;
   }
@@ -137,18 +139,14 @@
    * // => true
    */
   primality = function(input) {
-    if (input === null || input === '') {
-      return null;
-    }
+    if (input === null || input === '') return null;
     else if (_.isArray(input)) {
       for (var i = 0, l = input.length; i < l; i++) {
         if (!isPrime(input[i])) return false;
       }
       return true;
     }
-    else {
-      return isPrime(input);
-    }
+    else return isPrime(input);
   };
 
   /**
