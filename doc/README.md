@@ -35,7 +35,7 @@
 <!-- div -->
 
 ### <a id="primalityinput"></a>`primality(input)`
-<a href="#primalityinput">#</a> [&#x24C8;](https://github.com/KenanY/primality/blob/master/primality.js#L135 "View in source") [&#x24C9;][1]
+<a href="#primalityinput">#</a> [&#x24C8;](https://github.com/KenanY/primality/blob/master/primality.js#L139 "View in source") [&#x24C9;][1]
 
 Creates a new primality instance.
 
@@ -65,7 +65,7 @@ primality([17, 19, 23]);
 <!-- div -->
 
 ### <a id="primalityarecousinprimesa-b"></a>`primality.areCousinPrimes(a, b)`
-<a href="#primalityarecousinprimesa-b">#</a> [&#x24C8;](https://github.com/KenanY/primality/blob/master/primality.js#L186 "View in source") [&#x24C9;][1]
+<a href="#primalityarecousinprimesa-b">#</a> [&#x24C8;](https://github.com/KenanY/primality/blob/master/primality.js#L190 "View in source") [&#x24C9;][1]
 
 Checks if `a` and `b` are cousin primes
 
@@ -92,7 +92,7 @@ primality.areCousinPrimes(3, 7)
 <!-- div -->
 
 ### <a id="primalityaresexyprimesa-b"></a>`primality.areSexyPrimes(a, b)`
-<a href="#primalityaresexyprimesa-b">#</a> [&#x24C8;](https://github.com/KenanY/primality/blob/master/primality.js#L207 "View in source") [&#x24C9;][1]
+<a href="#primalityaresexyprimesa-b">#</a> [&#x24C8;](https://github.com/KenanY/primality/blob/master/primality.js#L211 "View in source") [&#x24C9;][1]
 
 Checks if `a` and `b` are sexy primes
 
@@ -119,7 +119,7 @@ primality.areSexyPrimes(5, 11)
 <!-- div -->
 
 ### <a id="primalityaretwinprimesa-b"></a>`primality.areTwinPrimes(a, b)`
-<a href="#primalityaretwinprimesa-b">#</a> [&#x24C8;](https://github.com/KenanY/primality/blob/master/primality.js#L165 "View in source") [&#x24C9;][1]
+<a href="#primalityaretwinprimesa-b">#</a> [&#x24C8;](https://github.com/KenanY/primality/blob/master/primality.js#L169 "View in source") [&#x24C9;][1]
 
 Checks if `a` and `b` are twin primes
 
@@ -153,7 +153,7 @@ primality.areTwinPrimes(3, 5)
 <!-- div -->
 
 ### <a id="primalityversion"></a>`primality.VERSION`
-<a href="#primalityversion">#</a> [&#x24C8;](https://github.com/KenanY/primality/blob/master/primality.js#L220 "View in source") [&#x24C9;][1]
+<a href="#primalityversion">#</a> [&#x24C8;](https://github.com/KenanY/primality/blob/master/primality.js#L224 "View in source") [&#x24C9;][1]
 
 *(String)*: The semantic version number.
 

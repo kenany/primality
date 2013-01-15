@@ -15,9 +15,12 @@
     window = freeGlobal;
   }
 
+  /** Try to import the _optional_ dependency: Lo-Dash */
   try {
     var _ = require('lodash');
   } catch (e) {
+
+    /** If Lo-Dash isn't available, we replicate the API here */
     var objectRef      = new function(){},
         reNative       = RegExp('^' + (objectRef.valueOf + '')
                           .replace(/[.*+?^=!:${}()|[\]\/\\]/g, '\\$&')
@@ -64,6 +67,7 @@
     var _ = lodash;
   }
 
+  /** Variables */
   var primality,
 
       /** Detect free variable `exports` */
@@ -110,8 +114,8 @@
    */
   function isPrime(value) {
     if (_.isNaN(value) || !_.isFinite(value) || value % 1 || value < 2) return false;
-    if (value == leastFactor(value)) return true;
-    return false;
+    if (value !== leastFactor(value)) return false;
+    return true;
   }
 
   /**
