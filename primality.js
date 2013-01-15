@@ -225,13 +225,33 @@
   primality.areCousinPrimes = areCousinPrimes;
   primality.areSexyPrimes = areSexyPrimes;
 
-  // Expose primality
+  /**
+   * Expose Primality
+   *
+   * Some AMD build optimizers, like r.js, check for specific condition patterns
+   * like the following:
+   */
   if (typeof define == 'function' && typeof define.amd == 'object' && define.amd) {
+    /**
+     * Expose Primality to the global object even when an AMD loader is present
+     * in case Primality was injected by a third-party script and not intended
+     * to be loaded as a module.
+     */
     window.primality = primality;
+
+    /**
+     * Define as an anonymous module so, through path mapping, it can be
+     * referenced as anything else
+     */
     define(function() {
       return primality;
     });
   }
+
+  /**
+   * Check for `exports` after `define` in case a build optimizer adds an
+   * `exports` object
+   */
   else if (freeExports) {
 
     // Node.js or RingoJS v0.8.0+

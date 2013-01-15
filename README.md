@@ -47,7 +47,7 @@ Primality has been tested in:
 
 ## Installation
 
-Lo-Dash is an __optional__ dependency. If you're already using it, Primality
+Lo-Dash is an _optional_ dependency. If you're already using it, Primality
 will use it too. If not, that's okay, it'll be shimmed.
 
 ***
