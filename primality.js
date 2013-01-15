@@ -23,8 +23,8 @@
     // If Lo-Dash isn't available, replicate the API
     var objectRef      = new function(){},
         reNative       = RegExp('^' + (objectRef.valueOf + '')
-                          .replace(/[.*+?^=!:${}()|[\]\/\\]/g, '\\$&')
-                          .replace(/valueOf|for [^\]]+/g, '.+?') + '$'),
+                           .replace(/[.*+?^=!:${}()|[\]\/\\]/g, '\\$&')
+                           .replace(/valueOf|for [^\]]+/g, '.+?') + '$'),
         toString       = objectRef.toString,
         nativeIsArray  = reNative.test(nativeIsArray = Array.isArray) && nativeIsArray,
         nativeIsFinite = window.isFinite,
