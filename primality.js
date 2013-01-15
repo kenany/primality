@@ -9,18 +9,18 @@
  */
 (function(window, undefined) {
 
-  /** Detect free variable `global` and use it as `window` */
+  // Detect free variable `global` and use it as `window`
   var freeGlobal = typeof global == 'object' && global;
   if (freeGlobal.global === freeGlobal) {
     window = freeGlobal;
   }
 
-  /** Try to import the _optional_ dependency: Lo-Dash */
+  // Try to import the _optional_ dependency: Lo-Dash
   try {
     var _ = require('lodash');
   } catch (e) {
 
-    /** If Lo-Dash isn't available, we replicate the API here */
+    // If Lo-Dash isn't available, replicate the API
     var objectRef      = new function(){},
         reNative       = RegExp('^' + (objectRef.valueOf + '')
                           .replace(/[.*+?^=!:${}()|[\]\/\\]/g, '\\$&')
@@ -67,10 +67,10 @@
     var _ = lodash;
   }
 
-  /** Variables */
+  // Variables
   var primality,
 
-      /** Detect free variable `exports` */
+      // Detect free variable `exports`
       freeExports = typeof exports == 'object' && exports;
 
   /**
@@ -225,7 +225,7 @@
   primality.areCousinPrimes = areCousinPrimes;
   primality.areSexyPrimes = areSexyPrimes;
 
-  /** Expose primality */
+  // Expose primality
   if (typeof define == 'function' && typeof define.amd == 'object' && define.amd) {
     window.primality = primality;
     define(function() {
@@ -233,13 +233,19 @@
     });
   }
   else if (freeExports) {
+
+    // Node.js or RingoJS v0.8.0+
     if (typeof module == 'object' && module && module.exports == freeExports) {
       (module.exports = primality).primality = primality;
     }
+
+    // Narwhal or RingoJS v0.7.0-
     else {
       freeExports.primality = primality;
     }
   }
+
+  // Browser or Rhino
   else {
     window.primality = primality;
   }
