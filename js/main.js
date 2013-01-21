@@ -4,7 +4,7 @@ requirejs.config({
     'jquery': [
       'http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min',
       'http://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js',
-      '../primality/jquery/jquery.min'
+      '../../primality/vendor/jquery/jquery.min'
     ],
     'foundationMagellan': '../../primality/js/plugins',
     'rainbow': '../../primality/vendor/rainbow/rainbow-custom.min'
