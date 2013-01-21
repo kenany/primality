@@ -19,7 +19,7 @@ requirejs.config({
     }
   }
 });
-require(['foundationMagellan', 'rainbow'], function(Rainbow) {
+require(['rainbow', 'foundationMagellan'], function() {
   $(document).ready(function() {
       $(document).foundationMagellan({threshold: 75});
       Rainbow.color();
