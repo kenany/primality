@@ -216,6 +216,10 @@ header h1 {
     list-style: square;
 }
 
+.active {
+    font-weight: 500;
+}
+
 ::-moz-selection {
     background: #b3d4fc;
     text-shadow: none;
