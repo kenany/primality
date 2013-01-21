@@ -13,7 +13,7 @@ requirejs.config({
     'foundationMagellan': {
       deps: ['jquery'],
       exports: 'jQuery.fn.foundationMagellan'
-    }
+    },
     'rainbow': {
       exports: 'Rainbow'
     }
