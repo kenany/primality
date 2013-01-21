@@ -7,7 +7,7 @@ requirejs.config({
       '../primality/jquery/jquery.min'
     ],
     'foundationMagellan': '../../primality/js/plugins',
-    'rainbow': 'primality/vendor/rainbow/rainbow-custom.min'
+    'rainbow': '../../primality/vendor/rainbow/rainbow-custom.min'
   },
   shim: {
     'foundationMagellan': {
