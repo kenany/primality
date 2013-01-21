@@ -111,8 +111,38 @@ primality.areSexyPrimes(5, 11);
 
                 <section id="usage" data-magellan-destination="usage">
                     <h2>Usage</h2>
-                </section>
+                    <p>Primality's flagship method is <code>primality()</code>, which works as you might expect it to:</p>
+                    <pre><code data-language="javascript">primality(7);
+// => true
 
+primality(6);
+// => false</code></pre>
+
+
+                    <p>Of course, you can pass strings instead of numbers if you'd like:</p>
+                    <pre><code data-language="javascript">primality('13');
+// => true</code></pre>
+
+
+                    <p>Primality can even do arrays. If any of the values of an array are not prime, false is returned.</p>
+                    <pre><code data-language="javascript">primality([17, 19, 23]);
+// => true
+
+primality([17, 20, 23]);
+// => false</code></pre>
+
+
+                    <p>Eventually, primality tests get boring. In order to mitigate this boredom, Primality can also tell you if a pair of numbers are twin or sexy primes.</p>
+                    <p>Twin primes are prime numbers that differ from another by two. Similarly, cousin primes differ by four and sexy primes differ by six.</p>
+                    <pre><code data-language="javascript">primality.areTwinPrimes(3, 5)
+// => true
+
+primality.areCousinPrimes(3, 7)
+// => true
+
+primality.areSexyPrimes(5, 11)
+// => true</code></pre>
+                </section>
             </div>
         </div>
         <script data-main="js/main" src="vendor/requirejs/require.js"></script>
