@@ -26,24 +26,20 @@
           <h1>Primality</h1>
           <h3 class="subheader">A JavaScript library for prime numbers.</h3>
         </hgroup>
-        <pre class="intro">
-          <code class="extended-intro lang-js">
-            primality(<span class="number">7</span>);
-            <span class="comment">// =&gt; true</span>
+        <pre class="intro"><code data-language="javascript">primality(7);
+// => true
 
-            primality(<span class="string">'13'</span>);
-            <span class="comment">// =&gt; true</span>
+primality('13');
+// => true
 
-            primality([<span class="number">17</span>, <span class="number">19</span>, <span class="number">23</span>]);
-            <span class="comment">// =&gt; true</span>
+primality([17, 19, 23]);
+// => true
 
-            primality.areTwinPrimes(<span class="number">3</span>, <span class="number">5</span>);
-            <span class="comment">// =&gt; true</span>
+primality.areTwinPrimes(3, 5);
+// => true
 
-            primality.areSexyPrimes(<span class="number">5</span>, <span class="number">11</span>);
-            <span class="comment">// =&gt; true</span>
-          </code>
-        </pre>
+primality.areSexyPrimes(5, 11);
+// => true</code></pre>
         <p id="social">
           <iframe src="//ghbtns.com/github-btn.html?user=kenany&amp;repo=primality&amp;count=true&amp;type=watch" width="110" height="20" frameborder="0" scrolling="0" allowtransparency=""></iframe>
           <iframe src="//ghbtns.com/github-btn.html?user=kenany&amp;repo=primality&amp;count=true&amp;type=fork" width="95" height="20" frameborder="0" scrolling="0" allowtransparency=""></iframe>
@@ -85,18 +81,29 @@
         <section id="installation" data-magellan-destination="installation">
           <h2>Installation</h2>
           <p>In browsers:</p>
-          <pre><code class="lang-html"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"primality.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
-          </code></pre>
+          <pre><code data-language="html">&lt;script src=&quot;primality.js&quot;&gt;&lt;/script&gt;</code></pre>
+
           <p>Using npm:</p>
-          <pre><code><span class="title">npm</span> install primality</code></pre>
+          <pre><code>npm install primality</code></pre>
+
           <p>In Node.js and RingoJS v0.8.0+:</p>
-          <pre><code class="lang-javascript"><span class="keyword">var</span> primality = require(<span class="string">&apos;primality&apos;</span>);</code></pre>
+          <pre><code data-language="javascript">var primality = require('primality');</code></pre>
+
           <p>In RingoJS v0.7.0-:</p>
-          <pre><code class="lang-javascript"><span class="keyword">var</span> primality = require(<span class="string">&apos;primality&apos;</span>).primality;</code></pre>
+          <pre><code data-language="javascript">var primality = require('primality').primality;</code></pre>
+
           <p>In Rhino:</p>
-          <pre><code class="lang-javascript">load(<span class="string">&apos;primality.js&apos;</span>);</code></pre>
+          <pre><code data-language="javascript">load('primality.js');</code></pre>
+
           <p>In an AMD loader like RequireJS:</p>
-          <pre><code class="lang-javascript">require({  <span class="string">&apos;paths&apos;</span>: {    <span class="string">&apos;primality&apos;</span>: <span class="string">&apos;path/to/primality&apos;</span>  }},[<span class="string">&apos;primality&apos;</span>], <span class="keyword">function</span>(primality) {  console.log(primality.VERSION);});</code></pre>
+          <pre><code data-language="javascript">require({
+  'paths': {
+    'primality': 'path/to/primality'
+  }
+},
+['primality'], function(primality) {
+  console.log(primality.VERSION);
+});</code></pre>
         </section>
 
         <section id="usage" data-magellan-destination="usage">

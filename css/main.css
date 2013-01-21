@@ -38,108 +38,76 @@ hgroup h1 { display: inline }
 
 /* Code
    ========================================================================== */
-code, pre {
-  font-family: Menlo, Monaco, Andale Mono, Courier New, monospace;
-  font-weight: normal;
-  background: #fff;
-}
+/**
+ * GitHub theme
+ *
+ * @author Craig Campbell
+ * @version 1.0.4
+ */
 pre {
-  margin: 1em 0;
-  padding: .5em 40px;
-  word-wrap: break-word;
+    border: 1px solid #ccc;
+    word-wrap: break-word;
+    padding: 6px 10px;
+    line-height: 19px;
+    margin-bottom: 20px;
+}
+code {
+    border: 1px solid #eaeaea;
+    margin: 0px 2px;
+    padding: 0px 5px;
+    font-size: 12px;
 }
 pre code {
-  display: block;
-  padding: 0.5em;
-  background: #23241f;
+    border: 0px;
+    padding: 0px;
+    margin: 0px;
+    -moz-border-radius: 0px;
+    -webkit-border-radius: 0px;
+    border-radius: 0px;
 }
-pre .tag,
-pre code {
-  color: #f8f8f2;
+pre, code {
+    font-family: Consolas, 'Liberation Mono', Courier, monospace;
+    color: #333;
+    background: #f8f8f8;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
 }
-pre .keyword,
-pre .function,
-pre .literal,
-pre .change,
-pre .winutils,
-pre .flow,
-pre .lisp .title,
-pre .clojure .built_in,
-pre .nginx .title,
-pre .tex .special {
-  color: #66d9ef;
+pre, pre code {
+    font-size: 13px;
 }
-pre .variable,
-pre .params {
-  color: #fd9720;
+pre .comment {
+    color: #998;
 }
-pre .constant {
-  color: #66d9ef;
+pre .support {
+    color: #0086B3;
 }
-pre .title,
-pre .class .title,
-pre .css .class {
-  color: #a6e22e;
+pre .tag, pre .tag-name {
+    color: navy;
 }
-pre .attribute,
-pre .symbol,
-pre .symbol .string,
-pre .tag .title,
-pre .value,
-pre .css .tag {
-  color: #f92672;
+pre .keyword, pre .css-property, pre .vendor-prefix, pre .sass, pre .class, pre .id, pre .css-value, pre .entity.function, pre .storage.function {
+    font-weight: bold;
 }
-pre .number,
-pre .preprocessor,
+pre .css-property, pre .css-value, pre .vendor-prefix, pre .support.namespace {
+    color: #333;
+}
+pre .constant.numeric, pre .keyword.unit, pre .hex-color {
+    font-weight: normal;
+    color: #099;
+}
+pre .entity.class {
+    color: #458;
+}
+pre .entity.id, pre .entity.function {
+    color: #900;
+}
+pre .attribute, pre .variable {
+    color: teal;
+}
+pre .string, pre .support.value  {
+    font-weight: normal;
+    color: #d14;
+}
 pre .regexp {
-  color: #ae81ff;
-}
-pre .tag .value,
-pre .string,
-pre .css .id,
-pre .subst,
-pre .haskell .type,
-pre .ruby .class .parent,
-pre .built_in,
-pre .sql .aggregate,
-pre .django .template_tag,
-pre .django .variable,
-pre .smalltalk .class,
-pre .django .filter .argument,
-pre .smalltalk .localvars,
-pre .smalltalk .array,
-pre .attr_selector,
-pre .pseudo,
-pre .addition,
-pre .stream,
-pre .envvar,
-pre .apache .tag,
-pre .apache .cbracket,
-pre .tex .command,
-pre .prompt {
-  color: #e6db74;
-}
-pre .comment,
-pre .javadoc,
-pre .java .annotation,
-pre .python .decorator,
-pre .template_comment,
-pre .pi,
-pre .doctype,
-pre .deletion,
-pre .shebang,
-pre .apache .sqbracket,
-pre .tex .formula {
-  color: #75715e;
-}
-pre .coffeescript .javascript,
-pre .javascript .xml,
-pre .tex .formula {
-  opacity: 0.5;
-}
-pre .xml .javascript,
-pre .xml .vbscript,
-pre .xml .css,
-pre .xml .cdata {
-  opacity: 0.5;
+    color: #009926;
 }

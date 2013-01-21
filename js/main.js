@@ -6,15 +6,22 @@ requirejs.config({
       'http://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js',
       '../primality/jquery/jquery.min'
     ],
-    'foundationMagellan': '../../primality/js/plugins'
+    'foundationMagellan': '../../primality/js/plugins',
+    'rainbow': '../primality/rainbow/rainbow-custom.min'
   },
   shim: {
     'foundationMagellan': {
       deps: ['jquery'],
       exports: 'jQuery.fn.foundationMagellan'
     }
+    'rainbow': {
+      exports: 'Rainbow'
+    }
   }
 });
-require(['foundationMagellan'], function() {
-  $(document).foundationMagellan({threshold: 75});
+require(['foundationMagellan', 'rainbow'], function(Rainbow) {
+  $(document).ready(function() {
+      $(document).foundationMagellan({threshold: 75});
+      Rainbow.color();
+  });
 });
