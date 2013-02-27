@@ -8,6 +8,7 @@
 </head>
 <body>
     <div id="mocha"></div>
+    <script src="../vendor/mocha/mocha.js"></script>
     <script src="../vendor/requirejs/require.js"></script>
     <script>
       /* Shim for Date.now */
@@ -23,11 +24,11 @@
         paths: {
           'suite': '../../test/spec/suite',
           'runner': '../../test/runner/mocha',
-          'mocha': '../mocha/mocha',
+          //'mocha': '../mocha/mocha',
           'chai': '../chai/chai'
         }
       });
-      require(['require', 'chai', 'mocha'], function(require, chai) {
+      require(['require', 'chai'/*, 'mocha'*/], function(require, chai) {
         var should = chai.should();
         mocha.setup('bdd');
         require(['suite'], function(primality) {
