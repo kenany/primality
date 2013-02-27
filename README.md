@@ -31,7 +31,8 @@ example that Primality tries to follow.
   - Works with numbers disguised as strings
   - Also does arrays
   - Checks if a pair of numbers are either
-  [twin](https://en.wikipedia.org/wiki/Twin_prime) or
+  [twin](https://en.wikipedia.org/wiki/Twin_prime),
+  [cousin](https://en.wikipedia.org/wiki/Cousin_prime), or
   [sexy](https://en.wikipedia.org/wiki/Sexy_prime) primes
   - Less than 500 bytes minified and gzipped
   - AMD loader support
