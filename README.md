@@ -63,8 +63,8 @@ In browsers:
 
 Using npm:
 
-```
-npm install primality
+``` shell
+$ npm install primality
 ```
 
 In Node.js and RingoJS v0.8.0+:
