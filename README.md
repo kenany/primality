@@ -41,7 +41,7 @@ example that Primality tries to follow.
 
 Primality has been tested in:
 
-  - Chrome 6–23
+  - Chrome 6–25
   - Firefox 15–18
   - Internet Explorer 10
   - Opera 11.6
