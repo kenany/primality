@@ -1,6 +1,7 @@
 # primality.js
 
-[![Build Status](https://travis-ci.org/KenanY/primality.png)](https://travis-ci.org/KenanY/primality) [![Dependency Status](https://gemnasium.com/KenanY/primality.png)](https://gemnasium.com/KenanY/primality)
+[![Build Status](https://travis-ci.org/KenanY/primality.png)](https://travis-ci.org/KenanY/primality)
+[![Dependency Status](https://gemnasium.com/KenanY/primality.png)](https://gemnasium.com/KenanY/primality)
 
 Primality is a JavaScript library for prime numbers. That might sound a bit
 silly at first, especially if you're only thinking about
