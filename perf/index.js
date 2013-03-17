@@ -6,52 +6,26 @@ var Benchmark = require('benchmark'),
     suite     = new Benchmark.Suite;
 
 suite
-  .add('primality:integer', function() {
+  .add('primality', function() {
     primality(2);
     primality(17);
     primality(839);
     primality(3733);
     primality(999983);
   })
-  .add('primality:integerArray', function() {
-    primality([2, 17, 839, 3733, 999983]);
-  })
-  .add('primality:string', function() {
-    primality('2');
-    primality('17');
-    primality('839');
-    primality('3733');
-    primality('999983');
-  })
-  .add('primality:stringArray', function() {
-    primality(['2', '17', '839', '3733', '999983']);
-  })
-
-  .add('numbers:integer', function() {
+  .add('numbers#simple', function() {
     numbers.prime.simple(2);
     numbers.prime.simple(17);
     numbers.prime.simple(839);
     numbers.prime.simple(3733);
     numbers.prime.simple(999983);
   })
-  .add('numbers:integerArray', function() {
-    var refArray = [2, 17, 839, 3733, 999983];
-    for (var i = 0, len = refArray.length; i < len; i++) {
-      numbers.prime.simple(refArray[i]);
-    }
-  })
-  .add('numbers:string', function() {
-    numbers.prime.simple('2');
-    numbers.prime.simple('17');
-    numbers.prime.simple('839');
-    numbers.prime.simple('3733');
-    numbers.prime.simple('999983');
-  })
-  .add('numbers:stringArray', function() {
-    var refArray = ['2', '17', '839', '3733', '999983'];
-    for (var i = 0, len = refArray.length; i < len; i++) {
-      numbers.prime.simple(refArray[i]);
-    }
+  .add('numbers#millerRabin', function() {
+    numbers.prime.millerRabin(2);
+    numbers.prime.millerRabin(17);
+    numbers.prime.millerRabin(839);
+    numbers.prime.millerRabin(3733);
+    numbers.prime.millerRabin(999983);
   })
 
   .on('cycle', function(event) {
