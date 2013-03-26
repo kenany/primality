@@ -38,7 +38,8 @@
     "grunt-contrib-jshint": "~0.3.0",
     "grunt-contrib-uglify": "~0.2.0",
     "grunt-mocha": "~0.2.2",
-    "numbers": "~0.4.0"
+    "numbers": "~0.4.0",
+    "testem": "~0.2.77"
   },
   "optionalDependencies": {
     "lodash": "~1.0.1"
