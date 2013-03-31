@@ -3,7 +3,7 @@
  * (c) 2012–2013 Kenan Yildirim
  *
  * Includes functions from Lo-Dash
- * (c) 2012 John-David Dalton
+ * (c) 2012–2013 The Dojo Foundation
  *
  * Available under MIT license
  */
