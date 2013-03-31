@@ -15,12 +15,11 @@
     window = freeGlobal;
   }
 
-  // Try to import the _optional_ dependency: Lo-Dash
+  // Try to import the _optional_ dependency Lo-Dash.
+  // If it is unavailable, replicate the API.
   try {
     var _ = require('lodash');
   } catch (e) {
-
-    // If Lo-Dash isn't available, replicate the API
     var objectRef      = new function(){},
         reNative       = RegExp('^' + (objectRef.valueOf + '')
                            .replace(/[.*+?^=!:${}()|[\]\/\\]/g, '\\$&')
