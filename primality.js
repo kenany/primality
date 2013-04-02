@@ -15,10 +15,14 @@
     window = freeGlobal;
   }
 
+  var primality,
+      freeExports = typeof exports == 'object' && exports,
+      _ = null;
+
   // Try to import the _optional_ dependency Lo-Dash.
   // If it is unavailable, replicate the API.
   try {
-    var _ = require('lodash');
+    _ = require('lodash');
   } catch (e) {
     var arrayClass     = '[object Array]',
         numberClass    = '[object Number]',
@@ -58,14 +62,8 @@
     lodash.isNumber = isNumber;
     lodash.isNaN    = isNaN;
 
-    var _ = lodash;
+    _ = lodash;
   }
-
-  // Variables
-  var primality,
-
-      // Detect free variable `exports`
-      freeExports = typeof exports == 'object' && exports;
 
   /**
    * Finds the smallest factor of `n`
