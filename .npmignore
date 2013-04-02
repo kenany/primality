@@ -2,6 +2,7 @@
 CONTRIBUTING.md
 doc/*.php
 node_modules/
+test/*.html
 vendor/chai/
 vendor/docdown/
 vendor/mocha/
