@@ -16,10 +16,19 @@ module.exports = function(grunt) {
                 ' *\n' +
                 ' * Available under MIT license\n' +
                 ' */',
+        report: 'gzip',
+        compress: {
+          'comparisons': false,
+          'unsafe': true,
+          'unsafe_comps': true,
+          'warnings': false
+        },
         mangle: {
           except: ['define']
         },
-        ascii_only: true
+        'ascii_only': true,
+        'comments': /@cc_on|@license|@preserve/i,
+        'max_line_len': 500,
       },
       dist: {
         files: {
