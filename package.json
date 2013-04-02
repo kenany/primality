@@ -41,9 +41,6 @@
     "numbers": "~0.4.0",
     "testem": "~0.2.77"
   },
-  "optionalDependencies": {
-    "lodash": "~1.0.1"
-  },
   "engines": [
     "node",
     "rhino"
