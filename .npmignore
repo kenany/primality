@@ -1,4 +1,5 @@
 .*
+CONTRIBUTING.md
 doc/*.php
 node_modules/
 vendor/chai/
