@@ -20,30 +20,25 @@
   try {
     var _ = require('lodash');
   } catch (e) {
-    var objectRef      = new function(){},
-        reNative       = RegExp('^' + (objectRef.valueOf + '')
-                           .replace(/[.*+?^=!:${}()|[\]\/\\]/g, '\\$&')
-                           .replace(/valueOf|for [^\]]+/g, '.+?') + '$'),
+    var arrayClass     = '[object Array]',
+        numberClass    = '[object Number]',
+        objectRef      = Object(),
+        reNative       = RegExp('^' +
+                           String(objectRef.valueOf)
+                             .replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+                             .replace(/valueOf|for [^\]]+/g, '.+?') + '$'
+                         ),
         toString       = objectRef.toString,
         nativeIsArray  = reNative.test(nativeIsArray = Array.isArray) && nativeIsArray,
         nativeIsFinite = window.isFinite,
         nativeIsNaN    = window.isNaN,
-        arrayClass     = '[object Array]',
-        numberClass    = '[object Number]',
-        argsAreObjects = arguments.constructor == Object;
+        lodash         = {},
+        support        = lodash.support = {};
 
-    function lodash(value) {
-      if (value && typeof value == 'object' && value.__wrapped__) {
-        return value;
-      }
-      if (!(this instanceof lodash)) {
-        return new lodash(value);
-      }
-      this.__wrapped__ = value;
-    }
+    support.argsObject = arguments.constructor == Object;
 
     var isArray = nativeIsArray || function(value) {
-      return (argsAreObjects && value instanceof Array) || toString.call(value) == arrayClass;
+      return (support.argsObject && value instanceof Array) || toString.call(value) == arrayClass;
     };
 
     function isFinite(value) {
