@@ -148,10 +148,11 @@ primality.areSexyPrimes(5, 11)
 
 ## Release Notes
 
-### 1.3.0
+### 1.4.0
 
-  - Added `areCousinPrimes` function
-  - Lo-Dash is now an __optional__ dependency
-  - Missing semicolon
+  - Attempt to return `false` sooner when checking for primality
+  - Should work with browserify
+  - Update internal Lo-Dash API
+  - Prevent internal variable `_` from appearing as unused
 
 The full changelog is available [here](https://github.com/KenanY/primality/wiki/Changelog).
