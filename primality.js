@@ -15,9 +15,12 @@
     window = freeGlobal;
   }
 
-  var primality,
-      freeExports = typeof exports == 'object' && exports,
-      _ = null;
+  var primality;
+
+  // Detect free variable `exports`
+  var freeExports = typeof exports == 'object' && exports;
+
+  var _ = null;
 
   // Try to import the _optional_ dependency Lo-Dash.
   // If it is unavailable, replicate the API.
