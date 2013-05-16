@@ -9,6 +9,12 @@
  */
 (function(window) {
 
+  // Detect free variable `exports`
+  var freeExports = typeof exports == 'object' && exports;
+
+  /** Detect free variable `module` */
+  var freeModule = typeof module == 'object' && module && module.exports == freeExports && module;
+
   // Detect free variable `global` and use it as `window`
   var freeGlobal = typeof global == 'object' && global;
   if (freeGlobal.global === freeGlobal || freeGlobal.window === freeGlobal) {
@@ -17,9 +23,6 @@
 
   var primality;
 
-  // Detect free variable `exports`
-  var freeExports = typeof exports == 'object' && exports;
-
   var _ = null;
 
   // Try to import the _optional_ dependency Lo-Dash.
@@ -27,8 +30,7 @@
   try {
     _ = require('lodash');
   } catch (e) {
-    var arrayClass     = '[object Array]',
-        numberClass    = '[object Number]',
+    var numberClass    = '[object Number]',
         objectRef      = Object(),
         reNative       = RegExp('^' +
                            String(objectRef.valueOf)
@@ -38,15 +40,10 @@
         toString       = objectRef.toString,
         nativeIsArray  = reNative.test(nativeIsArray = Array.isArray) && nativeIsArray,
         nativeIsFinite = window.isFinite,
-        nativeIsNaN    = window.isNaN,
-        lodash         = {},
-        support        = lodash.support = {};
+        nativeIsNaN    = window.isNaN
+        lodash         = {};
 
-    support.argsObject = arguments.constructor == Object;
-
-    var isArray = nativeIsArray || function(value) {
-      return (support.argsObject && value instanceof Array) || toString.call(value) == arrayClass;
-    };
+    var isArray = nativeIsArray;
 
     function isFinite(value) {
       return nativeIsFinite(value) && !nativeIsNaN(parseFloat(value));
@@ -247,10 +244,10 @@
    * Check for `exports` after `define` in case a build optimizer adds an
    * `exports` object
    */
-  else if (freeExports) {
+  else if (freeExports && !freeExports.nodeType) {
 
     // Node.js or RingoJS v0.8.0+
-    if (typeof module == 'object' && module && module.exports == freeExports) {
+    if (freeModule) {
       (module.exports = primality).primality = primality;
     }
 
