@@ -16,8 +16,8 @@ or do with prime numbers.
 
 ## Download
 
-  * [Development build](https://raw.github.com/KenanY/primality/1.3.0/primality.js)
-  * [Production build](https://raw.github.com/KenanY/primality/1.3.0/primality.min.js)
+  * [Development build](https://raw.github.com/KenanY/primality/1.5.0/dist/primality.js)
+  * [Production build](https://raw.github.com/KenanY/primality/1.5.0/dist/primality.min.js)
 
 ## Features
 
@@ -52,7 +52,7 @@ In browsers:
 
 Using npm:
 
-``` shell
+``` bash
 $ npm install primality
 ```
 
@@ -137,11 +137,9 @@ primality.areSexyPrimes(5, 11)
 
 ## Release Notes
 
-### 1.4.0
+### 1.5.0
 
-  - Attempt to return `false` sooner when checking for primality
-  - Should work with browserify
-  - Update internal Lo-Dash API
-  - Prevent internal variable `_` from appearing as unused
+  - Wilson prime check (#6)
+  - Lo-Dash is not even an optional dependency anymore
 
 The full changelog is available [here](https://github.com/KenanY/primality/wiki/Changelog).
