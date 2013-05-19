@@ -202,7 +202,7 @@ require.relative = function(parent) {
 };
 require.register("primality/primality.js", function(exports, require, module){
 /*!
- * primality v1.4.0
+ * primality v1.5.0
  * (c) 2012–2013 Kenan Yildirim
  *
  * Includes functions from Lo-Dash

@@ -18,7 +18,7 @@ module.exports = function(grunt) {
                 ' * (c) 2012–<%= grunt.template.today(\"yyyy\") %> <%= pkg.author.name %>\n' +
                 ' *\n' +
                 ' * Includes functions from Lo-Dash\n' +
-                ' * (c) 2012 John-David Dalton\n' +
+                ' * (c) 2012–2013 The Dojo Foundation\n' +
                 ' *\n' +
                 ' * Available under MIT license\n' +
                 ' */',
