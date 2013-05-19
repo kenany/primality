@@ -14,12 +14,6 @@ This profound understanding of prime numbers led me to create Primality, which
 aims to be a comprehensive library for anything you could possibly want to know
 or do with prime numbers.
 
-Credit goes out to [Lo-Dash](http://lodash.com/) for inspiring me to make a
-JavaScript library. Currently, Lo-Dash is my personal standard for any
-JavaScript library. Solid support for browsers and environments, extensive
-documentation, and plenty of unit testing has made it the prime (pun intended)
-example that Primality tries to follow.
-
 ## Download
 
   * [Development build](https://raw.github.com/KenanY/primality/1.3.0/primality.js)
@@ -49,11 +43,6 @@ Primality has been tested in:
   - Node.js 0.6.21–0.8.21
 
 ## Installation
-
-Lo-Dash is an _optional_ dependency. If you're already using it, Primality
-will use it too. If not, that's okay, it'll be shimmed.
-
-***
 
 In browsers:
 
