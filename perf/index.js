@@ -1,7 +1,7 @@
 /* https://github.com/KenanY/primality/wiki/Performance */
 
 var Benchmark = require('benchmark'),
-    primality = require('../primality.js'),
+    primality = require('../dist/primality.js'),
     numbers   = require('numbers'),
     suite     = new Benchmark.Suite;
 
