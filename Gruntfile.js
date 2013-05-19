@@ -38,7 +38,7 @@ module.exports = function(grunt) {
       },
       dist: {
         files: {
-          'primality.min.js': ['primality.js']
+          'dist/primality.min.js': ['dist/primality.js']
         }
       }
     },
