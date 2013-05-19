@@ -24,23 +24,24 @@ or do with prime numbers.
   - Check the primality of a number
   - Works with numbers disguised as strings
   - Also does arrays
-  - Checks if a pair of numbers are either
-  [twin](https://en.wikipedia.org/wiki/Twin_prime),
-  [cousin](https://en.wikipedia.org/wiki/Cousin_prime), or
-  [sexy](https://en.wikipedia.org/wiki/Sexy_prime) primes
-  - Less than 500 bytes minified and gzipped
-  - AMD loader support
+  - Provides checks for the following classes of prime numbers:
+    - [twin](https://en.wikipedia.org/wiki/Twin_prime)
+    - [cousin](https://en.wikipedia.org/wiki/Cousin_prime)
+    - [sexy](https://en.wikipedia.org/wiki/Sexy_prime)
+    - [Wilson](https://en.wikipedia.org/wiki/Wilson_prime)
+  - Less than 2 kibibytes minified and gzipped
+  - CommonJS and AMD loader support
 
 ## Support
 
 Primality has been tested in:
 
-  - Chrome 6–25
-  - Firefox 15–19
+  - Chrome 6–26
+  - Firefox 15–10
   - Internet Explorer 10
-  - Opera 11.6
+  - Opera 11.6-12.15
   - Safari 5.0.5–5.1
-  - Node.js 0.6.21–0.8.21
+  - Node.js 0.6.21–0.10.5
 
 ## Installation
 
@@ -125,13 +126,21 @@ Twin primes are prime numbers that differ from another by two. Similarly, cousin
 primes differ by four and sexy primes differ by six.
 
 ``` javascript
-primality.areTwinPrimes(3, 5)
+primality.areTwinPrimes(3, 5);
 // => true
 
-primality.areCousinPrimes(3, 7)
+primality.areCousinPrimes(3, 7);
 // => true
 
-primality.areSexyPrimes(5, 11)
+primality.areSexyPrimes(5, 11);
+// => true
+```
+
+You can also check for Wilson primes. Only three Wilson primes are known at the
+moment: 5, 13, and 563.
+
+``` javascript
+primality.isWilsonPrime(563);
 // => true
 ```
 
