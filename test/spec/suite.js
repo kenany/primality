@@ -1,4 +1,4 @@
-define(['../../primality'], function(primality) {
+define(['../../dist/primality'], function(primality) {
   describe('primality', function() {
     it('should expose version number', function () {
       primality.VERSION.should.match(/[0-9]+\.[0-9]+\.[0-9]+/);
@@ -49,6 +49,12 @@ define(['../../primality'], function(primality) {
         primality.areSexyPrimes(5, 11).should.equal(true);
         primality.areSexyPrimes(11, 16).should.equal(false);
         primality.areSexyPrimes(18, 24).should.equal(false);
+      });
+      it('is a wilson prime', function() {
+        primality.isWilsonPrime(5).should.equal(true);
+        primality.isWilsonPrime(13).should.equal(true);
+        primality.isWilsonPrime(563).should.equal(true);
+        primality.isWilsonPrime(564).should.equal(false);
       });
     });
   });

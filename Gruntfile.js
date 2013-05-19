@@ -1,9 +1,15 @@
 module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
-    jshint: {
-      all: ['grunt.js', 'primality.js'],
-      options: grunt.file.readJSON('.jshintrc')
+    shell: {
+      build: {
+        options: {
+          stdout: true,
+          stderr: true,
+          failOnError: true
+        },
+        command: 'component build -o dist -n primality -s primality'
+      }
     },
     uglify: {
       options: {
@@ -48,10 +54,10 @@ module.exports = function(grunt) {
     });
   });
 
-  grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-mocha');
+  grunt.loadNpmTasks('grunt-shell');
 
   grunt.registerTask('test', ['mocha']);
-  grunt.registerTask('default', ['test', 'uglify', 'doc']);
+  grunt.registerTask('default', ['shell:build', 'test', 'uglify', 'doc']);
 };
