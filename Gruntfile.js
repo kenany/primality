@@ -54,6 +54,27 @@ module.exports = function(grunt) {
     });
   });
 
+  grunt.registerTask('upgrade', 'Update version strings', function(newVersion) {
+    if (arguments.length === 0) {
+      grunt.log.writeln(this.name + ", no args");
+    } else {
+      var fs = require('graceful-fs');
+      var files = [
+        './README.md',
+        './package.json',
+        './component.json',
+        './bower.json',
+        './primality.js'
+      ]
+      var regexp = RegExp(grunt.config.data.pkg.version, 'g');
+
+      grunt.util._.forEach(files, function(file, index) {
+        var data = fs.readFileSync(file, 'utf8');
+        fs.writeFileSync(file, data.replace(regexp, newVersion));
+      });
+    }
+  });
+
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-mocha');
   grunt.loadNpmTasks('grunt-shell');
