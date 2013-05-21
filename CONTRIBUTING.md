@@ -34,6 +34,5 @@ $ testem
 Don't do this in pull requests.
 
 ``` bash
-$ grunt upgrade:1.0.0 default
-$ npm publish
+$ grunt upgrade:1.0.0 release
 ```

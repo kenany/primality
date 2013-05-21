@@ -1,14 +1,29 @@
 module.exports = function(grunt) {
+  var shellOptions = {
+    stdout: true,
+    stderr: true,
+    failOnError: true
+  };
+
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     shell: {
       build: {
-        options: {
-          stdout: true,
-          stderr: true,
-          failOnError: true
-        },
-        command: 'component build -o dist -n primality -s primality'
+        options: shellOptions,
+        command: 'component build -o dist -n <%= pkg.name %> -s <%= pkg.name %>'
+      },
+      commit: {
+        options: shellOptions,
+        command: [
+          'git checkout master',
+          'git commit -am "Release <%= pkg.version %>"',
+          'git tag -a <%= pkg.version %> -m "<%= pkg.version %>"',
+          'npm publish'
+        ].join(' && ')
+      },
+      push: {
+        options: shellOptions,
+        command: 'git push origin --tags && git push origin --all'
       }
     },
     uglify: {
@@ -80,5 +95,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-shell');
 
   grunt.registerTask('test', ['mocha']);
-  grunt.registerTask('default', ['shell:build', 'test', 'uglify', 'doc']);
+  grunt.registerTask('build', ['shell:build', 'test', 'uglify', 'doc']);
+  grunt.registerTask('release', ['build', 'shell:commit', 'shell:push']);
+  grunt.registerTask('default', ['build']);
 };
