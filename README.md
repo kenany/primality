@@ -47,8 +47,19 @@ Primality has been tested in:
 
 In browsers:
 
+- Regular
 ``` html
 <script src="primality.js"></script>
+```
+
+- Bower
+``` shell
+$ bower install primality
+```
+
+- Component
+``` shell
+$ component install primality
 ```
 
 Using npm:
