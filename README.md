@@ -159,7 +159,6 @@ primality.isWilsonPrime(563);
 
 ### 1.5.1
 
-  - Wilson prime check (#6)
-  - Lo-Dash is not even an optional dependency anymore
+  - Repo maintenance
 
 The full changelog is available [here](https://github.com/KenanY/primality/wiki/Changelog).
