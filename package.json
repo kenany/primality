@@ -33,6 +33,7 @@
     "bench": "node perf/index.js"
   },
   "devDependencies": {
+    "async": "~0.2.0",
     "benchmark": "~1.0.0",
     "component-builder": "~0.8.0",
     "graceful-fs": "~1.2.0",
