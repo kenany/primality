@@ -20,20 +20,6 @@ module.exports = function(grunt) {
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
-    shell: {
-      commit: {
-        options: shellOptions,
-        command: [
-          'git checkout master',
-          'git commit -am "Release <%= pkg.version %>"',
-          'git tag -a <%= pkg.version %> -m "<%= pkg.version %>"'
-        ].join(' && ')
-      },
-      push: {
-        options: shellOptions,
-        command: 'git push origin --tags && git push origin --all'
-      }
-    },
     uglify: {
       regular: {
         options: {
@@ -176,10 +162,8 @@ module.exports = function(grunt) {
 
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-mocha');
-  grunt.loadNpmTasks('grunt-shell');
 
   grunt.registerTask('test', ['mocha']);
   grunt.registerTask('build', ['comp', 'test', 'uglify:regular', 'uglify:min', 'doc']);
-  grunt.registerTask('release', ['build', 'shell:commit', 'shell:push']);
   grunt.registerTask('default', ['build']);
 };
