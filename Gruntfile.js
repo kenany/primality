@@ -168,7 +168,7 @@ module.exports = function(grunt) {
 
       async.each(files, upgradeVersion, function(err) {
         var pkg = grunt.file.readJSON('package.json');
-        grunt.config.data.pkg = concatOptions.process.data = pkg;
+        grunt.config.data.pkg = pkg;
         done();
       });
     }
