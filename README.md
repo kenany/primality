@@ -16,8 +16,8 @@ or do with prime numbers.
 
 ## Download
 
-  * [Development build](https://raw.github.com/KenanY/primality/1.5.3/dist/primality.js)
-  * [Production build](https://raw.github.com/KenanY/primality/1.5.3/dist/primality.min.js)
+  * [Development build](https://raw.github.com/KenanY/primality/1.5.4/dist/primality.js)
+  * [Production build](https://raw.github.com/KenanY/primality/1.5.4/dist/primality.min.js)
 
 ## Features
 
