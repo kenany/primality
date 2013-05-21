@@ -137,11 +137,11 @@ module.exports = function(grunt) {
   });
 
   grunt.loadNpmTasks('grunt-contrib-uglify');
-  //grunt.loadNpmTasks('grunt-mocha');
+  grunt.loadNpmTasks('grunt-mocha');
   grunt.loadNpmTasks('grunt-shell');
 
   grunt.registerTask('test', ['mocha']);
-  grunt.registerTask('build', ['shell:build', 'test', 'uglify', 'doc']);
+  grunt.registerTask('build', ['comp', 'test', 'uglify', 'doc']);
   grunt.registerTask('release', ['build', 'shell:commit', 'shell:push']);
   grunt.registerTask('default', ['build']);
 };
