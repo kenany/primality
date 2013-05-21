@@ -59,7 +59,7 @@ $ bower install primality
 
 - Component
 ``` bash
-$ component install primality
+$ component install KenanY/primality
 ```
 
 Using npm:
