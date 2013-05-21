@@ -8,10 +8,6 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     shell: {
-      build: {
-        options: shellOptions,
-        command: 'component build -o dist -n <%= pkg.name %> -s <%= pkg.name %>'
-      },
       commit: {
         options: shellOptions,
         command: [
@@ -62,6 +58,56 @@ module.exports = function(grunt) {
     }
   });
 
+  grunt.registerTask('comp', 'Component compile', function() {
+    var path = require('path');
+    var Builder = require('component-builder');
+    var fs = require('graceful-fs');
+    var mkdir = require('mkdirp');
+    var done = this.async();
+    var builder = new Builder(process.cwd());
+    var jsPath = path.join('dist', grunt.template.process('<%= pkg.name %>.js'));
+
+    mkdir.sync('dist');
+    builder.copyAssetsTo('dist');
+
+    builder.build(function(err, obj){
+      if (err) grunt.fail.fatal(err.message);
+
+      var js = '';
+      js += ';(function(window) {\n';
+      js += obj.require;
+      js += obj.js;
+
+      var umd = [
+        'var freeExports = typeof exports == "object" && exports;',
+        'var freeModule = typeof module == "object" && module && module.exports == freeExports && module;',
+        'if (typeof define == "function" && typeof define.amd == "object" && define.amd) {',
+        '  window.<%= pkg.name %> = <%= pkg.name %>;',
+        '  define(function() {',
+        '    return <%= pkg.name %>;',
+        '  });',
+        '}',
+        'else if (freeExports && !freeExports.nodeType) {',
+        '  if (freeModule) {',
+        '    (freeModule.exports = <%= pkg.name %>).<%= pkg.name %> = <%= pkg.name %>;',
+        '  }',
+        '  else {',
+        '    freeExports.<%= pkg.name %> = <%= pkg.name %>;',
+        '  }',
+        '}',
+        'else {',
+        '  window.<%= pkg.name %> = <%= pkg.name %>;',
+        '}'
+      ];
+
+      js += grunt.template.process(umd.join('\n'));
+      js += '}(this));';
+
+      fs.writeFile(jsPath, js);
+      done();
+    });
+  });
+
   grunt.registerTask('doc', 'Generate docs', function() {
     grunt.util.spawn({
       cmd: 'php',
@@ -91,7 +137,7 @@ module.exports = function(grunt) {
   });
 
   grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.loadNpmTasks('grunt-mocha');
+  //grunt.loadNpmTasks('grunt-mocha');
   grunt.loadNpmTasks('grunt-shell');
 
   grunt.registerTask('test', ['mocha']);

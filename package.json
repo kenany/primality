@@ -34,12 +34,13 @@
   },
   "devDependencies": {
     "benchmark": "~1.0.0",
-    "component": "~0.16.0",
+    "component-builder": "~0.8.0",
     "graceful-fs": "~1.2.0",
     "grunt": "~0.4.0",
     "grunt-contrib-uglify": "~0.2.0",
     "grunt-mocha": "~0.3.0",
     "grunt-shell": "~0.2.0",
+    "mkdirp": "~0.3.0",
     "numbers": "~0.4.0",
     "testem": "~0.2.0"
   },

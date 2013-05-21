@@ -1,4 +1,4 @@
-;(function(){
+;(function(window) {
 
 /**
  * Require the given path.
@@ -800,10 +800,22 @@ module.exports = sortedIndex;
 });
 require.alias("primality/primality.js", "primality/index.js");
 
-if (typeof exports == "object") {
-  module.exports = require("primality");
-} else if (typeof define == "function" && define.amd) {
-  define(function(){ return require("primality"); });
-} else {
-  this["primality"] = require("primality");
-}})();
+var freeExports = typeof exports == "object" && exports;
+var freeModule = typeof module == "object" && module && module.exports == freeExports && module;
+if (typeof define == "function" && typeof define.amd == "object" && define.amd) {
+  window.primality = primality;
+  define(function() {
+    return primality;
+  });
+}
+else if (freeExports && !freeExports.nodeType) {
+  if (freeModule) {
+    (freeModule.exports = primality).primality = primality;
+  }
+  else {
+    freeExports.primality = primality;
+  }
+}
+else {
+  window.primality = primality;
+}}(this));
