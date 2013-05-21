@@ -142,6 +142,10 @@ module.exports = function(grunt) {
       grunt.log.writeln(this.name + ", no args");
     } else {
       var fs = require('graceful-fs');
+
+      // `grunt.util.async` does not work
+      var async = require('async');
+
       var done = this.async();
       var files = [
         './README.md',
@@ -153,7 +157,7 @@ module.exports = function(grunt) {
       var regexp = RegExp(grunt.config.data.pkg.version, 'g');
 
       function upgradeVersion(item, cb) {
-        grunt.util.async.waterfall([
+        async.waterfall([
           function(callback) {
             fs.readFile(item, 'utf8', callback);
           },
@@ -163,7 +167,7 @@ module.exports = function(grunt) {
         ], cb);
       }
 
-      grunt.util.async.eachSeries(files, upgradeVersion, function(err) {
+      async.each(files, upgradeVersion, function(err) {
         done();
       });
     }

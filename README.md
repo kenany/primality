@@ -16,8 +16,8 @@ or do with prime numbers.
 
 ## Download
 
-  * [Development build](https://raw.github.com/KenanY/primality/1.5.1/dist/primality.js)
-  * [Production build](https://raw.github.com/KenanY/primality/1.5.1/dist/primality.min.js)
+  * [Development build](https://raw.github.com/KenanY/primality/1.5.0/dist/primality.js)
+  * [Production build](https://raw.github.com/KenanY/primality/1.5.0/dist/primality.min.js)
 
 ## Features
 
@@ -157,7 +157,7 @@ primality.isWilsonPrime(563);
 
 ## Release Notes
 
-### 1.5.1
+### 1.5.0
 
   - Wilson prime check (#6)
   - Lo-Dash is not even an optional dependency anymore
