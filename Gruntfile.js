@@ -5,6 +5,16 @@ module.exports = function(grunt) {
     failOnError: true
   };
 
+  var fileBanner = '/*!\n' +
+                   ' * <%= pkg.name %> v<%= pkg.version %>\n' +
+                   ' * (c) 2012–<%= grunt.template.today(\"yyyy\") %> <%= pkg.author.name %>\n' +
+                   ' *\n' +
+                   ' * Includes functions from Lo-Dash\n' +
+                   ' * (c) 2012–2013 The Dojo Foundation\n' +
+                   ' *\n' +
+                   ' * Available under MIT license\n' +
+                   ' */\n'
+
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     shell: {
@@ -23,31 +33,41 @@ module.exports = function(grunt) {
       }
     },
     uglify: {
-      options: {
-        banner: '/*!\n' +
-                ' * <%= pkg.name %> v<%= pkg.version %>\n' +
-                ' * (c) 2012–<%= grunt.template.today(\"yyyy\") %> <%= pkg.author.name %>\n' +
-                ' *\n' +
-                ' * Includes functions from Lo-Dash\n' +
-                ' * (c) 2012–2013 The Dojo Foundation\n' +
-                ' *\n' +
-                ' * Available under MIT license\n' +
-                ' */',
-        report: 'gzip',
-        compress: {
-          'comparisons': false,
-          'unsafe': true,
-          'unsafe_comps': true,
-          'warnings': false
+      regular: {
+        options: {
+          banner: fileBanner,
+          beautify: {
+            'beautify': true,
+            'indent_level': 2,
+            'width': 80
+          },
+          mangle: false,
+          compress: false
         },
-        mangle: {
-          except: ['define']
-        },
-        'ascii_only': true,
-        'comments': /@cc_on|@license|@preserve/i,
-        'max_line_len': 500,
+        files: {
+          'dist/primality.js': ['dist/primality.js']
+        }
       },
-      dist: {
+      min: {
+        options: {
+          banner: fileBanner,
+          report: 'gzip',
+          beautify: {
+            'ascii_only': true,
+            'indent_level': 0,
+            'max_line_len': 500,
+            'comments': /@cc_on|@license|@preserve/i
+          },
+          compress: {
+            'comparisons': false,
+            'unsafe': true,
+            'unsafe_comps': true,
+            'warnings': false
+          },
+          mangle: {
+            except: ['define']
+          }
+        },
         files: {
           'dist/primality.min.js': ['dist/primality.js']
         }
@@ -141,7 +161,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-shell');
 
   grunt.registerTask('test', ['mocha']);
-  grunt.registerTask('build', ['comp', 'test', 'uglify', 'doc']);
+  grunt.registerTask('build', ['comp', 'test', 'uglify:regular', 'uglify:min', 'doc']);
   grunt.registerTask('release', ['build', 'shell:commit', 'shell:push']);
   grunt.registerTask('default', ['build']);
 };
