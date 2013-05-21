@@ -53,12 +53,12 @@ In browsers:
 ```
 
 - Bower
-``` shell
+``` bash
 $ bower install primality
 ```
 
 - Component
-``` shell
+``` bash
 $ component install primality
 ```
 
