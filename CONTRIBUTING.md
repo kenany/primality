@@ -36,3 +36,6 @@ Don't do this in pull requests.
 ``` bash
 $ grunt upgrade:1.0.0 release
 ```
+
+Then update the "Release Notes" section of `README.md` and the
+[wiki changelog](https://github.com/KenanY/primality/wiki/Changelog).
