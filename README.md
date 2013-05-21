@@ -47,19 +47,19 @@ Primality has been tested in:
 
 In browsers:
 
-- Regular
+- Standalone
 ``` html
 <script src="primality.js"></script>
-```
-
-- Bower
-``` bash
-$ bower install primality
 ```
 
 - Component
 ``` bash
 $ component install KenanY/primality
+```
+
+- Bower
+``` bash
+$ bower install primality
 ```
 
 Using npm:
