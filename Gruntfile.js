@@ -142,6 +142,7 @@ module.exports = function(grunt) {
       grunt.log.writeln(this.name + ", no args");
     } else {
       var fs = require('graceful-fs');
+      var done = this.async();
       var files = [
         './README.md',
         './package.json',
@@ -151,9 +152,19 @@ module.exports = function(grunt) {
       ]
       var regexp = RegExp(grunt.config.data.pkg.version, 'g');
 
-      grunt.util._.forEach(files, function(file, index) {
-        var data = fs.readFileSync(file, 'utf8');
-        fs.writeFileSync(file, data.replace(regexp, newVersion));
+      function upgradeVersion(item, cb) {
+        grunt.util.async.waterfall([
+          function(callback) {
+            fs.readFile(item, 'utf8', callback);
+          },
+          function(data, callback) {
+            fs.writeFile(item, data.replace(regexp, newVersion), callback);
+          }
+        ], cb);
+      }
+
+      grunt.util.async.eachSeries(files, upgradeVersion, function(err) {
+        done();
       });
     }
   });
