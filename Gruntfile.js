@@ -54,7 +54,6 @@ module.exports = function(grunt) {
           report: 'gzip',
           beautify: {
             'ascii_only': true,
-            'indent_level': 0,
             'max_line_len': 500,
             'comments': /@cc_on|@license|@preserve/i
           },
