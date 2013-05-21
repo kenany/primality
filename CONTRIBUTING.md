@@ -9,7 +9,7 @@ $ npm install
 
 ## Building
 
-Generates docs, minifies, and tests:
+Documents, minifies, and tests:
 
 ``` bash
 $ grunt
