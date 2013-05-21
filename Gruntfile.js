@@ -5,15 +5,18 @@ module.exports = function(grunt) {
     failOnError: true
   };
 
-  var fileBanner = '/*!\n' +
-                   ' * <%= pkg.name %> v<%= pkg.version %>\n' +
-                   ' * (c) 2012–<%= grunt.template.today(\"yyyy\") %> <%= pkg.author.name %>\n' +
-                   ' *\n' +
-                   ' * Includes functions from Lo-Dash\n' +
-                   ' * (c) 2012–2013 The Dojo Foundation\n' +
-                   ' *\n' +
-                   ' * Available under MIT license\n' +
-                   ' */\n'
+  var fileBanner = [
+    '/*!',
+    ' * <%= pkg.name %> v<%= pkg.version %>',
+    ' * (c) 2012–<%= grunt.template.today(\"yyyy\") %> <%= pkg.author.name %>',
+    ' *',
+    ' * Includes functions from Lo-Dash',
+    ' * (c) 2012–2013 The Dojo Foundation',
+    ' *',
+    ' * Available under MIT license',
+    ' */\n'
+  ].join('\n');
+
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
