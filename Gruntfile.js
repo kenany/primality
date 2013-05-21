@@ -89,7 +89,7 @@ module.exports = function(grunt) {
         '}',
         'else if (freeExports && !freeExports.nodeType) {',
         '  if (freeModule) {',
-        '    (freeModule.exports = <%= pkg.name %>).<%= pkg.name %> = require("<%= pkg.name %>");',
+        '    (freeModule.exports = require("<%= pkg.name %>")).<%= pkg.name %> = require("<%= pkg.name %>");',
         '  }',
         '  else {',
         '    freeExports.<%= pkg.name %> = require("<%= pkg.name %>");',
