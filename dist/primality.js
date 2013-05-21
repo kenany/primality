@@ -810,7 +810,7 @@ if (typeof define == "function" && typeof define.amd == "object" && define.amd) 
 }
 else if (freeExports && !freeExports.nodeType) {
   if (freeModule) {
-    (freeModule.exports = primality).primality = require("primality");
+    (freeModule.exports = require("primality")).primality = require("primality");
   }
   else {
     freeExports.primality = require("primality");
