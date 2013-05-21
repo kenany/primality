@@ -26,8 +26,7 @@ module.exports = function(grunt) {
         command: [
           'git checkout master',
           'git commit -am "Release <%= pkg.version %>"',
-          'git tag -a <%= pkg.version %> -m "<%= pkg.version %>"',
-          'npm publish'
+          'git tag -a <%= pkg.version %> -m "<%= pkg.version %>"'
         ].join(' && ')
       },
       push: {

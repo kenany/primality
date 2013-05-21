@@ -35,6 +35,7 @@ Don't do this in pull requests.
 
 ``` bash
 $ grunt upgrade:1.0.0 release
+$ npm publish
 ```
 
 Then update the "Release Notes" section of `README.md` and the
