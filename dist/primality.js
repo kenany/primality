@@ -803,19 +803,19 @@ require.alias("primality/primality.js", "primality/index.js");
 var freeExports = typeof exports == "object" && exports;
 var freeModule = typeof module == "object" && module && module.exports == freeExports && module;
 if (typeof define == "function" && typeof define.amd == "object" && define.amd) {
-  window.primality = primality;
+  window.primality = require("primality");
   define(function() {
-    return primality;
+    return require("primality");
   });
 }
 else if (freeExports && !freeExports.nodeType) {
   if (freeModule) {
-    (freeModule.exports = primality).primality = primality;
+    (freeModule.exports = primality).primality = require("primality");
   }
   else {
-    freeExports.primality = primality;
+    freeExports.primality = require("primality");
   }
 }
 else {
-  window.primality = primality;
+  window.primality = require("primality");
 }}(this));
