@@ -53,7 +53,10 @@
       "safari": [ 5.1 ]
     },
     "harness": "mocha",
-    "files": "test/spec/suite.js"
+    "files": [
+      "vendor/requirejs/require.js",
+      "test/spec/suite.js"
+    ]
   },
   "engines": [
     "node",
