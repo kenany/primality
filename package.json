@@ -44,6 +44,17 @@
     "numbers": "~0.4.0",
     "testem": "~0.2.0"
   },
+  "testling": {
+    "browsers": {
+      "chrome": [ 26 ],
+      "ff": [ 19 ],
+      "ie": [ 10 ],
+      "opera": [ 12.0 ],
+      "safari": [ 5.1 ]
+    },
+    "harness": "mocha",
+    "files": "test/spec/suite.js"
+  },
   "engines": [
     "node",
     "rhino"
