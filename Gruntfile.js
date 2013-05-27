@@ -59,11 +59,11 @@ module.exports = function(grunt) {
   });
 
   grunt.registerTask('comp', 'Component compile', function() {
+    var done = this.async();
     var path = require('path');
     var Builder = require('component-builder');
     var fs = require('graceful-fs');
     var mkdir = require('mkdirp');
-    var done = this.async();
     var builder = new Builder(process.cwd());
     var jsPath = path.join('dist', grunt.template.process('<%= pkg.name %>.js'));
 
@@ -117,8 +117,8 @@ module.exports = function(grunt) {
   });
 
   grunt.registerTask('testling', 'Generate testling tests', function() {
-    var rjs = require('requirejs');
     var done = this.async();
+    var rjs = require('requirejs');
 
     var generateSpec = function() {
       rjs.optimize({
@@ -148,15 +148,16 @@ module.exports = function(grunt) {
   });
 
   grunt.registerTask('upgrade', 'Update version strings', function(newVersion) {
+    var done = this.async();
     if (arguments.length === 0) {
       grunt.log.writeln(this.name + ", no args");
+      done(false);
     } else {
       var fs = require('graceful-fs');
 
       // `grunt.util.async` does not work
       var async = require('async');
 
-      var done = this.async();
       var files = [
         './README.md',
         './package.json',
