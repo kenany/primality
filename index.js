@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 var spawn = require('child_process').spawn;
-var fs = require('fs');
+var fs = require('graceful-fs');
 var path = require('path');
 var cheerio = require('cheerio');
 var hljs = require('highlight.js');
