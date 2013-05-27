@@ -57,7 +57,8 @@
     "preprocess": "grunt build testling",
     "files": [
       "vendor/requirejs/require.js",
-      "test/spec/suite.js"
+      "test/testling/src.js",
+      "test/testling/specs.js"
     ]
   },
   "engines": [
