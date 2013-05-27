@@ -116,10 +116,11 @@ module.exports = function(grunt) {
   });
 
   grunt.registerTask('doc', 'Generate docs', function() {
+    var done = this.async();
     grunt.util.spawn({
       cmd: 'php',
       args: ['doc/parse.php', 'doc/README']
-    });
+    }, done);
   });
 
   grunt.registerTask('testling', 'Generate testling tests', function() {
