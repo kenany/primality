@@ -11,7 +11,6 @@ module.exports = function(grunt) {
     ' */\n'
   ].join('\n');
 
-
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     uglify: {
