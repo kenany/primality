@@ -1,9 +1,9 @@
 define(['../../dist/primality'], function(primality) {
   describe('primality', function() {
-    it('should expose version number', function () {
+    it('should expose version number', function() {
       primality.VERSION.should.match(/[0-9]+\.[0-9]+\.[0-9]+/);
     });
-    it('should expose public constructor', function () {
+    it('should expose public constructor', function() {
       primality.should.be.a('function');
     });
     describe('numbers', function() {
