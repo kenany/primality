@@ -122,6 +122,36 @@ module.exports = function(grunt) {
     });
   });
 
+  grunt.registerTask('testling', 'Generate testling tests', function() {
+    var rjs = require('requirejs');
+    var done = this.async();
+
+    var generateSpec = function() {
+      rjs.optimize({
+        logLevel: 3,
+        baseUrl: '.',
+        optimize: 'none',
+        name: 'spec/suite',
+        paths: {
+          'primality': 'empty:',
+          'spec': 'test/spec'
+        },
+        out: 'test/testling/specs.js'
+      }, done);
+    }
+
+    rjs.optimize({
+      logLevel: 3,
+      baseUrl: '.',
+      optimize: 'none',
+      name: 'primality/primality.min',
+      paths: {
+        'primality': 'dist'
+      },
+      out : 'test/testling/src.js'
+    }, generateSpec);
+  });
+
   grunt.registerTask('upgrade', 'Update version strings', function(newVersion) {
     if (arguments.length === 0) {
       grunt.log.writeln(this.name + ", no args");

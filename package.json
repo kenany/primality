@@ -42,6 +42,7 @@
     "grunt-mocha": "~0.3.0",
     "mkdirp": "~0.3.0",
     "numbers": "~0.4.0",
+    "requirejs": "~2.1.0",
     "testem": "~0.2.0"
   },
   "testling": {
