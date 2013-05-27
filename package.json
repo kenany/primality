@@ -47,14 +47,14 @@
   },
   "testling": {
     "browsers": {
-      "chrome": [ 26 ],
+      "chrome": [ 25 ],
       "ff": [ 19 ],
       "ie": [ 10 ],
       "opera": [ 12.0 ],
       "safari": [ 5.1 ]
     },
     "harness": "mocha",
-    "preprocess": "grunt testling",
+    "preprocess": "grunt build testling",
     "files": [
       "vendor/requirejs/require.js",
       "test/spec/suite.js"
