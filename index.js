@@ -1,12 +1,12 @@
 #!/usr/bin/env node
 
-var cheerio    = require('cheerio'),
-    hljs       = require('highlight.js'),
-    _          = require('lodash'),
-    marked     = require('marked'),
-    spawn      = require('child_process').spawn,
-    fs         = require('fs'),
-    path       = require('path');
+var spawn = require('child_process').spawn;
+var fs = require('fs');
+var path = require('path');
+var cheerio = require('cheerio');
+var hljs = require('highlight.js');
+var _ = require('lodash');
+var marked = require('marked');
 
 marked.setOptions({
   gfm: true,
@@ -25,30 +25,14 @@ marked.setOptions({
   }
 });
 
-/*
-var downloadDocs = function(file) {
-  var markdownFile = fs.createWriteStream(file),
-      docURL = 'https://raw.github.com/KenanY/primality/master/doc/README.md',
-      curl = spawn('curl', [docURL]);
-  curl.stdout.on('data', function(data) { markdownFile.write(data); });
-  curl.stdout.on('end', function(data) { markdownFile.end(); });
-  curl.on('exit', function(err) {
-    if (err != 0) {
-      console.log('Failed: ' + err)
-    }
-  });
-  return true;
-}
-*/
-
 var parseMarkdown = function(mdFile, htmlFile) {
   console.log('Markdown file: ' + mdFile + ' => HTML file: ' + htmlFile);
   return [marked(fs.readFileSync(mdFile, 'utf8')), htmlFile];
 }
 
 var writeToHTML = function(mdAndHTMLFile) {
-  var html     = fs.readFileSync(mdAndHTMLFile[1], 'utf8'),
-      $        = cheerio.load(html);
+  var html = fs.readFileSync(mdAndHTMLFile[1], 'utf8');
+  var $ = cheerio.load(html);
 
   $('.lead').text(mdAndHTMLFile[0].split('<!-- div -->').join('<div>')
                                   .split('<!-- /div -->').join('</div>'));
