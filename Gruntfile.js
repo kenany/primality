@@ -116,37 +116,6 @@ module.exports = function(grunt) {
     }, done);
   });
 
-  grunt.registerTask('testling', 'Generate testling tests', function() {
-    var done = this.async();
-    var rjs = require('requirejs');
-
-    var generateSpec = function() {
-      rjs.optimize({
-        logLevel: 3,
-        baseUrl: '.',
-        optimize: 'none',
-        name: 'spec/suite',
-        paths: {
-          'primality': 'empty:',
-          'spec': 'test/spec'
-        },
-        out: 'test/testling/specs.js'
-      }, done);
-    }
-
-    grunt.log.writeln('Building testling tests...');
-    rjs.optimize({
-      logLevel: 3,
-      baseUrl: '.',
-      optimize: 'none',
-      name: 'primality/primality.min',
-      paths: {
-        'primality': 'dist'
-      },
-      out : 'test/testling/src.js'
-    }, generateSpec);
-  });
-
   grunt.registerTask('upgrade', 'Update version strings', function(newVersion) {
     var done = this.async();
     if (arguments.length === 0) {

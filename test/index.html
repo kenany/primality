@@ -12,7 +12,7 @@
     <script src="/testem.js"></script>
     <script src="../vendor/requirejs/require.js"></script>
     <script>
-      /* Shim for Date.now */
+      // Shim for Date.now
       if (!Date.now) {
         Date.now = function now() {
           return +(new Date);
@@ -25,11 +25,10 @@
         paths: {
           'suite': '../../test/spec/suite',
           'runner': '../../test/runner/mocha',
-          //'mocha': '../mocha/mocha',
           'chai': '../chai/chai'
         }
       });
-      require(['require', 'chai'/*, 'mocha'*/], function(require, chai) {
+      require(['require', 'chai'], function(require, chai) {
         var should = chai.should();
         mocha.setup('bdd');
         require(['suite'], function(primality) {
