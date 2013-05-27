@@ -54,6 +54,7 @@
       "safari": [ 5.1 ]
     },
     "harness": "mocha",
+    "preprocess": "grunt testling",
     "files": [
       "vendor/requirejs/require.js",
       "test/spec/suite.js"
