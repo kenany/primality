@@ -134,6 +134,7 @@ module.exports = function(grunt) {
       }, done);
     }
 
+    grunt.log.writeln('Building testling tests...');
     rjs.optimize({
       logLevel: 3,
       baseUrl: '.',

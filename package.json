@@ -54,7 +54,7 @@
       "safari": [ 5.1 ]
     },
     "harness": "mocha",
-    "preprocess": "grunt build testling",
+    "preprocess": "npm install -g grunt-cli && grunt build testling",
     "files": [
       "vendor/requirejs/require.js",
       "test/testling/src.js",
