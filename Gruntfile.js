@@ -1,10 +1,4 @@
 module.exports = function(grunt) {
-  var shellOptions = {
-    stdout: true,
-    stderr: true,
-    failOnError: true
-  };
-
   var fileBanner = [
     '/*!',
     ' * <%= pkg.name %> v<%= pkg.version %>',
