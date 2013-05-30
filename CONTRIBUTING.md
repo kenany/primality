@@ -36,7 +36,7 @@ Don't do this in pull requests.
 Automatic committing and tagging is horribly unreliable.
 
 ``` bash
-$ grunt upgrade:1.0.0
+$ grunt upgrade:1.0.0 doc
 $ git commit -am 'Release 1.0.0'
 $ git tag -a 1.0.0 -m '1.0.0'
 $ npm publish

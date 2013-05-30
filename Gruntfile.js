@@ -159,6 +159,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-mocha');
 
   grunt.registerTask('test', ['mocha']);
-  grunt.registerTask('build', ['comp', 'uglify:regular', 'uglify:min', 'doc']);
+  grunt.registerTask('build', ['comp', 'uglify:regular', 'uglify:min']);
   grunt.registerTask('default', ['build', 'test']);
 };
