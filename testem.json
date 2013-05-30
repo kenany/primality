@@ -1,3 +1,9 @@
 {
-  "test_page": "test/index.html"
+  "test_page": "test/index.html",
+  "launchers": {
+    "Mocha": {
+      "command": "mocha test/*.html -R tap",
+      "protocol": "tap"
+    }
+  }
 }
