@@ -37,7 +37,7 @@ or do with prime numbers.
 Primality has been tested in:
 
   - Chrome 6–26
-  - Firefox 15–10
+  - Firefox 15–19
   - Internet Explorer 10
   - Opera 11.6-12.15
   - Safari 5.0.5–5.1

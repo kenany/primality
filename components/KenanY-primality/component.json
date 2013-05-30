@@ -1,0 +1,29 @@
+{
+  "name": "primality",
+  "repo": "KenanY/primality",
+  "description": "JavaScript library for prime numbers.",
+  "version": "1.5.5",
+  "keywords": [
+    "math"
+  ],
+  "main": "primality.js",
+  "scripts": [
+    "primality.js",
+    "lib/util/index.js",
+    "lib/util/common.js",
+    "lib/util/createCallback.js",
+    "lib/util/forIn.js",
+    "lib/util/identity.js",
+    "lib/util/indexOf.js",
+    "lib/util/isArray.js",
+    "lib/util/isEqual.js",
+    "lib/util/isFinite.js",
+    "lib/util/isFunction.js",
+    "lib/util/isNaN.js",
+    "lib/util/isNumber.js",
+    "lib/util/isObject.js",
+    "lib/util/keys.js",
+    "lib/util/sortedIndex.js"
+  ],
+  "license": "MIT"
+}
