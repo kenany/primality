@@ -1,9 +1,9 @@
 define(['../../primality'], function(primality) {
   describe('primality', function() {
-    it('should expose version number', function () {
+    it('should expose version number', function() {
       primality.VERSION.should.match(/[0-9]+\.[0-9]+\.[0-9]+/);
     });
-    it('should expose public constructor', function () {
+    it('should expose public constructor', function() {
       primality.should.be.a('function');
     });
     describe('numbers', function() {
@@ -35,15 +35,26 @@ define(['../../primality'], function(primality) {
       });
     });
     describe('classes', function() {
-      it('twin primes', function() {
+      it('are twin primes', function() {
         primality.areTwinPrimes(3, 5).should.equal(true);
         primality.areTwinPrimes(5, 6).should.equal(false);
         primality.areTwinPrimes(12, 14).should.equal(false);
       });
-      it('sexy primes', function() {
+      it('are cousin primes', function() {
+        primality.areCousinPrimes(3, 7).should.equal(true);
+        primality.areCousinPrimes(7, 10).should.equal(false);
+        primality.areCousinPrimes(14, 18).should.equal(false);
+      });
+      it('are sexy primes', function() {
         primality.areSexyPrimes(5, 11).should.equal(true);
         primality.areSexyPrimes(11, 16).should.equal(false);
         primality.areSexyPrimes(18, 24).should.equal(false);
+      });
+      it('is a wilson prime', function() {
+        primality.isWilsonPrime(5).should.equal(true);
+        primality.isWilsonPrime(13).should.equal(true);
+        primality.isWilsonPrime(563).should.equal(true);
+        primality.isWilsonPrime(564).should.equal(false);
       });
     });
   });
