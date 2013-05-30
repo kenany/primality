@@ -1,7 +1,9 @@
 {
   "name": "primality-docs",
   "dependencies": {
-    "component/simple-grid": "*",
-    "necolas/normalize.css": "*"
-  }
+    "necolas/normalize.css": "*",
+    "KenanY/primality": "*"
+  },
+  "scripts": ["js/main.js"],
+  "styles": ["css/main.css"]
 }
