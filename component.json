@@ -1,0 +1,7 @@
+{
+  "name": "primality-docs",
+  "dependencies": {
+    "component/simple-grid": "*",
+    "necolas/normalize.css": "*"
+  }
+}
