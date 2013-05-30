@@ -9,7 +9,7 @@ $ npm install
 
 ## Building
 
-Documents, minifies, and tests:
+Builds dist files:
 
 ``` bash
 $ grunt
