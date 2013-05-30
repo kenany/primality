@@ -54,7 +54,7 @@ module.exports = function(grunt) {
       }
     },
     mocha: {
-      all: ['test/**/*.html']
+      all: ['test/index.html']
     }
   });
 
