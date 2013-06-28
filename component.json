@@ -31,9 +31,5 @@
     "lib/util/keys.js",
     "lib/util/sortedIndex.js"
   ],
-  "license": "MIT",
-  "dependencies": {
-    "lodash": "*",
-    "bestiejs/lodash": "*"
-  }
+  "license": "MIT"
 }
