@@ -160,7 +160,6 @@
     module.exports = _;
   });
   require.register("primality/lib/util/common.js", function(exports, require, module) {
-    var window = window || {};
     var freeGlobal = typeof global == "object" && global;
     if (freeGlobal.global === freeGlobal || freeGlobal.window === freeGlobal) {
       window = freeGlobal;
