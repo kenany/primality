@@ -3,7 +3,15 @@
   "repo": "KenanY/primality",
   "description": "JavaScript library for prime numbers.",
   "version": "1.5.5",
-  "keywords": ["math"],
+  "keywords": [
+    "browser",
+    "client",
+    "math",
+    "mathematics",
+    "number",
+    "numbers",
+    "util"
+  ],
   "main": "primality.js",
   "scripts": [
     "primality.js",
@@ -23,5 +31,9 @@
     "lib/util/keys.js",
     "lib/util/sortedIndex.js"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "lodash": "*",
+    "bestiejs/lodash": "*"
+  }
 }
