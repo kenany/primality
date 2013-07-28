@@ -139,7 +139,8 @@ module.exports = function(grunt) {
         ], cb);
       }
 
-      async.each(files, upgradeVersion, function(err) {
+      async.each(files, upgradeVersion, function(error) {
+        if (error) grunt.log.error(error.message);
         var pkg = grunt.file.readJSON('package.json');
         grunt.config.data.pkg = pkg;
         done();
