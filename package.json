@@ -35,7 +35,7 @@
   "devDependencies": {
     "async": "~0.2.0",
     "benchmark": "~1.0.0",
-    "component-builder": "~0.8.0",
+    "component-builder": "~0.9.0",
     "graceful-fs": "~1.2.0",
     "grunt": "~0.4.0",
     "grunt-contrib-uglify": "~0.2.0",
