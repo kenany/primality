@@ -1,3 +1,9 @@
+var path = require('path');
+var async = require('async');
+var Builder = require('component-builder');
+var fs = require('graceful-fs');
+var mkdir = require('mkdirp');
+
 module.exports = function(grunt) {
   var fileBanner = [
     '/*!',
@@ -60,56 +66,46 @@ module.exports = function(grunt) {
 
   grunt.registerTask('comp', 'Component compile', function() {
     var done = this.async();
-    var path = require('path');
-    var Builder = require('component-builder');
-    var fs = require('graceful-fs');
-    var mkdir = require('mkdirp');
-    var builder = new Builder(process.cwd());
-    var jsPath = path.join('dist', grunt.template.process('<%= pkg.name %>.js'));
 
-    mkdir.sync('dist');
-    builder.copyAssetsTo('dist');
+    async.waterfall([
+      function(callback){
+        mkdir('dist', callback)
+      },
+      function(made, callback){
+        var builder = new Builder(process.cwd());
+        builder.copyAssetsTo('dist');
+        builder.build(callback);
+      },
+      function(obj, callback){
+        async.parallel([
+            function(callback){
+                fs.readFile('./build/umd-prelude.js', 'utf8', callback);
+            },
+            function(callback){
+                fs.readFile('./build/umd-postlude.js', 'utf8', callback);
+            }
+        ],
+        function(error, results){
+            if (error) grunt.log.error(error.message);
+            var js = '';
+            js += results[0];
+            js += obj.require;
+            js += obj.js;
+            js += results[1];
 
-    builder.build(function(err, obj){
-      if (err) grunt.fail.fatal(err.message);
-
-      var js = '';
-      js += ';(function(window) {\n';
-      js += obj.require;
-      js += obj.js;
-
-      var umd = [
-        'var freeExports = typeof exports == "object" && exports;',
-        'var freeModule = typeof module == "object" && module && module.exports == freeExports && module;',
-        'if (typeof define == "function" && typeof define.amd == "object" && define.amd) {',
-        '  window.<%= pkg.name %> = require("<%= pkg.name %>");',
-        '  define(function() {',
-        '    return require("<%= pkg.name %>");',
-        '  });',
-        '}',
-        'else if (freeExports && !freeExports.nodeType) {',
-        '  if (freeModule) {',
-        '    (freeModule.exports = require("<%= pkg.name %>")).<%= pkg.name %> = require("<%= pkg.name %>");',
-        '  }',
-        '  else {',
-        '    freeExports.<%= pkg.name %> = require("<%= pkg.name %>");',
-        '  }',
-        '}',
-        'else {',
-        '  window.<%= pkg.name %> = require("<%= pkg.name %>");',
-        '}'
-      ];
-
-      js += grunt.template.process(umd.join('\n'));
-      js += '}(this));';
-
-      fs.writeFile(jsPath, js);
-      done();
+            var jsPath = path.join('dist', grunt.template.process('primality.js'));
+            fs.writeFile(jsPath, js, done);
+        });
+      }
+    ],
+    function(error) {
+      if (error) grunt.log.error(error.message);
     });
   });
 
   grunt.registerTask('doc', 'Generate docs', function() {
     var done = this.async();
+
     grunt.util.spawn({
       cmd: 'php',
       args: ['doc/parse.php', 'doc/README']
@@ -118,15 +114,11 @@ module.exports = function(grunt) {
 
   grunt.registerTask('upgrade', 'Update version strings', function(newVersion) {
     var done = this.async();
+
     if (arguments.length === 0) {
       grunt.log.writeln(this.name + ", no args");
       done(false);
     } else {
-      var fs = require('graceful-fs');
-
-      // `grunt.util.async` does not work
-      var async = require('async');
-
       var files = [
         './README.md',
         './package.json',

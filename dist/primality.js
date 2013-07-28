@@ -486,8 +486,20 @@
     module.exports = sortedIndex;
   });
   require.alias("primality/primality.js", "primality/index.js");
-  var freeExports = typeof exports == "object" && exports;
-  var freeModule = typeof module == "object" && module && module.exports == freeExports && module;
+  var objectTypes = {
+    "boolean": false,
+    "function": true,
+    object: true,
+    number: false,
+    string: false,
+    undefined: false
+  };
+  var freeExports = objectTypes[typeof exports] && exports;
+  var freeModule = objectTypes[typeof module] && module && module.exports == freeExports && module;
+  var freeGlobal = objectTypes[typeof global] && global;
+  if (freeGlobal && (freeGlobal.global === freeGlobal || freeGlobal.window === freeGlobal)) {
+    window = freeGlobal;
+  }
   if (typeof define == "function" && typeof define.amd == "object" && define.amd) {
     window.primality = require("primality");
     define(function() {
