@@ -36,7 +36,7 @@ Primality has been tested in:
   - Internet Explorer 10
   - Opera 11.6-12.15
   - Safari 5.0.5–5.1
-  - Node.js 0.6.21–0.10.5
+  - Node.js 0.6.21–0.10.12
 
 ## Installation
 
