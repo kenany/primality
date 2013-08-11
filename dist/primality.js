@@ -1,5 +1,5 @@
 /*!
- * primality v1.5.5
+ * primality v1.5.6
  * (c) 2012–2013 Kenan Yildirim
  *
  * Includes functions from Lo-Dash
@@ -93,6 +93,24 @@
     var primality;
     var WILSON_PRIMES = [ 5, 13, 563 ];
     var _ = require("./lib/util/");
+    function factorial(value) {
+      return value === 0 ? 1 : value * factorial(value - 1);
+    }
+    function mod(x, y) {
+      if (y > 0) {
+        if (x > 0) {
+          return x % y;
+        } else if (x == 0) {
+          return 0;
+        } else {
+          return x - y * Math.floor(x / y);
+        }
+      } else if (y == 0) {
+        return x;
+      } else {
+        throw new Error("Cannot calculate mod for a negative divisor");
+      }
+    }
     function leastFactor(n) {
       if (n === 0) return 0; else if (n % 1 || n * n < 2) return 1; else if (n % 2 === 0) return 2; else if (n % 3 === 0) return 3; else if (n % 5 === 0) return 5;
       var m = Math.sqrt(n);
@@ -138,8 +156,8 @@
       if (!primality([ a, b ])) return false;
       return true;
     }
-    function isWilsonPrime(a) {
-      return _.contains(WILSON_PRIMES, a);
+    function isWilsonPrime(value) {
+      return _.contains(WILSON_PRIMES, value) ? true : 0 === (mod(factorial(value - 1) + 1, value) === 0);
     }
     primality.VERSION = "1.4.0";
     primality.areTwinPrimes = areTwinPrimes;

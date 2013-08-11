@@ -14,6 +14,45 @@ var WILSON_PRIMES = [5, 13, 563];
 var _ = require('./lib/util/');
 
 /**
+ * Returns the factorial of `value`
+ *
+ * @private
+ * @param {Number} value
+ * @returns {Number} The factorial of `value`.
+ */
+function factorial(value) {
+  return value === 0 ? 1 : value * factorial(value - 1);
+}
+
+/**
+ * Returns the modulus of two numbers.
+ *
+ * @param {Number} x
+ * @param {Number} y
+ * @returns {number} res
+ * @private
+ */
+function mod(x, y) {
+  if (y > 0) {
+    if (x > 0) {
+      return x % y;
+    }
+    else if (x == 0) {
+      return 0;
+    }
+    else {
+      return x - y * Math.floor(x / y);
+    }
+  }
+  else if (y == 0) {
+    return x;
+  }
+  else {
+    throw new Error('Cannot calculate mod for a negative divisor');
+  }
+}
+
+/**
  * Finds the smallest factor of `n`
  *
  * @private
@@ -153,21 +192,23 @@ function areSexyPrimes(a, b) {
 }
 
 /**
- * Checks if `a` is a Wilson prime.
+ * Checks if `value` is a Wilson prime.
  *
  * <https://en.wikipedia.org/wiki/Wilson_prime>
  *
  * @static
  * @memberOf primality
- * @param {Number} a
- * @returns {Boolean} Returns `true` if `a` is a Wilson prime.
+ * @param {Number} value
+ * @returns {Boolean} Returns `true` if `value` is a Wilson prime.
  * @example
  *
  * primality.isWilsonPrime(5);
  * // => true
  */
-function isWilsonPrime(a) {
-  return _.contains(WILSON_PRIMES, a);
+function isWilsonPrime(value) {
+  return _.contains(WILSON_PRIMES, value)
+         ? true
+         : 0 === (mod(factorial(value - 1) + 1, value) === 0);
 }
 
 /**
