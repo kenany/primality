@@ -30,7 +30,7 @@ function factorial(value) {
  * @private
  * @param {Number} x
  * @param {Number} y
- * @returns {number} res
+ * @returns {Number}
  */
 function mod(x, y) {
   if (y > 0) {
