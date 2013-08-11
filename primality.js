@@ -129,6 +129,20 @@ primality = function(input) {
 };
 
 /**
+ * Checks if `a` and `b` are primes which differ by `difference`.
+ *
+ * @private
+ * @param {Number} a First of the pair
+ * @param {Number} b Second of the pair
+ * @param {Number} difference
+ * @returns {Boolean}
+ */
+function isRelated(a, b, difference) {
+  return Math.abs(a - b) !== difference
+    ? false
+    : primality([a, b]);
+}
+/**
  * Checks if `a` and `b` are twin primes
  *
  * <https://en.wikipedia.org/wiki/Twin_prime>
@@ -144,9 +158,7 @@ primality = function(input) {
  * // => true
  */
 function areTwinPrimes(a, b) {
-  if (Math.abs(a - b) !== 2) return false;
-  if (!primality([a, b])) return false;
-  return true;
+  return isRelated(a, b, 2);
 }
 
 /**
@@ -165,9 +177,7 @@ function areTwinPrimes(a, b) {
  * // => true
  */
 function areCousinPrimes(a, b) {
-  if (Math.abs(a - b) !== 4) return false;
-  if (!primality([a, b])) return false;
-  return true;
+  return isRelated(a, b, 4);
 }
 
 /**
@@ -186,9 +196,7 @@ function areCousinPrimes(a, b) {
  * // => true
  */
 function areSexyPrimes(a, b) {
-  if (Math.abs(a - b) !== 6) return false;
-  if (!primality([a, b])) return false;
-  return true;
+  return isRelated(a, b, 6);
 }
 
 /**

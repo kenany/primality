@@ -141,20 +141,20 @@
         return true;
       } else return isPrime(input);
     };
-    function areTwinPrimes(a, b) {
-      if (Math.abs(a - b) != 2) return false;
+    function isRelated(a, b, difference) {
+      if (Math.abs(a - b) !== difference) return false;
       if (!primality([ a, b ])) return false;
       return true;
+      return Math.abs(a - b) !== difference ? false : primality([ a, b ]);
+    }
+    function areTwinPrimes(a, b) {
+      return isRelated(a, b, 2);
     }
     function areCousinPrimes(a, b) {
-      if (Math.abs(a - b) != 4) return false;
-      if (!primality([ a, b ])) return false;
-      return true;
+      return isRelated(a, b, 4);
     }
     function areSexyPrimes(a, b) {
-      if (Math.abs(a - b) != 6) return false;
-      if (!primality([ a, b ])) return false;
-      return true;
+      return isRelated(a, b, 6);
     }
     function isWilsonPrime(value) {
       return _.contains(WILSON_PRIMES, value) ? true : mod(factorial(value - 1) + 1, Math.pow(value, 2)) === 0;
