@@ -157,7 +157,7 @@
       return true;
     }
     function isWilsonPrime(value) {
-      return _.contains(WILSON_PRIMES, value) ? true : 0 === (mod(factorial(value - 1) + 1, value) === 0);
+      return _.contains(WILSON_PRIMES, value) ? true : mod(factorial(value - 1) + 1, Math.pow(value, 2)) === 0;
     }
     primality.VERSION = "1.5.7";
     primality.areTwinPrimes = areTwinPrimes;
