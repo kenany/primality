@@ -208,7 +208,7 @@ function areSexyPrimes(a, b) {
 function isWilsonPrime(value) {
   return _.contains(WILSON_PRIMES, value)
          ? true
-         : 0 === (mod(factorial(value - 1) + 1, value) === 0);
+         : mod(factorial(value - 1) + 1, Math.pow(value)) === 0;
 }
 
 /**
