@@ -24,7 +24,7 @@ numbers.
     - [cousin](https://en.wikipedia.org/wiki/Cousin_prime)
     - [sexy](https://en.wikipedia.org/wiki/Sexy_prime)
     - [Wilson](https://en.wikipedia.org/wiki/Wilson_prime)
-  - Less than 2 kibibytes minified and gzipped
+  - About 1 kibibyte minified and gzipped
   - CommonJS and AMD loader support
 
 ## Support

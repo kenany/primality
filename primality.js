@@ -167,10 +167,7 @@ function areSexyPrimes(a, b) {
  * // => true
  */
 function isWilsonPrime(a) {
-  if (_.indexOf(WILSON_PRIMES, a) > -1) {
-    return true;
-  }
-  return false;
+  return _.contains(WILSON_PRIMES, a);
 }
 
 /**
