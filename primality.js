@@ -1,5 +1,5 @@
 /*!
- * primality v1.5.6
+ * primality v1.5.7
  * (c) 2012–2013 Kenan Yildirim
  *
  * Includes functions from Lo-Dash
@@ -218,7 +218,7 @@ function isWilsonPrime(value) {
  * @memberOf primality
  * @type String
  */
-primality.VERSION = '1.4.0';
+primality.VERSION = '1.5.7';
 
 primality.areTwinPrimes = areTwinPrimes;
 primality.areCousinPrimes = areCousinPrimes;
