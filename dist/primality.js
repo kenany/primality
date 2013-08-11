@@ -142,9 +142,6 @@
       } else return isPrime(input);
     };
     function isRelated(a, b, difference) {
-      if (Math.abs(a - b) !== difference) return false;
-      if (!primality([ a, b ])) return false;
-      return true;
       return Math.abs(a - b) !== difference ? false : primality([ a, b ]);
     }
     function areTwinPrimes(a, b) {
