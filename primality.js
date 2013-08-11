@@ -27,10 +27,10 @@ function factorial(value) {
 /**
  * Returns the modulus of two numbers.
  *
+ * @private
  * @param {Number} x
  * @param {Number} y
  * @returns {number} res
- * @private
  */
 function mod(x, y) {
   if (y > 0) {
