@@ -144,7 +144,7 @@ primality = function(input) {
  * // => true
  */
 function areTwinPrimes(a, b) {
-  if (Math.abs(a - b) != 2) return false;
+  if (Math.abs(a - b) !== 2) return false;
   if (!primality([a, b])) return false;
   return true;
 }
@@ -165,7 +165,7 @@ function areTwinPrimes(a, b) {
  * // => true
  */
 function areCousinPrimes(a, b) {
-  if (Math.abs(a - b) != 4) return false;
+  if (Math.abs(a - b) !== 4) return false;
   if (!primality([a, b])) return false;
   return true;
 }
@@ -186,7 +186,7 @@ function areCousinPrimes(a, b) {
  * // => true
  */
 function areSexyPrimes(a, b) {
-  if (Math.abs(a - b) != 6) return false;
+  if (Math.abs(a - b) !== 6) return false;
   if (!primality([a, b])) return false;
   return true;
 }
