@@ -11,8 +11,8 @@ numbers.
 
 ## Download
 
-  * [Development build](https://raw.github.com/KenanY/primality/1.5.5/dist/primality.js)
-  * [Production build](https://raw.github.com/KenanY/primality/1.5.5/dist/primality.min.js)
+  * [Development build](https://raw.github.com/KenanY/primality/1.5.6/dist/primality.js)
+  * [Production build](https://raw.github.com/KenanY/primality/1.5.6/dist/primality.min.js)
 
 ## Features
 
@@ -152,8 +152,8 @@ primality.isWilsonPrime(563);
 
 ## Release Notes
 
-### 1.5.5
+### 1.5.6
 
-  - Use this one. Not anything from 1.5.1 to 1.5.4
+  - Halved file size by simplifying internal utility functions
 
 The full changelog is available [here](https://github.com/KenanY/primality/wiki/Changelog).

@@ -1,5 +1,5 @@
 /*!
- * primality v1.5.5
+ * primality v1.5.6
  * (c) 2012–2013 Kenan Yildirim
  *
  * Includes functions from Lo-Dash

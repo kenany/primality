@@ -2,7 +2,7 @@
   "name": "primality",
   "repo": "KenanY/primality",
   "description": "JavaScript library for prime numbers.",
-  "version": "1.5.5",
+  "version": "1.5.6",
   "keywords": [
     "browser",
     "client",
