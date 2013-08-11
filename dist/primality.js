@@ -100,12 +100,12 @@
       if (y > 0) {
         if (x > 0) {
           return x % y;
-        } else if (x == 0) {
+        } else if (x === 0) {
           return 0;
         } else {
           return x - y * Math.floor(x / y);
         }
-      } else if (y == 0) {
+      } else if (y === 0) {
         return x;
       } else {
         throw new Error("Cannot calculate mod for a negative divisor");
