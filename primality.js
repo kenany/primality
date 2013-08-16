@@ -1,5 +1,5 @@
 /*!
- * primality v1.5.5
+ * primality v1.5.7
  * (c) 2012–2013 Kenan Yildirim
  *
  * Includes functions from Lo-Dash
@@ -31,14 +31,11 @@
   require.aliases = {};
   require.resolve = function(path) {
     if (path.charAt(0) === "/") path = path.slice(1);
-    var index = path + "/index.js";
     var paths = [ path, path + ".js", path + ".json", path + "/index.js", path + "/index.json" ];
     for (var i = 0; i < paths.length; i++) {
       var path = paths[i];
       if (require.modules.hasOwnProperty(path)) return path;
-    }
-    if (require.aliases.hasOwnProperty(index)) {
-      return require.aliases[index];
+      if (require.aliases.hasOwnProperty(path)) return require.aliases[path];
     }
   };
   require.normalize = function(curr, path) {
@@ -96,6 +93,24 @@
     var primality;
     var WILSON_PRIMES = [ 5, 13, 563 ];
     var _ = require("./lib/util/");
+    function factorial(value) {
+      return value === 0 ? 1 : value * factorial(value - 1);
+    }
+    function mod(x, y) {
+      if (y > 0) {
+        if (x > 0) {
+          return x % y;
+        } else if (x == 0) {
+          return 0;
+        } else {
+          return x - y * Math.floor(x / y);
+        }
+      } else if (y == 0) {
+        return x;
+      } else {
+        throw new Error("Cannot calculate mod for a negative divisor");
+      }
+    }
     function leastFactor(n) {
       if (n === 0) return 0; else if (n % 1 || n * n < 2) return 1; else if (n % 2 === 0) return 2; else if (n % 3 === 0) return 3; else if (n % 5 === 0) return 5;
       var m = Math.sqrt(n);
@@ -141,13 +156,10 @@
       if (!primality([ a, b ])) return false;
       return true;
     }
-    function isWilsonPrime(a) {
-      if (_.indexOf(WILSON_PRIMES, a) > -1) {
-        return true;
-      }
-      return false;
+    function isWilsonPrime(value) {
+      return _.contains(WILSON_PRIMES, value) ? true : 0 === (mod(factorial(value - 1) + 1, value) === 0);
     }
-    primality.VERSION = "1.4.0";
+    primality.VERSION = "1.5.7";
     primality.areTwinPrimes = areTwinPrimes;
     primality.areCousinPrimes = areCousinPrimes;
     primality.areSexyPrimes = areSexyPrimes;
@@ -156,19 +168,38 @@
   });
   require.register("primality/lib/util/index.js", function(exports, require, module) {
     var _ = {};
-    _.indexOf = require("./indexOf");
+    _.contains = require("./contains");
     _.isArray = require("./isArray");
     _.isFinite = require("./isFinite");
     _.isNaN = require("./isNaN");
     module.exports = _;
   });
-  require.register("primality/lib/util/common.js", function(exports, require, module) {
-    var window = window || {};
-    var freeGlobal = typeof global == "object" && global;
-    if (freeGlobal.global === freeGlobal || freeGlobal.window === freeGlobal) {
-      window = freeGlobal;
+  require.register("primality/lib/util/contains.js", function(exports, require, module) {
+    var nativeMax = Math.max;
+    function basicIndexOf(array, value) {
+      var index = -1;
+      var length = array.length;
+      while (++index < length) {
+        if (array[index] === value) {
+          return index;
+        }
+      }
+      return -1;
     }
-    var indicatorObject = {};
+    function contains(collection, target) {
+      return basicIndexOf(collection, target) > -1;
+    }
+    module.exports = contains;
+  });
+  require.register("primality/lib/util/isArray.js", function(exports, require, module) {
+    var reNative = RegExp("^" + String(Object.prototype.valueOf).replace(/[.*+?^${}()|[\]\\]/g, "\\$&").replace(/valueOf|for [^\]]+/g, ".+?") + "$");
+    var nativeIsArray = reNative.test(nativeIsArray = Array.isArray) && nativeIsArray;
+    var isArray = nativeIsArray || function(value) {
+      return value ? typeof value == "object" && toString.call(value) == arrayClass : false;
+    };
+    module.exports = isArray;
+  });
+  require.register("primality/lib/util/isFinite.js", function(exports, require, module) {
     var objectTypes = {
       "boolean": false,
       "function": true,
@@ -177,321 +208,43 @@
       string: false,
       undefined: false
     };
-    var objectRef = Object();
-    var hasOwnProperty = objectRef.hasOwnProperty;
-    var reNative = RegExp("^" + String(objectRef.valueOf).replace(/[.*+?^${}()|[\]\\]/g, "\\$&").replace(/valueOf|for [^\]]+/g, ".+?") + "$");
-    var nativeIsArray = reNative.test(nativeIsArray = Array.isArray) && nativeIsArray;
+    var freeGlobal = objectTypes[typeof global] && global;
+    if (freeGlobal && (freeGlobal.global === freeGlobal || freeGlobal.window === freeGlobal)) {
+      window = freeGlobal;
+    }
     var nativeIsFinite = window.isFinite;
     var nativeIsNaN = window.isNaN;
-    var nativeKeys = reNative.test(nativeKeys = Object.keys) && nativeKeys;
-    var nativeMax = Math.max;
-    var toString = objectRef.toString;
-    module.exports = {
-      hasOwnProperty: hasOwnProperty,
-      indicatorObject: indicatorObject,
-      nativeIsArray: nativeIsArray,
-      nativeIsFinite: nativeIsFinite,
-      nativeIsNaN: nativeIsNaN,
-      nativeKeys: nativeKeys,
-      nativeMax: nativeMax,
-      objectRef: objectRef,
-      objectTypes: objectTypes,
-      reNative: reNative,
-      toString: toString
-    };
-  });
-  require.register("primality/lib/util/createCallback.js", function(exports, require, module) {
-    var indicatorObject = require("./common").indicatorObject;
-    var identity = require("./identity");
-    var isEqual = require("./isEqual");
-    var keys = require("./keys");
-    function createCallback(func, thisArg, argCount) {
-      if (func == null) {
-        return identity;
-      }
-      var type = typeof func;
-      if (type != "function") {
-        if (type != "object") {
-          return function(object) {
-            return object[func];
-          };
-        }
-        var props = keys(func);
-        return function(object) {
-          var length = props.length, result = false;
-          while (length--) {
-            if (!(result = isEqual(object[props[length]], func[props[length]], indicatorObject))) {
-              break;
-            }
-          }
-          return result;
-        };
-      }
-      if (typeof thisArg != "undefined") {
-        if (argCount === 1) {
-          return function(value) {
-            return func.call(thisArg, value);
-          };
-        }
-        if (argCount === 2) {
-          return function(a, b) {
-            return func.call(thisArg, a, b);
-          };
-        }
-        if (argCount === 4) {
-          return function(accumulator, value, index, collection) {
-            return func.call(thisArg, accumulator, value, index, collection);
-          };
-        }
-        return function(value, index, collection) {
-          return func.call(thisArg, value, index, collection);
-        };
-      }
-      return func;
-    }
-    module.exports = createCallback;
-  });
-  require.register("primality/lib/util/forIn.js", function(exports, require, module) {
-    var objectTypes = require("./common").objectTypes;
-    var createCallback = require("./createCallback");
-    var forIn = function(collection, callback, thisArg) {
-      var index, iterable = collection, result = iterable;
-      if (!iterable) return result;
-      if (!objectTypes[typeof iterable]) return result;
-      callback = callback && typeof thisArg == "undefined" ? callback : createCallback(callback, thisArg);
-      for (index in iterable) {
-        if (callback(iterable[index], index, collection) === false) return result;
-      }
-      return result;
-    };
-    module.exports = forIn;
-  });
-  require.register("primality/lib/util/identity.js", function(exports, require, module) {
-    function identity(value) {
-      return value;
-    }
-    module.exports = identity;
-  });
-  require.register("primality/lib/util/indexOf.js", function(exports, require, module) {
-    var sortedIndex = require("./sortedIndex");
-    var nativeMax = require("./common").nativeMax;
-    function indexOf(array, value, fromIndex) {
-      var index = -1, length = array ? array.length : 0;
-      if (typeof fromIndex == "number") {
-        index = (fromIndex < 0 ? nativeMax(0, length + fromIndex) : fromIndex || 0) - 1;
-      } else if (fromIndex) {
-        index = sortedIndex(array, value);
-        return array[index] === value ? index : -1;
-      }
-      while (++index < length) {
-        if (array[index] === value) {
-          return index;
-        }
-      }
-      return -1;
-    }
-    module.exports = indexOf;
-  });
-  require.register("primality/lib/util/isArray.js", function(exports, require, module) {
-    var nativeIsArray = require("./common").nativeIsArray;
-    module.exports = nativeIsArray;
-  });
-  require.register("primality/lib/util/isEqual.js", function(exports, require, module) {
-    var hasOwnProperty = require("./common").hasOwnProperty;
-    var indicatorObject = require("./common").indicatorObject;
-    var toString = require("./common").toString;
-    var createCallback = require("./createCallback");
-    var forIn = require("./forIn");
-    var isFunction = require("./isFunction");
-    var argsClass = "[object Arguments]";
-    var arrayClass = "[object Array]";
-    var boolClass = "[object Boolean]";
-    var dateClass = "[object Date]";
-    var numberClass = "[object Number]";
-    var objectClass = "[object Object]";
-    var regexpClass = "[object RegExp]";
-    var stringClass = "[object String]";
-    function isEqual(a, b, callback, thisArg, stackA, stackB) {
-      var whereIndicator = callback === indicatorObject;
-      if (typeof callback == "function" && !whereIndicator) {
-        callback = createCallback(callback, thisArg, 2);
-        var result = callback(a, b);
-        if (typeof result != "undefined") {
-          return !!result;
-        }
-      }
-      if (a === b) {
-        return a !== 0 || 1 / a == 1 / b;
-      }
-      var type = typeof a, otherType = typeof b;
-      if (a === a && (!a || type != "function" && type != "object") && (!b || otherType != "function" && otherType != "object")) {
-        return false;
-      }
-      if (a == null || b == null) {
-        return a === b;
-      }
-      var className = toString.call(a), otherClass = toString.call(b);
-      if (className == argsClass) {
-        className = objectClass;
-      }
-      if (otherClass == argsClass) {
-        otherClass = objectClass;
-      }
-      if (className != otherClass) {
-        return false;
-      }
-      switch (className) {
-       case boolClass:
-       case dateClass:
-        return +a == +b;
-
-       case numberClass:
-        return a != +a ? b != +b : a == 0 ? 1 / a == 1 / b : a == +b;
-
-       case regexpClass:
-       case stringClass:
-        return a == String(b);
-      }
-      var isArr = className == arrayClass;
-      if (!isArr) {
-        if (hasOwnProperty.call(a, "__wrapped__ ") || hasOwnProperty.call(b, "__wrapped__")) {
-          return isEqual(a.__wrapped__ || a, b.__wrapped__ || b, callback, thisArg, stackA, stackB);
-        }
-        if (className != objectClass) {
-          return false;
-        }
-        var ctorA = a.constructor, ctorB = b.constructor;
-        if (ctorA != ctorB && !(isFunction(ctorA) && ctorA instanceof ctorA && isFunction(ctorB) && ctorB instanceof ctorB)) {
-          return false;
-        }
-      }
-      stackA || (stackA = []);
-      stackB || (stackB = []);
-      var length = stackA.length;
-      while (length--) {
-        if (stackA[length] == a) {
-          return stackB[length] == b;
-        }
-      }
-      var size = 0;
-      result = true;
-      stackA.push(a);
-      stackB.push(b);
-      if (isArr) {
-        length = a.length;
-        size = b.length;
-        result = size == a.length;
-        if (!result && !whereIndicator) {
-          return result;
-        }
-        while (size--) {
-          var index = length, value = b[size];
-          if (whereIndicator) {
-            while (index--) {
-              if (result = isEqual(a[index], value, callback, thisArg, stackA, stackB)) {
-                break;
-              }
-            }
-          } else if (!(result = isEqual(a[size], value, callback, thisArg, stackA, stackB))) {
-            break;
-          }
-        }
-        return result;
-      }
-      forIn(b, function(value, key, b) {
-        if (hasOwnProperty.call(b, key)) {
-          size++;
-          return result = hasOwnProperty.call(a, key) && isEqual(a[key], value, callback, thisArg, stackA, stackB);
-        }
-      });
-      if (result && !whereIndicator) {
-        forIn(a, function(value, key, a) {
-          if (hasOwnProperty.call(a, key)) {
-            return result = --size > -1;
-          }
-        });
-      }
-      return result;
-    }
-    module.exports = isEqual;
-  });
-  require.register("primality/lib/util/isFinite.js", function(exports, require, module) {
-    var nativeIsFinite = require("./common").nativeIsFinite;
-    var nativeIsNaN = require("./common").nativeIsNaN;
     function isFinite(value) {
       return nativeIsFinite(value) && !nativeIsNaN(parseFloat(value));
     }
     module.exports = isFinite;
   });
-  require.register("primality/lib/util/isFunction.js", function(exports, require, module) {
-    function isFunction(value) {
-      return typeof value == "function";
-    }
-    module.exports = isFunction;
-  });
   require.register("primality/lib/util/isNaN.js", function(exports, require, module) {
-    var isNumber = require("./isNumber");
+    var toString = Object.prototype.toString;
+    var numberClass = "[object Number]";
+    function isNumber(value) {
+      return typeof value == "number" || toString.call(value) == numberClass;
+    }
     function isNaN(value) {
       return isNumber(value) && value != +value;
     }
     module.exports = isNaN;
   });
-  require.register("primality/lib/util/isNumber.js", function(exports, require, module) {
-    var toString = require("./common").toString;
-    var numberClass = "[object Number]";
-    function isNumber(value) {
-      return typeof value == "number" || toString.call(value) == numberClass;
-    }
-    module.exports = isNumber;
-  });
-  require.register("primality/lib/util/isObject.js", function(exports, require, module) {
-    var objectTypes = require("./common").objectTypes;
-    function isObject(value) {
-      return value ? objectTypes[typeof value] : false;
-    }
-    module.exports = isObject;
-  });
-  require.register("primality/lib/util/keys.js", function(exports, require, module) {
-    var hasOwnProperty = require("./common").hasOwnProperty;
-    var nativeKeys = require("./common").nativeKeys;
-    var objectTypes = require("./common").objectTypes;
-    var isObject = require("./isObject");
-    var shimKeys = function(object) {
-      var index, iterable = object, result = [];
-      if (!iterable) return result;
-      if (!objectTypes[typeof object]) return result;
-      for (index in iterable) {
-        if (hasOwnProperty.call(iterable, index)) {
-          result.push(index);
-        }
-      }
-      return result;
-    };
-    module.exports = !nativeKeys ? shimKeys : function(object) {
-      if (!isObject(object)) {
-        return [];
-      }
-      return nativeKeys(object);
-    };
-  });
-  require.register("primality/lib/util/sortedIndex.js", function(exports, require, module) {
-    var createCallback = require("./createCallback");
-    var identity = require("./identity");
-    function sortedIndex(array, value, callback, thisArg) {
-      var low = 0, high = array ? array.length : low;
-      callback = callback ? createCallback(callback, thisArg, 1) : identity;
-      value = callback(value);
-      while (low < high) {
-        var mid = low + high >>> 1;
-        callback(array[mid]) < value ? low = mid + 1 : high = mid;
-      }
-      return low;
-    }
-    module.exports = sortedIndex;
-  });
   require.alias("primality/primality.js", "primality/index.js");
-  var freeExports = typeof exports == "object" && exports;
-  var freeModule = typeof module == "object" && module && module.exports == freeExports && module;
+  var objectTypes = {
+    "boolean": false,
+    "function": true,
+    object: true,
+    number: false,
+    string: false,
+    undefined: false
+  };
+  var freeExports = objectTypes[typeof exports] && exports;
+  var freeModule = objectTypes[typeof module] && module && module.exports == freeExports && module;
+  var freeGlobal = objectTypes[typeof global] && global;
+  if (freeGlobal && (freeGlobal.global === freeGlobal || freeGlobal.window === freeGlobal)) {
+    window = freeGlobal;
+  }
   if (typeof define == "function" && typeof define.amd == "object" && define.amd) {
     window.primality = require("primality");
     define(function() {
