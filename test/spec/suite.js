@@ -54,7 +54,7 @@ define(['../../primality'], function(primality) {
         primality.isWilsonPrime(5).should.equal(true);
         primality.isWilsonPrime(13).should.equal(true);
         primality.isWilsonPrime(563).should.equal(true);
-        primality.isWilsonPrime(564).should.equal(false);
+        primality.isWilsonPrime(1000).should.equal(false);
       });
     });
   });
