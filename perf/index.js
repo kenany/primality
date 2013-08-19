@@ -1,9 +1,10 @@
 /* https://github.com/KenanY/primality/wiki/Performance */
 
-var Benchmark = require('benchmark'),
-    primality = require('../primality.js'),
-    numbers   = require('numbers'),
-    suite     = new Benchmark.Suite;
+var Benchmark = require('benchmark');
+var primality = require('../primality.js');
+var numbers = require('numbers');
+
+var suite = new Benchmark.Suite;
 
 suite
   .add('primality', function() {
