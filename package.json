@@ -24,10 +24,7 @@
   "directories": {
     "test": "./test"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/KenanY/primality.git"
-  },
+  "repository": "https://github.com/KenanY/primality.git",
   "scripts": {
     "test": "grunt test",
     "bench": "node perf/index.js"
