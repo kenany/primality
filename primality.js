@@ -14,7 +14,7 @@ var WILSON_PRIMES = [5, 13, 563];
 var _ = require('./lib/util/');
 
 /**
- * Returns the factorial of `value`
+ * Returns the factorial of `value`.
  *
  * @private
  * @param {Number} value
