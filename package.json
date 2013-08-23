@@ -39,7 +39,7 @@
     "grunt-mocha": "~0.4.0",
     "mkdirp": "~0.3.0",
     "numbers": "~0.4.0",
-    "testem": "~0.3.0"
+    "testem": "~0.4.0"
   },
   "engines": [
     "node",
