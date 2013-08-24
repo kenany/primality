@@ -7,7 +7,7 @@
  *
  * Available under MIT license
  */
-(function(window) {
+(function() {
   function require(path, parent, orig) {
     var resolved = require.resolve(path);
     if (null == resolved) {
@@ -190,20 +190,8 @@
     module.exports = isArray;
   });
   require.register("primality/lib/util/isFinite.js", function(exports, require, module) {
-    var objectTypes = {
-      "boolean": false,
-      "function": true,
-      object: true,
-      number: false,
-      string: false,
-      undefined: false
-    };
-    var freeGlobal = objectTypes[typeof global] && global;
-    if (freeGlobal && (freeGlobal.global === freeGlobal || freeGlobal.window === freeGlobal)) {
-      window = freeGlobal;
-    }
-    var nativeIsFinite = window.isFinite;
-    var nativeIsNaN = window.isNaN;
+    var nativeIsFinite = root.isFinite;
+    var nativeIsNaN = root.isNaN;
     function isFinite(value) {
       return nativeIsFinite(value) && !nativeIsNaN(parseFloat(value));
     }
@@ -229,24 +217,26 @@
     string: false,
     undefined: false
   };
+  var root = objectTypes[typeof window] && window || this;
   var freeExports = objectTypes[typeof exports] && exports;
   var freeModule = objectTypes[typeof module] && module && module.exports == freeExports && module;
   var freeGlobal = objectTypes[typeof global] && global;
   if (freeGlobal && (freeGlobal.global === freeGlobal || freeGlobal.window === freeGlobal)) {
-    window = freeGlobal;
+    root = freeGlobal;
   }
+  var primality = require("primality");
   if (typeof define == "function" && typeof define.amd == "object" && define.amd) {
-    window.primality = require("primality");
+    root.primality = primality;
     define(function() {
-      return require("primality");
+      return primality;
     });
   } else if (freeExports && !freeExports.nodeType) {
     if (freeModule) {
-      (freeModule.exports = require("primality")).primality = require("primality");
+      (freeModule.exports = primality).primality = primality;
     } else {
-      freeExports.primality = require("primality");
+      freeExports.primality = primality;
     }
   } else {
-    window.primality = require("primality");
+    root.primality = primality;
   }
-})(this);
+}).call(this);
