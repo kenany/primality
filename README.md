@@ -31,7 +31,7 @@ numbers.
 
 Primality has been tested in:
 
-  - Chrome 6–26
+  - Chrome 6–29
   - Firefox 15–20
   - Internet Explorer 10
   - Opera 11.6-12.15
