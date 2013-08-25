@@ -91,26 +91,14 @@
   };
   require.register("primality/primality.js", function(exports, require, module) {
     var primality;
-    var WILSON_PRIMES = [ 5, 13, 563 ];
+    var factorial;
+    try {
+      factorial = require("factorial");
+    } catch (e) {
+      factorial = require("./node_modules/factorial/");
+    }
     var _ = require("./lib/util/");
-    function factorial(value) {
-      return value === 0 ? 1 : value * factorial(value - 1);
-    }
-    function mod(x, y) {
-      if (y > 0) {
-        if (x > 0) {
-          return x % y;
-        } else if (x === 0) {
-          return 0;
-        } else {
-          return x - y * Math.floor(x / y);
-        }
-      } else if (y === 0) {
-        return x;
-      } else {
-        throw new Error("Cannot calculate mod for a negative divisor");
-      }
-    }
+    var WILSON_PRIMES = [ 5, 13, 563 ];
     function leastFactor(n) {
       if (n === 0) return 0; else if (n % 1 || n * n < 2) return 1; else if (n % 2 === 0) return 2; else if (n % 3 === 0) return 3; else if (n % 5 === 0) return 5;
       var m = Math.sqrt(n);
@@ -147,7 +135,7 @@
       return isRelated(a, b, 6);
     }
     function isWilsonPrime(value) {
-      return _.contains(WILSON_PRIMES, value) ? true : mod(factorial(value - 1) + 1, Math.pow(value, 2)) === 0;
+      return _.contains(WILSON_PRIMES, value) ? true : (factorial(value - 1) + 1) % Math.pow(value, 2) === 0;
     }
     primality.VERSION = "1.5.7";
     primality.areTwinPrimes = areTwinPrimes;
@@ -207,6 +195,11 @@
       return isNumber(value) && value != +value;
     }
     module.exports = isNaN;
+  });
+  require.register("primality/node_modules/factorial/index.js", function(exports, require, module) {
+    module.exports = function factorial(v) {
+      return v === 0 ? 1 : v * factorial(v - 1);
+    };
   });
   require.alias("primality/primality.js", "primality/index.js");
   var objectTypes = {

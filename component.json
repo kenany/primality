@@ -19,7 +19,8 @@
     "lib/util/contains.js",
     "lib/util/isArray.js",
     "lib/util/isFinite.js",
-    "lib/util/isNaN.js"
+    "lib/util/isNaN.js",
+    "node_modules/factorial/index.js"
   ],
   "license": "MIT"
 }

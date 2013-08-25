@@ -9,48 +9,26 @@
  */
 var primality;
 
-var WILSON_PRIMES = [5, 13, 563];
+/**
+ * "Hack" to use npm modules as components when they don't have a
+ * `component.json`. This prevents two annoyances:
+ *
+ *   - bugging the developer to make a `component.json`
+ *   - forking, adding `component.json`, and maintaining this fork
+ *
+ * First, a regular `require()` is attempted. If that fails, then we must be in
+ * the browser.
+ */
+var factorial;
+try {
+  factorial = require('factorial');
+} catch (e) {
+  factorial = require('./node_modules/factorial/');
+}
 
 var _ = require('./lib/util/');
 
-/**
- * Returns the factorial of `value`.
- *
- * @private
- * @param {Number} value
- * @returns {Number} The factorial of `value`.
- */
-function factorial(value) {
-  return value === 0 ? 1 : value * factorial(value - 1);
-}
-
-/**
- * Returns the modulus of two numbers.
- *
- * @private
- * @param {Number} x
- * @param {Number} y
- * @returns {Number}
- */
-function mod(x, y) {
-  if (y > 0) {
-    if (x > 0) {
-      return x % y;
-    }
-    else if (x === 0) {
-      return 0;
-    }
-    else {
-      return x - y * Math.floor(x / y);
-    }
-  }
-  else if (y === 0) {
-    return x;
-  }
-  else {
-    throw new Error('Cannot calculate mod for a negative divisor');
-  }
-}
+var WILSON_PRIMES = [5, 13, 563];
 
 /**
  * Finds the smallest factor of `n`
@@ -216,7 +194,7 @@ function areSexyPrimes(a, b) {
 function isWilsonPrime(value) {
   return _.contains(WILSON_PRIMES, value)
     ? true
-    : mod(factorial(value - 1) + 1, Math.pow(value, 2)) === 0;
+    : (factorial(value - 1) + 1) % Math.pow(value, 2) === 0;
 }
 
 /**
