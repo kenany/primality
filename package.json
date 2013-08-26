@@ -30,7 +30,7 @@
     "bench": "node perf/index.js"
   },
   "dependencies": {
-    "factorial": "git://github.com/wearefractal/factorial.git#0ec466f15043e3cf7bb115f3f21b27fda3f3c55b"
+    "factorial": "~0.0.0"
   },
   "devDependencies": {
     "async": "~0.2.0",
