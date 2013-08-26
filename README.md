@@ -11,8 +11,8 @@ numbers.
 
 ## Download
 
-  * [Development build](https://raw.github.com/KenanY/primality/1.5.7/dist/primality.js)
-  * [Production build](https://raw.github.com/KenanY/primality/1.5.7/dist/primality.min.js)
+  * [Development build](https://raw.github.com/KenanY/primality/1.5.8/dist/primality.js)
+  * [Production build](https://raw.github.com/KenanY/primality/1.5.8/dist/primality.min.js)
 
 ## Features
 
@@ -152,8 +152,8 @@ primality.isWilsonPrime(563);
 
 ## Release Notes
 
-### 1.5.7
+### 1.5.8
 
-  - `isWilsonPrime` now works with unknown Wilson primes
+  - Outsource factorial function
 
 The full changelog is available [here](https://github.com/KenanY/primality/wiki/Changelog).
