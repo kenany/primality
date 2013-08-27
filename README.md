@@ -114,7 +114,7 @@ primality('13');
 // => true
 ```
 
-Primality can even do arrays. If any of the values of an array are not prime,
+Primality can even do arrays. If any of the values in an array are not prime,
 `false` is returned.
 
 ``` javascript
@@ -125,11 +125,10 @@ primality([17, 20, 23]);
 // => false
 ```
 
-Eventually, primality tests get boring. In order to mitigate this boredom,
-Primality can also tell you if a pair of numbers are twin or sexy primes.
-
-Twin primes are prime numbers that differ from another by two. Similarly, cousin
-primes differ by four and sexy primes differ by six.
+Beyond primality testing, Primality can also tell you if a pair of numbers are
+twin, cousin, or sexy primes. Twin primes are prime numbers that differ from
+each other by two. Similarly, cousin primes differ by four and sexy primes
+differ by six.
 
 ``` javascript
 primality.areTwinPrimes(3, 5);
