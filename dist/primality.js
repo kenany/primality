@@ -1,5 +1,5 @@
 /*!
- * primality v1.5.7
+ * primality v1.5.9
  * (c) 2012–2013 Kenan Yildirim
  *
  * Includes functions from Lo-Dash
@@ -137,7 +137,7 @@
     function isWilsonPrime(value) {
       return _.contains(WILSON_PRIMES, value) ? true : (factorial(value - 1) + 1) % Math.pow(value, 2) === 0;
     }
-    primality.VERSION = "1.5.7";
+    primality.VERSION = "1.5.9";
     primality.areTwinPrimes = areTwinPrimes;
     primality.areCousinPrimes = areCousinPrimes;
     primality.areSexyPrimes = areSexyPrimes;

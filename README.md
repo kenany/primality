@@ -11,8 +11,8 @@ numbers.
 
 ## Download
 
-  * [Development build](https://raw.github.com/KenanY/primality/1.5.8/dist/primality.js)
-  * [Production build](https://raw.github.com/KenanY/primality/1.5.8/dist/primality.min.js)
+  * [Development build](https://raw.github.com/KenanY/primality/1.5.9/dist/primality.js)
+  * [Production build](https://raw.github.com/KenanY/primality/1.5.9/dist/primality.min.js)
 
 ## Features
 
@@ -151,8 +151,8 @@ primality.isWilsonPrime(563);
 
 ## Release Notes
 
-### 1.5.8
+### 1.5.9
 
-  - Outsource factorial function
+  - factorial@0.0
 
 The full changelog is available [here](https://github.com/KenanY/primality/wiki/Changelog).
