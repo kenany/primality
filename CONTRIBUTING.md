@@ -44,15 +44,18 @@ Don't do this in pull requests.
   ``` bash
   $ grunt
   ```
+
   3. Regenerate documentation
   ``` bash
   $ grunt doc
   ```
+
   4. Tag
   ``` bash
   $ git commit -am 'Release 1.0.0'
   $ git tag -a 1.0.0 -m '1.0.0'
   ```
+
   5. Publish
   ``` bash
   $ npm publish
