@@ -56,6 +56,11 @@ define(['../../dist/primality'], function(primality) {
         primality.isWilsonPrime(563).should.equal(true);
         primality.isWilsonPrime(1000).should.equal(false);
       });
+      it('is a wieferich prime', function() {
+        primality.isWieferichPrime(1093).should.equal(true);
+        primality.isWieferichPrime(3511).should.equal(true);
+        primality.isWieferichPrime(2511).should.equal(false);
+      });
     });
   });
 });

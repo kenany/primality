@@ -29,6 +29,7 @@ try {
 var _ = require('./lib/util/');
 
 var WILSON_PRIMES = [5, 13, 563];
+var WIEFERICH_PRIMES = [1093, 3511];
 
 /**
  * Finds the smallest factor of `n`
@@ -198,6 +199,25 @@ function isWilsonPrime(value) {
 }
 
 /**
+ * Checks if `value` is a Wieferich prime.
+ *
+ * <https://en.wikipedia.org/wiki/Wieferich_prime>
+ *
+ * @static
+ * @memberOf primality
+ * @param {Number} value
+ * @returns {Boolean} Returns `true` if `value` is a Wieferich prime.
+ * @example
+ *
+ * primality.isWieferichPrime(1093);
+ * // => true
+ */
+function isWieferichPrime(value) {
+  return _.contains(WIEFERICH_PRIMES, value)
+    ? true
+    : (Math.pow(2, value - 1) - 1) % Math.pow(value, 2) === 0;
+}
+/**
  * The semantic version number.
  *
  * @static
@@ -210,6 +230,7 @@ primality.areTwinPrimes = areTwinPrimes;
 primality.areCousinPrimes = areCousinPrimes;
 primality.areSexyPrimes = areSexyPrimes;
 primality.isWilsonPrime = isWilsonPrime;
+primality.isWieferichPrime = isWieferichPrime;
 
 // Expose Primality
 (module.exports = primality).primality = primality;

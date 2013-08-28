@@ -99,6 +99,7 @@
     }
     var _ = require("./lib/util/");
     var WILSON_PRIMES = [ 5, 13, 563 ];
+    var WIEFERICH_PRIMES = [ 1093, 3511 ];
     function leastFactor(n) {
       if (n === 0) return 0; else if (n % 1 || n * n < 2) return 1; else if (n % 2 === 0) return 2; else if (n % 3 === 0) return 3; else if (n % 5 === 0) return 5;
       var m = Math.sqrt(n);
@@ -137,11 +138,15 @@
     function isWilsonPrime(value) {
       return _.contains(WILSON_PRIMES, value) ? true : (factorial(value - 1) + 1) % Math.pow(value, 2) === 0;
     }
+    function isWieferichPrime(value) {
+      return _.contains(WIEFERICH_PRIMES, value) ? true : (Math.pow(2, value - 1) - 1) % Math.pow(value, 2) === 0;
+    }
     primality.VERSION = "1.5.9";
     primality.areTwinPrimes = areTwinPrimes;
     primality.areCousinPrimes = areCousinPrimes;
     primality.areSexyPrimes = areSexyPrimes;
     primality.isWilsonPrime = isWilsonPrime;
+    primality.isWieferichPrime = isWieferichPrime;
     (module.exports = primality).primality = primality;
   });
   require.register("primality/lib/util/index.js", function(exports, require, module) {
