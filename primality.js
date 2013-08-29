@@ -99,7 +99,8 @@ function isPrime(value) {
 primality = function(input) {
   if (input === null || input === '') return null;
   else if (_.isArray(input)) {
-    for (var i = 0, l = input.length; i < l; i++) {
+    var i = input.length;
+    while (i--) {
       if (!isPrime(input[i])) return false;
     }
     return true;
