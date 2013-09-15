@@ -18,9 +18,9 @@
   ],
   "dependencies": {
     "KenanY/factorial": "*",
-    "yields/isArray": "*",
     "KenanY/is-finite": "*",
     "KenanY/is-nan": "*",
+    "yields/isArray": "*",
     "Nami-Doc/contains": "*"
   },
   "license": "MIT"
