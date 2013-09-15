@@ -14,13 +14,14 @@
   ],
   "main": "primality.js",
   "scripts": [
-    "primality.js",
-    "lib/util/index.js",
-    "lib/util/contains.js",
-    "lib/util/isArray.js",
-    "lib/util/isFinite.js",
-    "lib/util/isNaN.js",
-    "node_modules/factorial/index.js"
+    "primality.js"
   ],
+  "dependencies": {
+    "KenanY/factorial": "*",
+    "yields/isArray": "*",
+    "KenanY/is-finite": "*",
+    "KenanY/is-nan": "*",
+    "Nami-Doc/contains": "*"
+  },
   "license": "MIT"
 }

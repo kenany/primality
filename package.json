@@ -30,7 +30,11 @@
     "bench": "node perf/index.js"
   },
   "dependencies": {
-    "factorial": "~0.0.0"
+    "factorial": "~0.0.0",
+    "lodash.contains": "~2.0.0",
+    "lodash.isarray": "~2.0.0",
+    "lodash.isfinite": "~2.0.0",
+    "lodash.isnan": "~2.0.0"
   },
   "devDependencies": {
     "async": "~0.2.0",

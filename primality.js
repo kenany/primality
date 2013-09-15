@@ -9,24 +9,24 @@
  */
 var primality;
 
-/**
- * "Hack" to use npm modules as components when they don't have a
- * `component.json`. This prevents two annoyances:
- *
- *   - bugging the developer to make a `component.json`
- *   - forking, adding `component.json`, and maintaining this fork
- *
- * First, a regular `require()` is attempted. If that fails, then we must be in
- * the browser.
- */
-var factorial;
-try {
-  factorial = require('factorial');
-} catch (e) {
-  factorial = require('./node_modules/factorial/');
-}
+var factorial = require('factorial');
 
-var _ = require('./lib/util/');
+/**
+ * Try to `require()` Lo-Dash npm modules. If that fails, we are probably a
+ * component, in which case we'll settle for alternatives.
+ */
+ var _ = {};
+try {
+  _.contains = require('lodash.contains');
+  _.isArray = require('lodash.isarray');
+  _.isFinite = require('lodash.isfinite');
+  _.isNaN = require('lodash.isnan');
+} catch (e) {
+  _.contains = require('contains');
+  _.isArray = require('isArray');
+  _.isFinite = require('is-finite');
+  _.isNaN = require('is-nan');
+}
 
 var WILSON_PRIMES = [5, 13, 563];
 var WIEFERICH_PRIMES = [1093, 3511];

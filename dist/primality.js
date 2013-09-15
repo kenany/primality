@@ -20,10 +20,14 @@
       throw err;
     }
     var module = require.modules[resolved];
-    if (!module.exports) {
-      module.exports = {};
-      module.client = module.component = true;
-      module.call(this, module.exports, require.relative(resolved), module);
+    if (!module._resolving && !module.exports) {
+      var mod = {};
+      mod.exports = {};
+      mod.client = mod.component = true;
+      module._resolving = true;
+      module.call(this, mod.exports, require.relative(resolved), mod);
+      delete module._resolving;
+      module.exports = mod.exports;
     }
     return module.exports;
   }
@@ -89,15 +93,70 @@
     };
     return localRequire;
   };
+  require.register("KenanY-factorial/index.js", function(exports, require, module) {
+    module.exports = factorial;
+    function factorial(v) {
+      return v === 0 ? 1 : v * factorial(v - 1);
+    }
+  });
+  require.register("yields-isArray/index.js", function(exports, require, module) {
+    var isArray = Array.isArray;
+    var str = Object.prototype.toString;
+    module.exports = isArray || function(val) {
+      return !!val && "[object Array]" == str.call(val);
+    };
+  });
+  require.register("component-global/index.js", function(exports, require, module) {
+    module.exports = function() {
+      return this;
+    }();
+  });
+  require.register("KenanY-is-finite/index.js", function(exports, require, module) {
+    var global = require("global");
+    var nativeIsFinite = global.isFinite;
+    var nativeIsNaN = global.isNaN;
+    module.exports = function(value) {
+      return nativeIsFinite(value) && !nativeIsNaN(parseFloat(value));
+    };
+  });
+  require.register("KenanY-is-nan/index.js", function(exports, require, module) {
+    var numberClass = "[object Number]";
+    var objectProto = Object.prototype;
+    var toString = objectProto.toString;
+    function isNumber(value) {
+      return typeof value == "number" || toString.call(value) == numberClass;
+    }
+    module.exports = function(value) {
+      return isNumber(value) && value != +value;
+    };
+  });
+  require.register("Nami-Doc-contains/index.js", function(exports, require, module) {
+    module.exports = function(arr, el) {
+      if ("string" === typeof arr) return !!~arr.indexOf(el);
+      var i = 0, len = arr.length >>> 0;
+      while (i < len) {
+        if (el === arr[i++]) {
+          return true;
+        }
+      }
+      return false;
+    };
+  });
   require.register("primality/primality.js", function(exports, require, module) {
     var primality;
-    var factorial;
+    var factorial = require("factorial");
+    var _ = {};
     try {
-      factorial = require("factorial");
+      _.contains = require("lodash.contains");
+      _.isArray = require("lodash.isarray");
+      _.isFinite = require("lodash.isfinite");
+      _.isNaN = require("lodash.isnan");
     } catch (e) {
-      factorial = require("./node_modules/factorial/");
+      _.contains = require("contains");
+      _.isArray = require("isArray");
+      _.isFinite = require("is-finite");
+      _.isNaN = require("is-nan");
     }
-    var _ = require("./lib/util/");
     var WILSON_PRIMES = [ 5, 13, 563 ];
     var WIEFERICH_PRIMES = [ 1093, 3511 ];
     function leastFactor(n) {
@@ -150,63 +209,19 @@
     primality.isWieferichPrime = isWieferichPrime;
     (module.exports = primality).primality = primality;
   });
-  require.register("primality/lib/util/index.js", function(exports, require, module) {
-    var _ = {};
-    _.contains = require("./contains");
-    _.isArray = require("./isArray");
-    _.isFinite = require("./isFinite");
-    _.isNaN = require("./isNaN");
-    module.exports = _;
-  });
-  require.register("primality/lib/util/contains.js", function(exports, require, module) {
-    var nativeMax = Math.max;
-    function basicIndexOf(array, value) {
-      var index = -1;
-      var length = array.length;
-      while (++index < length) {
-        if (array[index] === value) {
-          return index;
-        }
-      }
-      return -1;
-    }
-    function contains(collection, target) {
-      return basicIndexOf(collection, target) > -1;
-    }
-    module.exports = contains;
-  });
-  require.register("primality/lib/util/isArray.js", function(exports, require, module) {
-    var reNative = RegExp("^" + String(Object.prototype.valueOf).replace(/[.*+?^${}()|[\]\\]/g, "\\$&").replace(/valueOf|for [^\]]+/g, ".+?") + "$");
-    var nativeIsArray = reNative.test(nativeIsArray = Array.isArray) && nativeIsArray;
-    var isArray = nativeIsArray || function(value) {
-      return value ? typeof value == "object" && toString.call(value) == arrayClass : false;
-    };
-    module.exports = isArray;
-  });
-  require.register("primality/lib/util/isFinite.js", function(exports, require, module) {
-    var nativeIsFinite = root.isFinite;
-    var nativeIsNaN = root.isNaN;
-    function isFinite(value) {
-      return nativeIsFinite(value) && !nativeIsNaN(parseFloat(value));
-    }
-    module.exports = isFinite;
-  });
-  require.register("primality/lib/util/isNaN.js", function(exports, require, module) {
-    var toString = Object.prototype.toString;
-    var numberClass = "[object Number]";
-    function isNumber(value) {
-      return typeof value == "number" || toString.call(value) == numberClass;
-    }
-    function isNaN(value) {
-      return isNumber(value) && value != +value;
-    }
-    module.exports = isNaN;
-  });
-  require.register("primality/node_modules/factorial/index.js", function(exports, require, module) {
-    module.exports = function factorial(v) {
-      return v === 0 ? 1 : v * factorial(v - 1);
-    };
-  });
+  require.alias("KenanY-factorial/index.js", "primality/deps/factorial/index.js");
+  require.alias("KenanY-factorial/index.js", "primality/deps/factorial/index.js");
+  require.alias("KenanY-factorial/index.js", "factorial/index.js");
+  require.alias("KenanY-factorial/index.js", "KenanY-factorial/index.js");
+  require.alias("yields-isArray/index.js", "primality/deps/isArray/index.js");
+  require.alias("yields-isArray/index.js", "isArray/index.js");
+  require.alias("KenanY-is-finite/index.js", "primality/deps/is-finite/index.js");
+  require.alias("KenanY-is-finite/index.js", "is-finite/index.js");
+  require.alias("component-global/index.js", "KenanY-is-finite/deps/global/index.js");
+  require.alias("KenanY-is-nan/index.js", "primality/deps/is-nan/index.js");
+  require.alias("KenanY-is-nan/index.js", "is-nan/index.js");
+  require.alias("Nami-Doc-contains/index.js", "primality/deps/contains/index.js");
+  require.alias("Nami-Doc-contains/index.js", "contains/index.js");
   require.alias("primality/primality.js", "primality/index.js");
   var objectTypes = {
     "boolean": false,
