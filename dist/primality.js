@@ -1,5 +1,5 @@
 /*!
- * primality v1.5.9
+ * primality v1.6.0
  * (c) 2012–2013 Kenan Yildirim
  *
  * Includes functions from Lo-Dash
@@ -201,7 +201,7 @@
     function isWieferichPrime(value) {
       return _.contains(WIEFERICH_PRIMES, value) ? true : (Math.pow(2, value - 1) - 1) % Math.pow(value, 2) === 0;
     }
-    primality.VERSION = "1.5.9";
+    primality.VERSION = "1.6.0";
     primality.areTwinPrimes = areTwinPrimes;
     primality.areCousinPrimes = areCousinPrimes;
     primality.areSexyPrimes = areSexyPrimes;

@@ -1,5 +1,5 @@
 /*!
- * primality v1.5.9
+ * primality v1.6.0
  * (c) 2012–2013 Kenan Yildirim
  *
  * Includes functions from Lo-Dash
@@ -225,7 +225,7 @@ function isWieferichPrime(value) {
  * @memberOf primality
  * @type String
  */
-primality.VERSION = '1.5.9';
+primality.VERSION = '1.6.0';
 
 primality.areTwinPrimes = areTwinPrimes;
 primality.areCousinPrimes = areCousinPrimes;

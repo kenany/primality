@@ -11,8 +11,8 @@ numbers.
 
 ## Download
 
-  * [Development build](https://raw.github.com/KenanY/primality/1.5.9/dist/primality.js)
-  * [Production build](https://raw.github.com/KenanY/primality/1.5.9/dist/primality.min.js)
+  * [Development build](https://raw.github.com/KenanY/primality/1.6.0/dist/primality.js)
+  * [Production build](https://raw.github.com/KenanY/primality/1.6.0/dist/primality.min.js)
 
 ## Features
 
@@ -151,8 +151,14 @@ primality.isWilsonPrime(563);
 
 ## Release Notes
 
-### 1.5.9
+### 1.6.0
 
-  - factorial@0.0
+  - [#11](https://github.com/KenanY/primality/issues/11): Added
+  `isWieferichPrime` function.
+  - [#13](https://github.com/KenanY/primality/issues/13): Fixed component
+  install issue.
+  - Slight performance boost by using a `while` loop instead of a `for` loop
+  when iterating through arrays.
+  - [#14](https://github.com/KenanY/primality/issues/14): lodash@2.0.0
 
 The full changelog is available [here](https://github.com/KenanY/primality/wiki/Changelog).
