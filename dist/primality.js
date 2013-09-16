@@ -1,11 +1,9 @@
 /*!
  * primality v1.6.0
- * (c) 2012–2013 Kenan Yildirim
+ * Copyright 2012–2013 Kenan Yildirim
  *
- * Includes functions from Lo-Dash
- * (c) 2012–2013 The Dojo Foundation
- *
- * Available under MIT license
+ * This browser build of primality includes code licensed by other authors.
+ * See LICENSE.txt for the full licenses.
  */
 (function() {
   function require(path, parent, orig) {
@@ -99,13 +97,6 @@
       return v === 0 ? 1 : v * factorial(v - 1);
     }
   });
-  require.register("yields-isArray/index.js", function(exports, require, module) {
-    var isArray = Array.isArray;
-    var str = Object.prototype.toString;
-    module.exports = isArray || function(val) {
-      return !!val && "[object Array]" == str.call(val);
-    };
-  });
   require.register("component-global/index.js", function(exports, require, module) {
     module.exports = function() {
       return this;
@@ -128,6 +119,13 @@
     }
     module.exports = function(value) {
       return isNumber(value) && value != +value;
+    };
+  });
+  require.register("yields-isArray/index.js", function(exports, require, module) {
+    var isArray = Array.isArray;
+    var str = Object.prototype.toString;
+    module.exports = isArray || function(val) {
+      return !!val && "[object Array]" == str.call(val);
     };
   });
   require.register("Nami-Doc-contains/index.js", function(exports, require, module) {
@@ -213,13 +211,13 @@
   require.alias("KenanY-factorial/index.js", "primality/deps/factorial/index.js");
   require.alias("KenanY-factorial/index.js", "factorial/index.js");
   require.alias("KenanY-factorial/index.js", "KenanY-factorial/index.js");
-  require.alias("yields-isArray/index.js", "primality/deps/isArray/index.js");
-  require.alias("yields-isArray/index.js", "isArray/index.js");
   require.alias("KenanY-is-finite/index.js", "primality/deps/is-finite/index.js");
   require.alias("KenanY-is-finite/index.js", "is-finite/index.js");
   require.alias("component-global/index.js", "KenanY-is-finite/deps/global/index.js");
   require.alias("KenanY-is-nan/index.js", "primality/deps/is-nan/index.js");
   require.alias("KenanY-is-nan/index.js", "is-nan/index.js");
+  require.alias("yields-isArray/index.js", "primality/deps/isArray/index.js");
+  require.alias("yields-isArray/index.js", "isArray/index.js");
   require.alias("Nami-Doc-contains/index.js", "primality/deps/contains/index.js");
   require.alias("Nami-Doc-contains/index.js", "contains/index.js");
   require.alias("primality/primality.js", "primality/index.js");

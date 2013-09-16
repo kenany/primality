@@ -8,12 +8,10 @@ module.exports = function(grunt) {
   var fileBanner = [
     '/*!',
     ' * <%= pkg.name %> v<%= pkg.version %>',
-    ' * (c) 2012–<%= grunt.template.today(\"yyyy\") %> <%= pkg.author.name %>',
+    ' * Copyright 2012–<%= grunt.template.today("yyyy") %> <%= pkg.author.name %>',
     ' *',
-    ' * Includes functions from Lo-Dash',
-    ' * (c) 2012–2013 The Dojo Foundation',
-    ' *',
-    ' * Available under MIT license',
+    ' * This browser build of primality includes code licensed by other authors.',
+    ' * See LICENSE.txt for the full licenses.',
     ' */\n'
   ].join('\n');
 
