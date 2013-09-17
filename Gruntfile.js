@@ -35,12 +35,11 @@ module.exports = function(grunt) {
       },
       min: {
         options: {
-          banner: fileBanner,
           report: 'gzip',
           beautify: {
             'ascii_only': true,
             'max_line_len': 500,
-            'comments': /@cc_on|@license|@preserve/i
+            'comments': /^!|@cc_on|@license|@preserve/i
           },
           compress: {
             'comparisons': false,

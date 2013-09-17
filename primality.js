@@ -1,14 +1,3 @@
-/*!
- * primality v1.6.0
- * (c) 2012–2013 Kenan Yildirim
- *
- * Includes functions from Lo-Dash
- * (c) 2012–2013 The Dojo Foundation
- *
- * Available under MIT license
- */
-var primality;
-
 var factorial = require('factorial');
 
 /**
@@ -96,7 +85,7 @@ function isPrime(value) {
  * primality([17, 19, 23]);
  * // => true
  */
-primality = function(input) {
+var primality = function(input) {
   if (input === null || input === '') return null;
   else if (_.isArray(input)) {
     var i = input.length;

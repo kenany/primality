@@ -141,7 +141,6 @@
     };
   });
   require.register("primality/primality.js", function(exports, require, module) {
-    var primality;
     var factorial = require("factorial");
     var _ = {};
     try {
@@ -172,7 +171,7 @@
       if (value !== leastFactor(value)) return false;
       return true;
     }
-    primality = function(input) {
+    var primality = function(input) {
       if (input === null || input === "") return null; else if (_.isArray(input)) {
         var i = input.length;
         while (i--) {
