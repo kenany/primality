@@ -1,5 +1,5 @@
 /*!
- * primality v1.6.0
+ * primality v1.6.1
  * Copyright 2012–2013 Kenan Yildirim
  *
  * This browser build of primality includes code licensed by other authors.
@@ -198,7 +198,7 @@
     function isWieferichPrime(value) {
       return _.contains(WIEFERICH_PRIMES, value) ? true : (Math.pow(2, value - 1) - 1) % Math.pow(value, 2) === 0;
     }
-    primality.VERSION = "1.6.0";
+    primality.VERSION = "1.6.1";
     primality.areTwinPrimes = areTwinPrimes;
     primality.areCousinPrimes = areCousinPrimes;
     primality.areSexyPrimes = areSexyPrimes;

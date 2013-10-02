@@ -214,7 +214,7 @@ function isWieferichPrime(value) {
  * @memberOf primality
  * @type String
  */
-primality.VERSION = '1.6.0';
+primality.VERSION = '1.6.1';
 
 primality.areTwinPrimes = areTwinPrimes;
 primality.areCousinPrimes = areCousinPrimes;
