@@ -34,7 +34,6 @@ $ testem
 Don't do this in pull requests.
 
   1. Update version numbers
-    - `primality.js` header
     - `primality.VERSION`
     - `README.md` download links
     - `bower.json`
