@@ -4,7 +4,7 @@ var factorial = require('factorial');
  * Try to `require()` Lo-Dash npm modules. If that fails, we are probably a
  * component, in which case we'll settle for alternatives.
  */
- var _ = {};
+var _ = {};
 try {
   _.contains = require('lodash.contains');
   _.isArray = require('lodash.isarray');
