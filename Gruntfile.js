@@ -65,33 +65,33 @@ module.exports = function(grunt) {
     var done = this.async();
 
     async.waterfall([
-      function(callback){
-        mkdir('dist', callback)
+      function(callback) {
+        mkdir('dist', callback);
       },
-      function(made, callback){
+      function(made, callback) {
         var builder = new Builder(process.cwd());
         builder.copyAssetsTo('dist');
         builder.build(callback);
       },
-      function(obj, callback){
+      function(obj, callback) {
         async.parallel([
-            function(callback){
-                fs.readFile('./build/umd-prelude.js', 'utf8', callback);
-            },
-            function(callback){
-                fs.readFile('./build/umd-postlude.js', 'utf8', callback);
-            }
+          function(callback) {
+            fs.readFile('./build/umd-prelude.js', 'utf8', callback);
+          },
+          function(callback) {
+            fs.readFile('./build/umd-postlude.js', 'utf8', callback);
+          }
         ],
-        function(error, results){
-            if (error) grunt.log.error(error.message);
-            var js = '';
-            js += results[0];
-            js += obj.require;
-            js += obj.js;
-            js += results[1];
+        function(error, results) {
+          if (error) grunt.log.error(error.message);
+          var js = '';
+          js += results[0];
+          js += obj.require;
+          js += obj.js;
+          js += results[1];
 
-            var jsPath = path.join('dist', grunt.template.process('primality.js'));
-            fs.writeFile(jsPath, js, done);
+          var jsPath = path.join('dist', grunt.template.process('primality.js'));
+          fs.writeFile(jsPath, js, done);
         });
       }
     ],
@@ -113,18 +113,20 @@ module.exports = function(grunt) {
     var done = this.async();
 
     if (arguments.length === 0) {
-      grunt.log.writeln(this.name + ", no args");
+      grunt.log.writeln(this.name + ', no args');
       done(false);
-    } else {
+    }
+    else {
       var files = [
         './README.md',
         './package.json',
         './component.json',
         './bower.json',
         './primality.js'
-      ]
+      ];
       var regexp = RegExp(grunt.config.data.pkg.version, 'g');
 
+      /* eslint no-inner-declarations: 0 */
       function upgradeVersion(item, cb) {
         async.waterfall([
           function(callback) {

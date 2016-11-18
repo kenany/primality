@@ -1,5 +1,5 @@
 (function() {
-  var runner = mocha.run();
+  var runner = window.mocha.run();
 
   if (!window.PHANTOMJS) {
     return;
@@ -30,16 +30,16 @@
 
   runner.on('end', function() {
     var output = {
-      failed  : this.failures,
-      passed  : this.total - this.failures,
-      total   : this.total
+      failed: this.failures,
+      passed: this.total - this.failures,
+      total: this.total
     };
 
-    sendMessage('done', output.failed,output.passed, output.total);
+    sendMessage('done', output.failed, output.passed, output.total);
   });
 
   function sendMessage() {
     var args = [].slice.call(arguments);
-    alert(JSON.stringify(args));
+    window.alert(JSON.stringify(args));
   }
 })();

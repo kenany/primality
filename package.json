@@ -26,8 +26,11 @@
   },
   "repository": "https://github.com/KenanY/primality.git",
   "scripts": {
-    "test": "grunt test",
-    "bench": "node perf/index.js"
+    "bench": "node perf/index.js",
+    "lint": "eslint *.js test/**/*.js",
+    "tests-only": "grunt test",
+    "pretest": "npm run -s lint",
+    "test": "npm run -s tests-only"
   },
   "dependencies": {
     "factorial": "~0.0.0",
@@ -37,9 +40,11 @@
     "lodash.isnan": "~2.2.0"
   },
   "devDependencies": {
+    "@kenan/eslint-config": "^4.0.0",
     "async": "~0.2.0",
     "benchmark": "~1.0.0",
     "component-builder": "~0.9.0",
+    "eslint": "^3.10.2",
     "graceful-fs": "~2.0.0",
     "grunt": "~0.4.0",
     "grunt-cli": "^1.2.0",

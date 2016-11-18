@@ -1,3 +1,5 @@
+/* eslint-env amd, mocha */
+
 define(['../../dist/primality'], function(primality) {
   describe('primality', function() {
     it('should expose version number', function() {
@@ -7,6 +9,7 @@ define(['../../dist/primality'], function(primality) {
       primality.should.be.a('function');
     });
     describe('numbers', function() {
+      /* eslint no-new-wrappers: 0 */
       it('should return true when value is prime', function() {
         primality(7).should.equal(true);
         primality(new Number(11)).should.equal(true);
@@ -30,6 +33,7 @@ define(['../../dist/primality'], function(primality) {
     });
     describe('arrays', function() {
       it('should return true if an array of prime numbers is passed', function() {
+        /* eslint no-array-constructor: 0 */
         primality([17, 19, 23]).should.equal(true);
         primality(new Array(29, 30, 31)).should.equal(false);
       });

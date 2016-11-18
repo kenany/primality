@@ -10,7 +10,8 @@ try {
   _.isArray = require('lodash.isarray');
   _.isFinite = require('lodash.isfinite');
   _.isNaN = require('lodash.isnan');
-} catch (e) {
+}
+catch (e) {
   _.contains = require('contains');
   _.isArray = require('isArray');
   _.isFinite = require('is-finite');
