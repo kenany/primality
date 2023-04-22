@@ -11,20 +11,19 @@
     "numbers",
     "util"
   ],
-  "homepage": "https://github.com/KenanY/primality",
+  "homepage": "https://github.com/kenany/primality",
   "bugs": {
-    "url": "https://github.com/KenanY/primality/issues"
+    "url": "https://github.com/kenany/primality/issues"
   },
-  "author": {
-    "name": "Kenan Yildirim",
-    "email": "kenan@kenany.me",
-    "web": "http://kenany.me/"
-  },
+  "author": "Kenan Yildirim <kenan@kenany.me> (https://kenany.me/)",
   "main": "./primality",
   "directories": {
     "test": "./test"
   },
-  "repository": "https://github.com/KenanY/primality.git",
+  "repository": "kenany/primality",
+  "engines": {
+    "node": "^14.14.0 || 16 || 18 || >=20"
+  },
   "scripts": {
     "bench": "node perf/index.js",
     "lint": "eslint *.js test/**/*.js",
@@ -53,9 +52,5 @@
     "mkdirp": "~0.3.0",
     "numbers": "~0.4.0",
     "testem": "^3.10.1"
-  },
-  "engines": [
-    "node",
-    "rhino"
-  ]
+  }
 }
