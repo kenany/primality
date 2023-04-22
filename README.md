@@ -6,11 +6,6 @@ identification of the various
 [classes](https://en.wikipedia.org/wiki/Template:Prime_number_classes) of prime
 numbers.
 
-## Download
-
-  * [Development build](https://raw.github.com/KenanY/primality/1.6.1/dist/primality.js)
-  * [Production build](https://raw.github.com/KenanY/primality/1.6.1/dist/primality.min.js)
-
 ## Features
 
   - Check the primality of a number
@@ -22,73 +17,12 @@ numbers.
     - [sexy](https://en.wikipedia.org/wiki/Sexy_prime)
     - [Wilson](https://en.wikipedia.org/wiki/Wilson_prime)
   - About 1 kibibyte minified and gzipped
-  - CommonJS and AMD loader support
-
-## Support
-
-Primality has been tested in:
-
-  - Chrome 6–29
-  - Firefox 15–20
-  - Internet Explorer 10
-  - Opera 11.6-12.15
-  - Safari 5.0.5–5.1
-  - Node.js 0.6.21–0.10.15
+  - ESM support
 
 ## Installation
 
-In browsers:
-
-- Standalone
-``` html
-<script src="primality.js"></script>
-```
-
-- Component
-``` bash
-$ component install KenanY/primality
-```
-
-- Bower
-``` bash
-$ bower install primality
-```
-
-Using npm:
-
 ``` bash
 $ npm install primality
-```
-
-In Node.js and RingoJS v0.8.0+:
-
-``` javascript
-var primality = require('primality');
-```
-
-In RingoJS v0.7.0-:
-
-``` javascript
-var primality = require('primality').primality;
-```
-
-In Rhino:
-
-``` javascript
-load('primality.js');
-```
-
-In an AMD loader like RequireJS:
-
-``` javascript
-require({
-  'paths': {
-    'primality': 'path/to/primality'
-  }
-},
-['primality'], function(primality) {
-  console.log(primality.VERSION);
-});
 ```
 
 ## Usage
@@ -97,6 +31,8 @@ Primality's flagship method is `primality()`, which works as you might expect it
 to:
 
 ``` javascript
+import primality from 'primality';
+
 primality(7);
 // => true
 
@@ -128,13 +64,15 @@ each other by two. Similarly, cousin primes differ by four and sexy primes
 differ by six.
 
 ``` javascript
-primality.areTwinPrimes(3, 5);
+import { areCousinPrimes, areSexyPrimes, areTwinPrimes } from 'primality';
+
+areCousinPrimes(3, 7);
 // => true
 
-primality.areCousinPrimes(3, 7);
+areSexyPrimes(5, 11);
 // => true
 
-primality.areSexyPrimes(5, 11);
+areTwinPrimes(3, 5);
 // => true
 ```
 
@@ -142,17 +80,8 @@ You can also check for Wilson primes. Only three Wilson primes are known at the
 moment: 5, 13, and 563.
 
 ``` javascript
-primality.isWilsonPrime(563);
+import { isWilsonPrime } from 'primality';
+
+isWilsonPrime(563);
 // => true
 ```
-
-## Release Notes
-
-### 1.6.1
-
-  - lodash.isnan@2.2
-  - lodash.isfinite@2.2
-  - lodash.isarray@2.2
-  - lodash.contains@2.2
-
-The full changelog is available [here](https://github.com/KenanY/primality/wiki/Changelog).
