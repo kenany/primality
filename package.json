@@ -40,7 +40,7 @@
   },
   "dependencies": {
     "factorial": "^2.0.0",
-    "lodash.isfinite": "^2.2.0"
+    "lodash.isfinite": "^2.4.1"
   },
   "devDependencies": {
     "@kenan/eslint-config": "^10.0.2",
