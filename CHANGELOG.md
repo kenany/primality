@@ -1,3 +1,14 @@
+## [3.0.0](https://github.com/kenany/primality/compare/2.0.0...3.0.0) (2023-09-07)
+
+
+### ⚠ BREAKING CHANGES
+
+* Node.js v14 and v16 are no longer supported.
+
+### Features
+
+* drop Node.js v14 and v16 ([186de9e](https://github.com/kenany/primality/commit/186de9e27a546100a369b1eb06b9c15f443ffd07))
+
 ## [2.0.0](https://github.com/kenany/primality/compare/1.6.1...2.0.0) (2023-04-22)
 
 
