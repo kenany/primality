@@ -44,14 +44,14 @@
     "lodash.isfinite": "^2.4.1"
   },
   "devDependencies": {
-    "@kenan/eslint-config": "^11.1.18",
-    "@semantic-release/changelog": "^6.0.3",
-    "@semantic-release/git": "^10.0.1",
-    "benchmark": "^2.1.4",
-    "conventional-changelog-conventionalcommits": "^9.1.0",
-    "eslint": "^8.57.1",
-    "numbers": "^0.7.0",
-    "semantic-release": "^25.0.0",
-    "tape": "^5.9.0"
+    "@kenan/eslint-config": "11.1.18",
+    "@semantic-release/changelog": "6.0.3",
+    "@semantic-release/git": "10.0.1",
+    "benchmark": "2.1.4",
+    "conventional-changelog-conventionalcommits": "9.1.0",
+    "eslint": "8.57.1",
+    "numbers": "0.7.0",
+    "semantic-release": "25.0.2",
+    "tape": "5.9.0"
   }
 }
