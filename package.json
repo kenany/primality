@@ -52,6 +52,6 @@
     "eslint": "8.57.1",
     "numbers": "0.7.0",
     "semantic-release": "25.0.5",
-    "tape": "5.9.0"
+    "tape": "5.10.1"
   }
 }
