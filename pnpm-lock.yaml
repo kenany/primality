@@ -12,8 +12,8 @@ importers:
         specifier: ^2.0.0
         version: 2.0.0
       lodash.isfinite:
-        specifier: ^2.4.1
-        version: 2.4.1
+        specifier: ^3.3.2
+        version: 3.3.2
     devDependencies:
       '@biomejs/biome':
         specifier: 2.5.7
@@ -1248,8 +1248,8 @@ packages:
   lodash.escaperegexp@4.1.2:
     resolution: {integrity: sha512-TM9YBvyC84ZxE3rgfefxUWiQKLilstD6k7PTGt6wfbtXF8ixIJLOL3VYyV/z+ZiPLsVxAsKAFVwWlWeb2Y8Yyw==}
 
-  lodash.isfinite@2.4.1:
-    resolution: {integrity: sha512-8l4kU4GhSM623fiiuhiMgl8HDOrIL+TdQqrfFb1/sLisDKiCe69SnGB88AX0MriJpeA+l7Z9fjSNQVTc1p/zNA==}
+  lodash.isfinite@3.3.2:
+    resolution: {integrity: sha512-7FGG40uhC8Mm633uKW1r58aElFlBlxCrg9JfSi3P6aYiWmfiWF0PgMd86ZUsxE5GwWPdHoS2+48bwTh2VPkIQA==}
 
   lodash.isplainobject@4.0.6:
     resolution: {integrity: sha512-oSXzaWypCMHkPC3NvBEaPHf0KsA5mvPrOPgQWDsbg8n7orZ290M0BmC/jgRZ4vcJ6DTAhjrsSYgdsW/F+MFOBA==}
@@ -3083,7 +3083,7 @@ snapshots:
 
   lodash.escaperegexp@4.1.2: {}
 
-  lodash.isfinite@2.4.1: {}
+  lodash.isfinite@3.3.2: {}
 
   lodash.isplainobject@4.0.6: {}
 
