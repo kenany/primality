@@ -28,14 +28,14 @@ importers:
         specifier: 9.3.1
         version: 9.3.1
       publint:
-        specifier: 0.3.21
-        version: 0.3.21
+        specifier: 0.3.23
+        version: 0.3.23
       semantic-release:
         specifier: 25.0.8
         version: 25.0.8(supports-color@7.2.0)(typescript@7.0.2)
       tsdown:
         specifier: 0.22.12
-        version: 0.22.12(publint@0.3.21)(typescript@7.0.2)
+        version: 0.22.12(publint@0.3.23)(typescript@7.0.2)
       typescript:
         specifier: 7.0.2
         version: 7.0.2
@@ -1565,8 +1565,8 @@ packages:
       kerberos:
         optional: true
 
-  publint@0.3.21:
-    resolution: {integrity: sha512-OqejcnMV6E9zel2oCrUOJEiiFkGiAAni0A6ibfQNh1k9Gu5z4F+Yso8lllam7AzmV6Do0vp7u3UpZNRBwuXaHQ==}
+  publint@0.3.23:
+    resolution: {integrity: sha512-5MQipUPcB7MWw84zLUkHrg/H/UBtk3LL+A0GngTTBSsiNJLQurMUaSIRG3edlOrRz4UFe0AOKK9TZdIWviV+jQ==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -3288,7 +3288,7 @@ snapshots:
 
   proxy-agent-negotiate@1.1.0: {}
 
-  publint@0.3.21:
+  publint@0.3.23:
     dependencies:
       '@publint/pack': 0.1.6
       package-manager-detector: 1.8.0
@@ -3589,7 +3589,7 @@ snapshots:
 
   tree-kill@1.2.2: {}
 
-  tsdown@0.22.12(publint@0.3.21)(typescript@7.0.2):
+  tsdown@0.22.12(publint@0.3.23)(typescript@7.0.2):
     dependencies:
       ansis: 4.3.1
       cac: 7.0.0
@@ -3607,7 +3607,7 @@ snapshots:
       unconfig-core: 7.5.0
       verkit: 0.1.2
     optionalDependencies:
-      publint: 0.3.21
+      publint: 0.3.23
       typescript: 7.0.2
     transitivePeerDependencies:
       - '@typescript/native-preview'
