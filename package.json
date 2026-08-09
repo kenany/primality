@@ -15,43 +15,61 @@
   "bugs": {
     "url": "https://github.com/kenany/primality/issues"
   },
+  "license": "MIT",
   "author": "Kenan Yildirim <kenan@kenany.me> (https://kenany.me/)",
-  "main": "primality.js",
-  "exports": "./primality.js",
-  "directories": {
-    "test": "./test"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kenany/primality.git"
   },
-  "repository": "github:kenany/primality",
-  "type": "module",
-  "engines": {
-    "node": "18 || >=20"
+  "publishConfig": {
+    "access": "public"
+  },
+  "type": "commonjs",
+  "types": "dist/index.d.cts",
+  "main": "dist/index.cjs",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    },
+    "./*.mjs": {
+      "default": "./dist/*.mjs"
+    },
+    "./*.cjs": {
+      "default": "./dist/*.cjs"
+    },
+    "./*": {
+      "import": "./dist/*.mjs",
+      "require": "./dist/*.cjs"
+    }
   },
   "files": [
-    "CHANGELOG.md",
-    "primality.js",
+    "dist",
     "LICENSE.txt"
   ],
+  "engines": {
+    "node": "22 || 24 || >=26"
+  },
   "scripts": {
-    "bench": "node perf/index.js",
-    "lint": "eslint *.js test/**/*.js",
-    "release": "semantic-release",
-    "tests-only": "tape test/index.js",
-    "pretest": "npm run -s lint",
-    "test": "npm run -s tests-only"
+    "build": "tsdown && tsc --noEmit",
+    "lint": "biome check",
+    "test": "vitest run",
+    "publint": "publint --strict",
+    "prepare": "pnpm build"
   },
   "dependencies": {
     "factorial": "^2.0.0",
     "lodash.isfinite": "^2.4.1"
   },
   "devDependencies": {
-    "@kenan/eslint-config": "11.1.18",
-    "@semantic-release/changelog": "7.0.0",
-    "@semantic-release/git": "11.0.1",
-    "benchmark": "2.1.4",
+    "@biomejs/biome": "2.5.4",
+    "@containerbase/semantic-release-pnpm": "1.4.2",
+    "@kenan/biome-config": "1.0.6",
     "conventional-changelog-conventionalcommits": "9.3.1",
-    "eslint": "8.57.1",
-    "numbers": "0.7.0",
-    "semantic-release": "25.0.9",
-    "tape": "5.10.2"
+    "publint": "0.3.21",
+    "semantic-release": "25.0.8",
+    "tsdown": "0.22.12",
+    "typescript": "7.0.2",
+    "vitest": "4.1.10"
   }
 }

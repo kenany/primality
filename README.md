@@ -31,7 +31,7 @@ Primality's flagship method is `primality()`, which works as you might expect it
 to:
 
 ``` javascript
-import primality from 'primality';
+import { primality } from 'primality';
 
 primality(7);
 // => true
