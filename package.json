@@ -67,7 +67,7 @@
     "@kenan/biome-config": "1.0.6",
     "conventional-changelog-conventionalcommits": "9.3.1",
     "publint": "0.3.23",
-    "semantic-release": "25.0.8",
+    "semantic-release": "25.0.9",
     "tsdown": "0.22.14",
     "typescript": "7.0.2",
     "vitest": "4.1.10"
