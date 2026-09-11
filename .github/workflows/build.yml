@@ -36,7 +36,7 @@ jobs:
         with:
           cache: true
           runtime: node@24.21.0
-          version: 12.3.4
+          version: 12.4.0
 
       - name: Install dependencies
         run: pnpm install
@@ -67,7 +67,7 @@ jobs:
         with:
           cache: true
           runtime: node@${{ matrix.node-version }}
-          version: 12.3.4
+          version: 12.4.0
 
       - name: Install dependencies
         run: pnpm install
@@ -91,7 +91,7 @@ jobs:
         with:
           cache: true
           runtime: node@24.21.0
-          version: 12.3.4
+          version: 12.4.0
 
       - name: Install dependencies
         run: pnpm install
@@ -115,7 +115,7 @@ jobs:
         with:
           cache: true
           runtime: node@24.21.0
-          version: 12.3.4
+          version: 12.4.0
 
       - name: Install dependencies
         run: pnpm install
