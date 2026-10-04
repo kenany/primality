@@ -39,7 +39,7 @@ jobs:
         with:
           cache: true
           runtime: node@24.21.0
-          version: 12.8.1
+          version: 12.8.2
 
       - name: Install dependencies
         run: pnpm install
