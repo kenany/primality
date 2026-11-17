@@ -8,20 +8,20 @@ numbers.
 
 ## Features
 
-  - Check the primality of a number
-  - Works with numbers disguised as strings
-  - Also does arrays
-  - Provides checks for the following classes of prime numbers:
-    - [twin](https://en.wikipedia.org/wiki/Twin_prime)
-    - [cousin](https://en.wikipedia.org/wiki/Cousin_prime)
-    - [sexy](https://en.wikipedia.org/wiki/Sexy_prime)
-    - [Wilson](https://en.wikipedia.org/wiki/Wilson_prime)
-  - About 1 kibibyte minified and gzipped
-  - ESM support
+- Check the primality of a number
+- Works with numbers disguised as strings
+- Also does arrays
+- Provides checks for the following classes of prime numbers:
+  - [twin](https://en.wikipedia.org/wiki/Twin_prime)
+  - [cousin](https://en.wikipedia.org/wiki/Cousin_prime)
+  - [sexy](https://en.wikipedia.org/wiki/Sexy_prime)
+  - [Wilson](https://en.wikipedia.org/wiki/Wilson_prime)
+- About 1 kibibyte minified and gzipped
+- ESM support
 
 ## Installation
 
-``` bash
+```bash
 $ npm install primality
 ```
 
@@ -30,7 +30,7 @@ $ npm install primality
 Primality's flagship method is `primality()`, which works as you might expect it
 to:
 
-``` javascript
+```javascript
 import { primality } from 'primality';
 
 primality(7);
@@ -42,7 +42,7 @@ primality(6);
 
 Of course, you can pass strings instead of numbers if you'd like:
 
-``` javascript
+```javascript
 primality('13');
 // => true
 ```
@@ -50,7 +50,7 @@ primality('13');
 Primality can even do arrays. If any of the values in an array are not prime,
 `false` is returned.
 
-``` javascript
+```javascript
 primality([17, 19, 23]);
 // => true
 
@@ -63,7 +63,7 @@ twin, cousin, or sexy primes. Twin primes are prime numbers that differ from
 each other by two. Similarly, cousin primes differ by four and sexy primes
 differ by six.
 
-``` javascript
+```javascript
 import { areCousinPrimes, areSexyPrimes, areTwinPrimes } from 'primality';
 
 areCousinPrimes(3, 7);
@@ -79,7 +79,7 @@ areTwinPrimes(3, 5);
 You can also check for Wilson primes. Only three Wilson primes are known at the
 moment: 5, 13, and 563.
 
-``` javascript
+```javascript
 import { isWilsonPrime } from 'primality';
 
 isWilsonPrime(563);
